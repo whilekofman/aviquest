@@ -1,0 +1,27 @@
+.tasklist-container {
+    height: 100vh;
+    background-color: aliceblue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tasklist-header {
+    display: flex;
+}
+
+.tasklist-header div {
+    margin-right: 10px;
+}
+
+.task-head-title {
+    width: fit-content;
+}
+
+.task-head-count {
+    width: fit-content;
+}
+
+.tasklist-body {
+    min-height: 100vh;
+}
