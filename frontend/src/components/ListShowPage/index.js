@@ -14,18 +14,21 @@ const ListShowPage = () => {
         points: 10,
         tasks: [
             {
+                id: 1,
                 title: '5 Minute Meditation',
                 body: "Do it naow.",
                 isComplete: false,
                 difficulty: "1",
             },
             {
+                id: 2,
                 title: 'Clean room',
                 body: "It's a mess.",
                 isComplete: false,
                 difficulty: "2",
             },
             {
+                id: 3,
                 title: 'Work on MERN project',
                 body: "Must make Avi proud",
                 isComplete: false,
