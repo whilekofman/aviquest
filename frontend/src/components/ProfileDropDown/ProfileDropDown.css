@@ -18,6 +18,7 @@
     flex-direction: column;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    z-index: 99;
 }
 
 .navbar-profile-dropdown>li:first-child{
