@@ -2,7 +2,7 @@ import './index.css'
 
 
 const AvitarShow = ({open}) => {
-    console.log(open);
+
 
     const avitarShow = (
         <div className="avitarShow">

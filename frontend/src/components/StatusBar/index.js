@@ -12,20 +12,15 @@ const StatusBar = () => {
     const user = demouser.user
     const monster = demouser.monster
 
-    const [open, setOpen] = useState(false)
 
-    const openModal = ((e) => {
-        setOpen(true)
-    })
 
 
     return ( 
-        <div className="container">
-            <AvitarShow open={open} />
+
 
             <div className="statusBar">
                 <div className="statusBarLeft">
-                    <Avitar className="statusBarAvitar" onClick={openModal}/>
+                    <Avitar className="statusBarAvitar" />
                     <AvitarStats className="statusBarAvitarStats" user={user} />
                 </div>
 
@@ -39,7 +34,7 @@ const StatusBar = () => {
                     <HPBar health={monster.health}/>
                 </div> 
             </div>
-        </div>
+
      );
 
 }

@@ -10,6 +10,7 @@ const health2 = {
 }
 
 const item1 = {
+    id: 1,
     name: "Helmet",
     description: "helm",
     attack: 50,
@@ -18,6 +19,7 @@ const item1 = {
 }
 
 const item2 = {
+    id: 2,
     name: "Weapon",
     description: "weapon",
     attack: 50,
@@ -25,6 +27,7 @@ const item2 = {
     rarity: 4
 }
 const item3 = {
+    id: 3,
     name: "Armor",
     description: "armor",
     attack: 50,
@@ -32,6 +35,7 @@ const item3 = {
     rarity: 4
 }
 const item4 = {
+    id: 4,
     name: "Socks",
     description: "socks",
     attack: 50,
@@ -45,12 +49,14 @@ const items = []
 const quest = {}
 
 export const monster = {
+    id:1,
     name: 'Roarmon',
     health: health2
 }
 
 
 export const user = {
+    id: 1,
     username: 'Last Avitar Gang Aang', 
     email: 'aang@email.com',
     password: 'password1', 
