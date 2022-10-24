@@ -5,43 +5,43 @@ import AviQuestSprite from "./AviQuestSprite";
 import HPBar from './HealthBar';
 import Equipments from './Equipments';
 import * as demouser from './demouser'
+import { useState } from 'react';
+import AvitarShow from '../AvitarShow';
 
 const StatusBar = () => {
-    // const health = {
-    //     maxhp: 100,
-    //     currenthp: 65
-    // }
-    // const equipments = []
-
-    
-    // const user = {
-    //     username: 'Aang', 
-    //     password: 'password1', 
-    //     health: health, 
-    //     atk: 50, 
-    //     coins: 300
-    // }
     const user = demouser.user
     const monster = demouser.monster
 
+    const [open, setOpen] = useState(false)
+
+    const openModal = ((e) => {
+        setOpen(true)
+    })
+
+
     return ( 
-        <div className="statusBar">
-            <div className="statusBarLeft">
-                <Avitar className="statusBarAvitar"/>
-                <AvitarStats className="statusBarAvitarStats" user={user} />
-            </div>
+        <div className="container">
+            <AvitarShow open={open} />
 
-            <div className="statusBarMid">
-                <Equipments equipments={user.equipment} />
-            </div>
+            <div className="statusBar">
+                <div className="statusBarLeft">
+                    <Avitar className="statusBarAvitar" onClick={openModal}/>
+                    <AvitarStats className="statusBarAvitarStats" user={user} />
+                </div>
 
-            <div className="statusBarRight">
-                <AviQuestSprite className="aviQuestSprite" />
-                
-                <HPBar health={monster.health}/>
-            </div> 
+                <div className="statusBarMid">
+                    <Equipments equipments={user.equipment} />
+                </div>
+
+                <div className="statusBarRight">
+                    <AviQuestSprite className="aviQuestSprite" />
+                    
+                    <HPBar health={monster.health}/>
+                </div> 
+            </div>
         </div>
      );
+
 }
  
 export default StatusBar;

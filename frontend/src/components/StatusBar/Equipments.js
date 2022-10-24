@@ -6,7 +6,7 @@ const Equipments = ({equipments}) => {
 
     return ( 
         <div className="equipments">
-            <div className="equiptmentTitle"> Equipments: </div>
+            <div className="equiptmentTitle"> AviQuipments: </div>
 
             {allEquipments}
         </div>

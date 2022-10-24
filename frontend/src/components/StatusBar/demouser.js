@@ -1,7 +1,7 @@
 
 const health1 = {
     maxhp: 100,
-    currenthp: 78 
+    currenthp: 1 
 }
 
 const health2 = {
@@ -51,8 +51,8 @@ export const monster = {
 
 
 export const user = {
-    username: 'Aang', 
-    email: 'aan@email.com',
+    username: 'Last Avitar Gang Aang', 
+    email: 'aang@email.com',
     password: 'password1', 
     health: health1, 
     atk: 50, 
