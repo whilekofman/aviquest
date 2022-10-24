@@ -1,0 +1,126 @@
+.statusBar {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom right, rgb(6, 40, 61), rgb(71, 181, 255));
+    padding-inline: 5%;
+    padding-block: 20px;
+    height: 100px;
+    color: white;
+}
+.statusBarLeft{
+    display: flex;
+    justify-content: flex-start;
+    width: 40%;
+}
+
+.statusBarRight {
+    /* padding-right: 20%; */
+    /* background-color: skyblue; */
+    width: 30%;
+    border-radius: 10px;
+    
+}
+
+.aviQuestSprite {
+    height: 70%;
+    border-radius: 5px;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/94/978/549/super-mario-pixels-triple-screen-video-games-wallpaper-thumb.jpg');
+    background-size: 500%;
+    background-position: 0 95%;
+    background-repeat: repeat-x;
+    animation: 50s para infinite linear;
+    margin-bottom: 2%;
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3)
+}
+
+@keyframes para {
+    100% {
+        background-position:-1000px 100%
+    }
+}
+.runningSprite {
+    height: 100%;
+}
+
+.avitar {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3);
+    cursor: pointer;
+}
+.AvitarUsername{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.AvitarStats {
+    display: flex;
+    padding-left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.HPBAR {
+    display: flex;
+    align-items: center;
+}
+
+.hpbar {
+    display: flex;
+    margin-left: 5px;
+    background-color: grey;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    border-radius: 5px; 
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3)
+}
+
+.redhpbar{
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.618);
+    height: 100%;
+    display: flex;
+    border-radius: 5px;
+}
+
+.hpnum {
+    position: relative;
+    padding-left: 3%;
+    z-index: 1;
+}
+
+.statusBarMid {
+    /* background-color: antiquewhite; */
+}
+
+.equipments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 110%;
+    /* background-color: rgb(255, 255, 255); */
+    border-radius: 12px;
+}
+
+.equiptmentTitle{
+    padding-block: 5px;
+    font-weight: bold;
+}
+.equipmentItem {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    width: 100%;
+}
+
+.equipItemPic {
+    height: 20px;
+    width: 30px;
+    padding-right: 10px;
+    margin-left: 25%;
+
+}
