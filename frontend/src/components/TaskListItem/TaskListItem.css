@@ -1,0 +1,28 @@
+.task-item-container {
+    background-color: white;
+    width: 96%;
+    height: 55px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-left: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.task-item-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.task-item-body-start {
+    display: flex;
+}
+
+.task-item-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

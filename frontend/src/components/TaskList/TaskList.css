@@ -60,3 +60,7 @@
 .task-input:focus {
     background-color: #DFF6FF;
 }
+
+.task-list-items {
+    width: 100%;
+}
