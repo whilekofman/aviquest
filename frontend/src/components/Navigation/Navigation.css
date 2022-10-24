@@ -1,0 +1,79 @@
+.navbar {
+    border-bottom: 1px solid black;
+    width: 100vw;
+    height: 56px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #06283D;
+}
+
+.navbar-homebox {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    width: 150px;
+    cursor: pointer;
+}
+
+.navbar-logo {
+    aspect-ratio: 1;
+    height: 50px;
+}
+
+.navbar-logotext {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: #DFF6FF;
+}
+
+.navbar-coins {
+    height: 32px;
+    aspect-ratio: 1;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    margin-left: 4%;
+}
+
+.navbar-right {
+    display: flex;
+    margin-right: 4%;
+    justify-content: space-between;
+    width: 160px;
+    align-items: center;
+}
+
+.navbar-coinbox {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-coin-amount {
+    color: #DFF6FF;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.navbar-inventory {
+    color: #DFF6FF;
+    height: 100%;
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-teams {
+    color: #DFF6FF;
+    padding-left: 25px;
+    cursor: pointer;
+}
