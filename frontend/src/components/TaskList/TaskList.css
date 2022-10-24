@@ -1,0 +1,56 @@
+.tasklist-container {
+    height: 100vh;
+    background-color: #EDECEE;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+}
+
+.tasklist-header {
+    display: flex;
+    background-color: white;
+}
+
+.tasklist-header div {
+    margin: 0 5px 5px 0;
+}
+
+.task-head-count {
+    background-color: #06283D;
+    color: #DFF6FF;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.task-head-title {
+    width: fit-content;
+}
+
+.tasklist-body {
+    min-height: 100vh;
+}
+
+.task-input-container {
+    width: 98%;
+    display: flex;
+
+}
+
+.task-input-form {
+    min-width: 100%;
+    
+}
+
+.task-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    background-color: #E0DFE1;
+    border: none;
+}
+
+.task-input:focus {
+    background-color: #DFF6FF;
+}

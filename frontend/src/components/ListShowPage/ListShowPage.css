@@ -1,0 +1,21 @@
+.list-show-container {
+    display: flex;
+    width: 100%;
+}
+
+.todo-section {
+    width: 100%;
+    margin: 15px 20px 15px 20px;
+}
+
+.quest-section {
+    width: 100%;
+    margin: 15px 15px 15px 15px;
+
+}
+
+.quest-info-section {
+    width: 100%;
+    margin: 15px 15px 15px 15px;
+
+}
