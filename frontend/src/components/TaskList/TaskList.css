@@ -4,6 +4,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    width: 96%;
 }
 
 .tasklist-header {
@@ -32,7 +33,9 @@
 }
 
 .task-input-container {
-    width: 100%;
+    width: 98%;
+    display: flex;
+
 }
 
 .task-input-form {
