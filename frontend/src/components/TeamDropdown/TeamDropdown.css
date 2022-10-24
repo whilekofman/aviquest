@@ -1,0 +1,8 @@
+.navbar-team-names {
+    color: #DFF6FF;
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    margin-left: -200px;
+    transition: all;
+}
