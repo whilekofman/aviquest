@@ -4,12 +4,13 @@ import StatusBar from "./components/StatusBar";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   return (
     <>
       <Navigation />
-    {/* <SplashPage /> */}
+    <SplashPage />
       <Switch>
           <Route exact path="/login">
           </Route>

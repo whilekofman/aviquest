@@ -16,13 +16,94 @@
 }
 
 .SplashPagePg1 {
-    background-color: rgb(37, 109, 133);
+    /* background: linear-gradient(-45deg, #06283D, #DFF6FF); */
+    background: linear-gradient(  #06283D, #DFF6FF);
+    /* background-size: 300% 300%; */
+    animation: gradient 10s ease infinite;
+    height: 100vh;
+    display: flex;
 }
 
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.SplashPagePg1 > div {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+    
+
+.SplashPagePg1Left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.SplashPagePg1Right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.SplashPagePg1RightDiv {
+    font-size: 70px;
+}
+
+.SplashPagePg1Right > p {
+    font-size: 18px;
+}
+
+
 .SplashPagePg2 {
-    background-color: rgb(71, 181, 255);
+    /* background-color: rgb(71, 181, 255); */
+    background: linear-gradient(-180deg,#DFF6FF, #06283D);
+    /* background-size: 300% 300%; */
+    animation: gradient 10s ease infinite;
 }
 
 .SplashPagePg3 {
     background-color: rgb(223, 246, 255);
+    background: linear-gradient(-180deg, #06283D, #DFF6FF);
+    display: flex;
+    flex-direction: column;
 }
+
+.SplashPagePg3H1 {
+    text-transform: uppercase;
+    background-image: linear-gradient(200deg,
+            #06283D 0%,
+            #256D85 34%,
+            #47B5FF 67%,
+            #DFF6FF 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
+    display: inline-block;
+    /* font-size: 100px; */
+    margin-inline: 3%;
+}
+
+@keyframes textclip {
+    to {background-position: -200% center;}
+}
+
+.SplashPageJoinAviQuest {
+    font-size: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
