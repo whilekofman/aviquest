@@ -4,7 +4,6 @@ import './TaskList.css';
 const TaskList = ({user}) => {
 
     const taskItem = user.tasks.map(task => <TaskListItem key={task.id} task={task}/>)
-    console.log(taskItem);
 
     return ( 
         <div className='tasklist-container'>
