@@ -1,5 +1,5 @@
 .quest-list-container {
-    height: 100vh;
+    min-height: 100%;
     background-color: aliceblue;
     width: 100%;
     display: flex;
