@@ -25,13 +25,14 @@
         padding: 12px 0 12px 20px;
         cursor: pointer;
         font-size: 15px;
+        color: #DFF6FF;
     } .navbar-team-names div:hover {
         background-color: #DFF6FF;
         color: #06283D;
-    } .navbar-team-names div:first-child:hover {
+    } .navbar-team-names-top {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-    } .navbar-team-names div:last-child:hover {
+    } .navbar-team-names-bot {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
     }
