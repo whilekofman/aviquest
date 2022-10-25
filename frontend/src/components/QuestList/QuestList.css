@@ -1,7 +1,7 @@
 .quest-list-container {
     height: 100vh;
     background-color: #EDECEE;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,11 +33,13 @@
 
 .quest-panel {
     display: flex;
-    flex-direction: ;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .quest-panel-info {
-    background-color: blue;
-    width: 100%;
-    
+    background-color: #DFF6FF;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
 }

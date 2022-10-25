@@ -1,7 +1,7 @@
 .quest-info-container {
     height: 100vh;
-    background-color: lightsalmon;
-    width: 100%;
+    background-color: #EDECEE;
+    width: 92%;
     display: flex;
     flex-direction: column;
 }
@@ -10,5 +10,5 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
+    width: 90%;
 }

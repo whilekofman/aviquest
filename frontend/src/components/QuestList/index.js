@@ -9,7 +9,7 @@ const QuestList = ({quests}) => {
     return ( 
         <div className='quest-panel'>
             <div className='quest-list-container'>
-                    <div className='quest-block'></div>
+                <div className='quest-block'></div>
                 <div className='quest-body'>
                     <ul className='quest-ul'>
                         {questItem}
