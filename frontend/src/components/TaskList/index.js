@@ -7,7 +7,6 @@ const TaskList = ({user}) => {
 
     return ( 
         <div className='tasklist-container'>
-
             <div className='tasklist-body'>
                 <div className='task-input-container'>
                     <form className='task-input-form'>
