@@ -14,7 +14,7 @@ const QuestList = () => {
     return ( 
         <div className='questlist-container'>
             <div className='quest-body'>
-                <ul>
+                <ul className='quest-list'>
                     {questItem}
                 </ul>
             </div>
