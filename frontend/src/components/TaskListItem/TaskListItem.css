@@ -1,10 +1,9 @@
 .task-item-container {
     background-color: white;
-    width: 94%;
+    width: 92%;
     height: 55px;
     box-sizing: border-box;
     margin-top: 10px;
-    margin-left: 16px;
     border-radius: 5px;
     cursor: pointer;
 }

@@ -18,7 +18,7 @@ const TaskList = ({user}) => {
                 </div>
                 
                 <div className='task-list-items'>
-                    <ul>
+                    <ul className='task-ul'>
                         {taskItem}
                     </ul>
                 </div>

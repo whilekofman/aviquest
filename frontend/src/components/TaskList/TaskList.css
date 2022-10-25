@@ -38,7 +38,7 @@
 }
 
 .task-input-container {
-    width: 94%;
+    width: 92%;
     display: flex;
 
 }
@@ -64,4 +64,10 @@
 
 .task-list-items {
     width: 100%;
+}
+
+.task-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
