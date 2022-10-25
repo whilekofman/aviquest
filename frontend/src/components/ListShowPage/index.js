@@ -62,10 +62,10 @@ const ListShowPage = () => {
                 <QuestList quests={quests}/>
             </div>
 
-            <div className='quest-info-section'>
-                <div className='quest-info-header'>Quest Info</div>
-                <QuestInfo quests={quests} />
-            </div>
+            {/* <div className='quest-info-section'> */}
+                {/* <div className='quest-info-header'>Quest Info</div> */}
+                {/* <QuestInfo quests={quests} /> */}
+            {/* </div> */}
         </div>
      );
 }

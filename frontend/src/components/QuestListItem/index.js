@@ -5,9 +5,6 @@ import * as questActions from '../../store/quest';
 const QuestListItem = ({quest}) => {
 
     const dispatch = useDispatch();
-    const currentQuest = useSelector(questActions.getQuests());
-
-    console.log(currentQuest);
 
     const handleClick = (e) => {
         e.preventDefault();

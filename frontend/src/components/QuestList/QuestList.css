@@ -23,3 +23,21 @@
     height: 100%;
     align-items: center;
 }
+
+.quest-block {
+    height: 35px;
+    width: 92%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.quest-panel {
+    display: flex;
+    flex-direction: ;
+}
+
+.quest-panel-info {
+    background-color: blue;
+    width: 100%;
+    
+}
