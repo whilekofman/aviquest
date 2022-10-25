@@ -1,9 +1,38 @@
 .navbar-team-names {
     color: #DFF6FF;
     display: flex;
-    /* position: relative; */
+
     justify-content: space-between;
     width: 260px;
-    /* justify-self: flex-start; */
+    margin-left: 25px;
     transition: all;
+}
+
+@media (max-width: 845px) {
+    .navbar-team-names {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 60px;
+        left: 260px;
+        background-color: #06283D;
+        z-index: 99;
+        width: 100px;
+        border-radius: 8px;
+    } .navbar-team-names a {
+        text-decoration: none;
+    } .navbar-team-names div {
+        padding: 12px 0 12px 20px;
+        cursor: pointer;
+        font-size: 15px;
+    } .navbar-team-names div:hover {
+        background-color: #DFF6FF;
+        color: #06283D;
+    } .navbar-team-names div:first-child:hover {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    } .navbar-team-names div:last-child:hover {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
 }

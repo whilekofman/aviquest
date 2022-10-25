@@ -46,13 +46,14 @@ function Navigation() {
                     </div>
                     <div className='navbar-teams'
                     onClick={toggleMemberDropdown}>
-                        Team
+                        DevTeam
                     </div>
                 </div>
-            </div>
-            {memberDropdown && (
+                {memberDropdown && (
                 <TeamDropdown />
             )};
+            </div>
+            
             <div className='navbar-right'>
                 <div className='navbar-coinbox'>
                     <img src={coin} alt="" className='navbar-coins'/>

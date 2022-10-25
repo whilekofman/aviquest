@@ -5,7 +5,6 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #06283D;
 }
 
@@ -38,14 +37,15 @@
 .navbar-left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 370px;
-    margin-left: 4%;
+    width: 700px;
+    margin-left: 60px;
 }
 
 .navbar-right {
     display: flex;
+    position: absolute;
     margin-right: 4%;
+    right: 0;
     justify-content: space-between;
     width: 160px;
     align-items: center;
@@ -70,6 +70,7 @@
 
 .navbar-links {
     display: flex;
+    margin-left: 40px;
 }
 
 .navbar-teams {
@@ -81,17 +82,15 @@
 .navbar-shop {
     color: #DFF6FF;
     padding-left: 25px;
+    cursor: pointer;
 }
-
-
-
-
 
 @media (max-width: 985px) {
     .navbar-logotext {
         display: none;
     } .navbar-left {
-        width: 270px;
+        margin-left: 40px;
+        width: 600px;
     }
 }
 
@@ -101,4 +100,3 @@
     } 
 }
 
-/* @media () */
