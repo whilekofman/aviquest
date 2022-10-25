@@ -51,7 +51,7 @@ function Navigation() {
                 </div>
                 {memberDropdown && (
                 <TeamDropdown />
-            )};
+            )}
             </div>
             
             <div className='navbar-right'>
