@@ -13,7 +13,11 @@ const QuestList = () => {
 
     return ( 
         <div className='questlist-container'>
-            <div className='quest-body'>Quest Body</div>
+            <div className='quest-body'>
+                <ul>
+                    {questItem}
+                </ul>
+            </div>
         </div>
      );
 }
