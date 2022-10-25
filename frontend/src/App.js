@@ -4,9 +4,13 @@ import StatusBar from "./components/StatusBar";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
+<<<<<<< HEAD
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
+=======
+import SplashPage from "./components/SplashPage";
+>>>>>>> splashpage
 
 function App() {
   const [loaded, setLoaded] = useState(false);
