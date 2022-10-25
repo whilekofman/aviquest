@@ -9,9 +9,11 @@ import { Modal } from '../../context/Modal';
 // import LoginDropDown from '../LoginDropdown';
 import './Navigation.css';
 import logoImg from '../../assets/images/blue_inversed_logo.png';
+import { useSelector } from 'react-redux';
 
 function Navigation() {
-//   const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
+  console.log(sessionUser)
 
 //   let sessionLinks;
 //   if (sessionUser) {
