@@ -1,11 +1,15 @@
 .navbar-team-names {
     color: #DFF6FF;
     display: flex;
-
     justify-content: space-between;
     width: 260px;
     margin-left: 25px;
     transition: all;
+}
+
+.navbar-team-names a {
+    text-decoration: none;
+    color: #DFF6FF;
 }
 
 @media (max-width: 845px) {
@@ -35,5 +39,11 @@
     } .navbar-team-names-bot {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
+    }    
+}
+
+@media (max-width: 450px) {
+    .navbar-team-names {
+        left: 20px;
     }
 }

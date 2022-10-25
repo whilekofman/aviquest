@@ -71,6 +71,7 @@
 .navbar-links {
     display: flex;
     margin-left: 40px;
+    z-index: 5;
 }
 
 .navbar-teams {
@@ -90,7 +91,7 @@
         display: none;
     } .navbar-left {
         margin-left: 40px;
-        width: 600px;
+        max-width: 600px;
     }
 }
 
@@ -100,3 +101,23 @@
     } 
 }
 
+@media (max-width: 845px) {
+    .navbar-logo {
+        display: none;
+    } .navbar-left {
+        margin-left: 0px;
+    } .navbar-homebox {
+        width: 0px;
+    }
+}
+
+@media (max-width: 475px) {
+    .navbar-coinbox  {
+        display: none;
+    }
+    .navbar-right {
+        flex-direction: row-reverse;
+    } .navbar-teams {
+        left: 20px;
+    }
+}
