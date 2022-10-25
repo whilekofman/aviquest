@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import ProfileDropDown from '../ProfileDropDown';
 import coin from '../../assets/images/coin.png';
 import TeamDropdown from '../TeamDropdown';
+import { Modal } from '../../context/Modal';
 
 // import LoginDropDown from '../LoginDropdown';
 import './Navigation.css';
@@ -50,7 +51,9 @@ function Navigation() {
                     </div>
                 </div>
                 {memberDropdown && (
-                <TeamDropdown />
+                <Modal onClose={() => setMemberDropdown(false)}> 
+                    <h1>dasfdsaf</h1>
+                </Modal>
             )}
             </div>
             
