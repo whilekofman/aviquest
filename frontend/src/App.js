@@ -10,7 +10,6 @@ function App() {
       <Navigation />
       <Switch>
           <Route exact path="/login">
-            <LoginForm />
           </Route>
           <Route exact path="/">
             <StatusBar />
