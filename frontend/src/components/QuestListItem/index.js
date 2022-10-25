@@ -1,10 +1,9 @@
 import './QuestListItem.css';
 
-const QuestListItem = ({quest}) => {
+const QuestListItem = () => {
     return ( 
-        <div className='quest-list-item-container'>
-            <div>{quest.title}</div>
-            <div>{quest.description}</div>
+        <div className='quest-list-container'>
+            
         </div>
      );
 }

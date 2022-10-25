@@ -1,4 +1,3 @@
-import QuestListItem from '../QuestListItem';
 import './QuestList.css';
 
 const QuestList = () => {
@@ -12,12 +11,8 @@ const QuestList = () => {
     const questItem = quests.map(quest => <QuestListItem quest={quest}/>)
 
     return ( 
-        <div className='quest-list-container'>
-            <div className='quest-body'>
-                <ul className='quest-ul'>
-                    {questItem}
-                </ul>
-            </div>
+        <div className='questlist-container'>
+            <div className='quest-body'>Quest Body</div>
         </div>
      );
 }
