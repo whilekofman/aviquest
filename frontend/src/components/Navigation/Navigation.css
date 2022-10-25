@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 350px;
+    width: 370px;
     margin-left: 4%;
 }
 
@@ -77,3 +77,28 @@
     padding-left: 25px;
     cursor: pointer;
 }
+
+.navbar-shop {
+    color: #DFF6FF;
+    padding-left: 25px;
+}
+
+
+
+
+
+@media (max-width: 985px) {
+    .navbar-logotext {
+        display: none;
+    } .navbar-left {
+        width: 270px;
+    }
+}
+
+@media (max-width: 985px) {
+    .navbar-homebox {
+        width: 50px;
+    } 
+}
+
+/* @media () */

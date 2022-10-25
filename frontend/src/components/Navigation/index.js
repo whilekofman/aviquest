@@ -41,6 +41,9 @@ function Navigation() {
                     <div className='navbar-inventory'>
                         Inventory
                     </div>
+                    <div className='navbar-shop'>
+                        Shop
+                    </div>
                     <div className='navbar-teams'
                     onClick={toggleMemberDropdown}>
                         Team

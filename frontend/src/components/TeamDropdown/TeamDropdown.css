@@ -1,8 +1,9 @@
 .navbar-team-names {
     color: #DFF6FF;
     display: flex;
+    /* position: relative; */
     justify-content: space-between;
     width: 260px;
-    margin-left: -200px;
+    /* justify-self: flex-start; */
     transition: all;
 }
