@@ -1,6 +1,6 @@
 .quest-list-container {
-    min-height: 100%;
-    background-color: aliceblue;
+    height: 100vh;
+    background-color: green;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,15 @@
 .quest-body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
+    align-items: center;
+}
+
+.quest-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }

@@ -12,9 +12,9 @@ const QuestList = () => {
     const questItem = quests.map(quest => <QuestListItem quest={quest}/>)
 
     return ( 
-        <div className='questlist-container'>
+        <div className='quest-list-container'>
             <div className='quest-body'>
-                <ul>
+                <ul className='quest-ul'>
                     {questItem}
                 </ul>
             </div>
