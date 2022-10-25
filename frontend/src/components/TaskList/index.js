@@ -1,3 +1,4 @@
+import TaskListItem from '../TaskListItem';
 import './TaskList.css';
 
 const TaskList = ({user}) => {
@@ -6,7 +7,6 @@ const TaskList = ({user}) => {
 
     return ( 
         <div className='tasklist-container'>
-
             <div className='tasklist-body'>
                 <div className='task-input-container'>
                     <form className='task-input-form'>
@@ -15,6 +15,12 @@ const TaskList = ({user}) => {
                         placeholder='Add a task'
                         />
                     </form>
+                </div>
+                
+                <div className='task-list-items'>
+                    <ul>
+                        {taskItem}
+                    </ul>
                 </div>
 
             </div>
