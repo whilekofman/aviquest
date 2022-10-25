@@ -19,19 +19,6 @@ function Root() {
         </Provider>
     </ModalProvider>
   );
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-
-let store = configureStore({})
-
-function Root(){
-  const store = configureStore();
-
-  return (
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-  );
 }
 
 ReactDOM.render(
