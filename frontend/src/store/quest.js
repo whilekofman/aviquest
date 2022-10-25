@@ -11,7 +11,7 @@ const deselectQuest = questId => ({
     questId
 })
 
-export const getQuest = questId => ({quests}) => quests ? quests[questId] : null;
+export const getQuests = () => ({quests}) => quests ? Object.values(quests) : null;
 
 export const setQuest = (quest) => dispatch => {
     dispatch(selectQuest(quest));
