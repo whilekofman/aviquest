@@ -9,6 +9,10 @@
     cursor: pointer;
 }
 
+.task-item-container:hover {
+    box-shadow: 2px 2px 2px 1px rgb(6, 40, 61, 0.2);
+    border: 1px solid #47B5FF;
+}
 
 .task-item-body {
     width: 100%;
@@ -44,10 +48,36 @@
     background-color: #DFF6FF;
     margin-right: 5px;
     margin-left: 5px;
+    border: 1px solid #47B5FF;
+    border-radius: 4px;
 }
 
 .checkbox--active {
     background-color: #47B5FF;
+}
+
+.task-options-dropdown {
+    position: absolute;
+    background-color: white;
+    height: 120px;
+    width: 100px;
+    border: 1px solid black;
+    left: 335px;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-options-dropdown div {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-options-dropdown div:hover {
+    background-color: #DFF6FF;
 }
 
 
