@@ -4,18 +4,21 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import configureStore from './store/store'
+import { ModalProvider } from './context/Modal';
+import configureStore from "./store/store";
 
-let store = configureStore({})
+const store = configureStore();
 
-function Root(){
+function Root() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  )
+    <ModalProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Provider>
+    </ModalProvider>
+  );
 }
 
 ReactDOM.render(
