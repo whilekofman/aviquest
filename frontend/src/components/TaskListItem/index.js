@@ -4,10 +4,12 @@ import './TaskListItem.css';
 const TaskListItem = ({task}) => {
 
     const [showOptions, setShowOptions] = useState(false);
+    const [options, setOptions] = useState(false);
     const [checked, setChecked] = useState(false);
 
     const handleOptions = (e) => {
         e.preventDefault();
+        setOptions(!options);
     }
 
     return ( 
@@ -41,7 +43,15 @@ const TaskListItem = ({task}) => {
                 </div>
                 {showOptions && <div className='task-item-options'
                 onClick={(e) => handleOptions(e)}
-                >⋮</div>}
+                >⋮
+                    {options && 
+                        <div className='task-options-dropdown'
+                        >
+                            <div className='task-options-edit'>✎ &nbsp;  Edit</div>
+                            <div className='task-options-delete'>🗑 Delete</div>
+                        </div>
+                    }
+                </div>}
             </div>
         </div>
      );
