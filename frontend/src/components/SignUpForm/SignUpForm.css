@@ -1,7 +1,51 @@
 .splash-signup {
-    background-color: white;
-    z-index: 20;
-    position: absolute;
-    top: 60px;
-    left: 300px;
+    background-color: rgba(71, 181, 255, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    border-radius: 20px;
+    padding-bottom: 10%;
 }
+
+.signup-header-text {
+    font-size: 30px;
+    margin-bottom: 10%;
+}
+
+
+.splash-signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.splash-signup-form > input{
+    padding-block: 5%;
+    width: 200%;
+    margin-block: 5%;
+    background-color: rgba(223, 246, 255, 0.5);
+    border: none;
+    border-radius: 5px;
+}
+
+.splash-page-SignUp {
+    font-size: 20px;
+    border: none;
+    color: white;
+    background-color: rgba(6, 40, 61, 0.338) ;
+    padding: 5%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.splash-page-SignUp:hover {
+    background-color: rgb(6,40,61);
+
+}
+

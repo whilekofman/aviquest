@@ -1,6 +1,10 @@
 import './index.css'
 import logoImg from '../../assets/images/logo.png';
 import avengersImg from './Avengers8bit.png'
+import SignUpForm from '../SignUpForm';
+import RedBird from './RedBirdSplash.gif'
+import BlueBird from './BlueBirdSplash.gif'
+
 
 const SplashPage = () => {
 
@@ -16,11 +20,21 @@ const SplashPage = () => {
                     <div> into an Adventure</div>
 
                 </div>
-
                 <div className="SplashPagePg1Right">
-                    <h1 className='SplashPagePg1RightDiv'>Go Have Fun, Get Stuff Done </h1>
+                    <SignUpForm/>
+                </div>
+
+                
+            </section>
+
+            <section className="SplashPagePg2">
+                <div className='SplashPagePg2Right'>
+                    <img src={BlueBird} className="SplashPage2Sprite" />
+                </div>
+                <div className="SplashPagePg2Left">
+                    <h1 className='SplashPagePg2LeftDiv'>Go Have Fun, Get Stuff Done </h1>
                     <br />
-                    {/* <h1 className='SplashPagePg1RightDiv'>Get Shit Dun </h1> */}
+                    {/* <h1 className='SplashPagePg1LeftDiv'>Get Shit Dun </h1> */}
                     <br />
                     <br />
                     <p>Achieving goals, doing chores, and getting your life in check can be fun.
@@ -32,17 +46,9 @@ const SplashPage = () => {
                         to further advance your Avitar. Give this literal life changing app a try!
                     </p>
                 </div>
-                
-            </section>
-
-            <section className="SplashPagePg2">
-                
-                <div>
-                    left
-                </div>
                 <br />
-                <div>
-                    SIGN UP
+                <div className='SplashPagePg2Right'>
+                    <img src={RedBird} className="SplashPage2Sprite" />
                 </div>
             </section>
 

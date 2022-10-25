@@ -41,84 +41,82 @@ function SignUpForm() {
     // if (sessionUser) return <Redirect to="/" />;
 
   return (
-    <>
-      <div className="splash-signup">
+
+    <div className="splash-signup">
       <header className="signup-header">
-        <div></div>
-        <div className="signup-header-text">Sign Up</div>
-        <div></div>
+        <br />
+        <br />
+
+        <div className="signup-header-text">SIGN UP HERE</div>
+        <br />
       </header>
+      
       <div className="signup-body">
-        <form onSubmit={handleSubmit}>
-          {/* <div className="input-div">
-            <input
-              className="signup-firstname-input"
-              placeholder="First name"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-div">
-            <input
-            className="signup-lastname-input"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-              placeholder="Last name"
-            />
-          </div> */}
-          <div className="input-div">
-            <input
+        <form className='splash-signup-form' onSubmit={handleSubmit}>
+          
+          Username:
+          <input
             className="signup-username-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              placeholder="Username"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder="Username"
+          />
+
+          <br />
+          
+          Email:
+          <input
             className="signup-email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              placeholder="Email"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="Email"
+          />
+
+          <br />
+          
+          Password:
+          <input
             className="signup-password-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Password"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Password"
+          />
+          
+          <br />
+          
+          Confirm Password:
+          <input
             className="signup-confirm-password-input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              placeholder="Confirm Password"
-            />
-          </div>
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            placeholder="Confirm Password"
+          />
+          
+
           <ul className="signup-error-message">
             {errors.map(error => {
                 return <li key={error}>{error}</li> 
               })
             }
           </ul>
-          <button type="submit">Sign up</button>
+
+          <br />
+          <br />
+
+
+          <button className='splash-page-SignUp' type="submit">Sign up</button>
+          
         </form>
       </div>
-      </div>
+    </div>
       
-    </>
+
   );
 }
 

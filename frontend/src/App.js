@@ -7,6 +7,7 @@ import LoginForm from "./components/LoginForm";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,12 +19,14 @@ function App() {
   return loaded && (
     <>
       <Navigation />
-    {/* <SplashPage /> */}
       <Switch>
           <Route exact path="/login">
             <LoginForm />
           </Route>
           <Route exact path="/">
+            <SplashPage />
+          </Route>
+          <Route exact path="/home">
             <StatusBar />
             <ListShowPage />
           </Route>
