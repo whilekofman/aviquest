@@ -5,7 +5,6 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #06283D;
 }
 
@@ -38,14 +37,15 @@
 .navbar-left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 350px;
-    margin-left: 4%;
+    width: 700px;
+    margin-left: 60px;
 }
 
 .navbar-right {
     display: flex;
+    position: absolute;
     margin-right: 4%;
+    right: 0;
     justify-content: space-between;
     width: 160px;
     align-items: center;
@@ -70,10 +70,54 @@
 
 .navbar-links {
     display: flex;
+    margin-left: 40px;
+    z-index: 5;
 }
 
 .navbar-teams {
     color: #DFF6FF;
     padding-left: 25px;
     cursor: pointer;
+}
+
+.navbar-shop {
+    color: #DFF6FF;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 985px) {
+    .navbar-logotext {
+        display: none;
+    } .navbar-left {
+        margin-left: 40px;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 985px) {
+    .navbar-homebox {
+        width: 50px;
+    } 
+}
+
+@media (max-width: 845px) {
+    .navbar-logo {
+        display: none;
+    } .navbar-left {
+        margin-left: 0px;
+    } .navbar-homebox {
+        width: 0px;
+    }
+}
+
+@media (max-width: 475px) {
+    .navbar-coinbox  {
+        display: none;
+    }
+    .navbar-right {
+        flex-direction: row-reverse;
+    } .navbar-teams {
+        left: 20px;
+    }
 }

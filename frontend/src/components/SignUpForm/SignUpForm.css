@@ -1,0 +1,7 @@
+.splash-signup {
+    background-color: white;
+    z-index: 20;
+    position: absolute;
+    top: 60px;
+    left: 300px;
+}

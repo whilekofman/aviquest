@@ -1,14 +1,25 @@
 .quest-list-container {
     height: 100vh;
-    background-color: aliceblue;
+    background-color: #EDECEE;
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .quest-body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
+    align-items: center;
+}
+
+.quest-ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }

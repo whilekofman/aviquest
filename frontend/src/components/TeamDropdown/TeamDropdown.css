@@ -3,6 +3,48 @@
     display: flex;
     justify-content: space-between;
     width: 260px;
-    margin-left: -200px;
+    margin-left: 25px;
     transition: all;
+}
+
+.navbar-team-names a {
+    text-decoration: none;
+    color: #DFF6FF;
+}
+
+@media (max-width: 845px) {
+    .navbar-team-names {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 60px;
+        left: 260px;
+        background-color: #06283D;
+        z-index: 99;
+        width: 100px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    } .navbar-team-names a {
+        text-decoration: none;
+    } .navbar-team-names div {
+        padding: 12px 0 12px 20px;
+        cursor: pointer;
+        font-size: 15px;
+        color: #DFF6FF;
+    } .navbar-team-names div:hover {
+        background-color: #DFF6FF;
+        color: #06283D;
+    } .navbar-team-names-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    } .navbar-team-names-bot {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }    
+}
+
+@media (max-width: 450px) {
+    .navbar-team-names {
+        left: 20px;
+    }
 }

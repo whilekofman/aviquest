@@ -1,8 +1,9 @@
+import TaskListItem from '../TaskListItem';
 import './TaskList.css';
 
 const TaskList = ({user}) => {
 
-    console.log(user);
+    const taskItem = user.tasks.map(task => <TaskListItem key={task.id} task={task}/>)
 
     return ( 
         <div className='tasklist-container'>
@@ -15,6 +16,12 @@ const TaskList = ({user}) => {
                         placeholder='Add a task'
                         />
                     </form>
+                </div>
+                
+                <div className='task-list-items'>
+                    <ul className='task-ul'>
+                        {taskItem}
+                    </ul>
                 </div>
 
             </div>

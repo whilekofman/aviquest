@@ -5,6 +5,7 @@ import ProfileDropDown from '../ProfileDropDown';
 import coin from '../../assets/images/coin.png';
 import TeamDropdown from '../TeamDropdown';
 
+
 // import LoginDropDown from '../LoginDropdown';
 import './Navigation.css';
 import logoImg from '../../assets/images/blue_inversed_logo.png';
@@ -41,15 +42,19 @@ function Navigation() {
                     <div className='navbar-inventory'>
                         Inventory
                     </div>
+                    <div className='navbar-shop'>
+                        Shop
+                    </div>
                     <div className='navbar-teams'
                     onClick={toggleMemberDropdown}>
-                        Team
+                        DevTeam
                     </div>
                 </div>
-            </div>
-            {memberDropdown && (
+                {memberDropdown && (
                 <TeamDropdown />
-            )};
+            )}
+            </div>
+            
             <div className='navbar-right'>
                 <div className='navbar-coinbox'>
                     <img src={coin} alt="" className='navbar-coins'/>

@@ -1,10 +1,10 @@
 const Member = () => {
     return (
         <div className="navbar-team-names">
-            <div>Daniel</div>
-            <div>Eugene</div>
-            <div>Han</div>
-            <div>Wilson</div>
+            <a href="https://github.com/DLi53"><div className="navbar-team-names-top">Daniel</div></a>
+            <a href="https://github.com/whilekofman"><div>Eugene</div></a>
+            <a href="https://github.com/hannnmc"><div>Han</div></a>
+            <a href="https://github.com/wichen42"><div className="navbar-team-names-bot">Wilson</div></a>
         </div>
     );
 }

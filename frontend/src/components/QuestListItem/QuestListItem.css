@@ -1,0 +1,17 @@
+.quest-list-item-container {
+    width: 92%;
+    height: 55px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quest-list-item-container:hover {
+    box-shadow: 2px 2px 2px 1px rgb(6, 40, 61, 0.2);
+    border: 1px solid #47B5FF;
+}

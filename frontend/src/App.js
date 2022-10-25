@@ -1,15 +1,24 @@
 import ListShowPage from "./components/ListShowPage";
-import TaskList from "./components/TaskList";
-
 import Navigation from "./components/Navigation";
 import StatusBar from "./components/StatusBar";
+import { Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
     <>
-    <Navigation />
-    <StatusBar />
-    <ListShowPage />
+      <Navigation />
+    {/* <SplashPage /> */}
+      <Switch>
+          <Route exact path="/login">
+            <LoginForm />
+          </Route>
+          <Route exact path="/">
+            <StatusBar />
+            <ListShowPage />
+          </Route>
+      </Switch>
     </>
   );
 }

@@ -1,0 +1,79 @@
+.task-item-container {
+    background-color: white;
+    width: 92%;
+    height: 55px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-item-container:hover {
+    box-shadow: 2px 2px 2px 1px rgb(6, 40, 61, 0.2);
+    border: 1px solid #47B5FF;
+}
+
+.task-item-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.task-item-body-start {
+    display: flex;
+}
+
+.task-item-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-checkbox {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.checkbox {
+    display: inline-block;
+    height: 18px;
+    width:18px;
+    background-color: #DFF6FF;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.checkbox--active {
+    background-color: #47B5FF;
+}
+
+.task-options-dropdown {
+    position: absolute;
+    background-color: white;
+    height: 120px;
+    width: 100px;
+    border: 1px solid black;
+    left: 335px;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-options-dropdown div {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-options-dropdown div:hover {
+    background-color: #DFF6FF;
+}
+
