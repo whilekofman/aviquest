@@ -6,9 +6,3 @@
     flex-direction: column;
 }
 
-.quest-info-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 90%;
-}

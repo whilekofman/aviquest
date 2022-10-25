@@ -8,7 +8,9 @@ const QuestInfo = () => {
 
     return ( 
         <div className='quest-info-container'>
-            {/* <div className='quest-info-body'></div> */}
+            <div className='quest-info-window'>
+
+            </div>
         </div>
      );
 }
