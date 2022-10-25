@@ -8,7 +8,7 @@ const AvitarStats = ({user}) => {
         <div className="AvitarStats">
             <div className="AvitarUsername">{username}</div>
             <br />
-                <HPBar health={user.health} />
+            <HPBar health={user.health} />
             <br />
 
         </div>
