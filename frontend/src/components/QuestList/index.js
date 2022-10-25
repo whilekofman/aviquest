@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import QuestInfo from '../QuestInfo';
 import QuestListItem from '../QuestListItem';
 import './QuestList.css';
 
 const QuestList = ({quests}) => {
 
-    const questItem = quests.map(quest => <QuestListItem key={quest.id} quest={quest}/>)
+    const [currentQuest, setCurrentQuest] = useState(quests[0]);
+    // console.log(currentQuest);
+    const questItem = quests.map(quest => <QuestListItem key={quest.id} quest={quest} setCurrentQuest={setCurrentQuest} />)
 
     return ( 
         <div className='quest-panel'>
@@ -18,8 +21,7 @@ const QuestList = ({quests}) => {
             </div>
 
             <div className='quest-panel-info'>
-                <QuestInfo quest={questItem} />
-
+                <QuestInfo currentQuest={currentQuest}/>
             </div>
         </div>
      );
