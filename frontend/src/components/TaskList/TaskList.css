@@ -38,7 +38,7 @@
 }
 
 .task-input-container {
-    width: 98%;
+    width: 94%;
     display: flex;
 
 }
@@ -55,6 +55,7 @@
     background-color: #E0DFE1;
     border: none;
     border-radius: 5px;
+    text-indent: 5px;
 }
 
 .task-input:focus {
