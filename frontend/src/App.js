@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Navigation />
+    {/* <SplashPage /> */}
       <Switch>
           <Route exact path="/login">
-            <LoginForm />
           </Route>
           <Route exact path="/">
             <StatusBar />
