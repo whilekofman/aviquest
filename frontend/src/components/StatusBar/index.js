@@ -6,7 +6,7 @@ import HPBar from './HealthBar';
 import Equipments from './Equipments';
 import * as demouser from './demouser'
 import { useState } from 'react';
-import AvitarShow from '../AvitarShow';
+import AvitarShow from '../AvitarModal';
 
 const StatusBar = () => {
     const user = demouser.user

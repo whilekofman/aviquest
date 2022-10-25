@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import AvitarShow from '../AvitarShow'
+import AvitarModal from '../AvitarModal'
 import avitar from './AvitarPic.webp'
 
 const Avitar = () => {
@@ -11,11 +11,11 @@ const Avitar = () => {
     })
 
     return ( 
-    <div className="container">
-        {/* <AvitarShow open={open} /> */}
-        <sfc className="Avitar">
-            <img src={avitar} className="avitar" alt=""  onClick={(e) => openModal(e)}/>
-        </sfc>
+    <div className="AvitarModalContainer">
+        <AvitarModal className='avitarModalShow' open={open} setOpen={setOpen} />
+        {/* <div className="Avitar"> */}
+        <img src={avitar} className="avitar" alt=""  onClick={(e) => openModal(e)}/>
+        {/* </div> */}
     </div>
      );
 }
