@@ -47,6 +47,8 @@
     background-color: #DFF6FF;
     margin-right: 5px;
     margin-left: 5px;
+    border: 1px solid #47B5FF;
+    border-radius: 4px;
 }
 
 .checkbox--active {
