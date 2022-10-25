@@ -54,20 +54,28 @@
     text-align: center;
 }
 
+
 .SplashPagePg1Right {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+}
+
+
+.SplashPagePg2Left {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     text-align: center;
 }
 
-.SplashPagePg1RightDiv {
+.SplashPagePg2LeftDiv {
     font-size: 70px;
 }
 
-.SplashPagePg1Right > p {
+.SplashPagePg2Left > p {
     font-size: 18px;
 }
 
@@ -77,6 +85,10 @@
     background: linear-gradient(-180deg,#DFF6FF, #06283D);
     /* background-size: 300% 300%; */
     animation: gradient 10s ease infinite;
+}
+
+.SplashPage2Sprite {
+    height: 200px
 }
 
 .SplashPagePg3 {
@@ -117,4 +129,5 @@
     flex-direction: row;
     color:#06283D;
 }
+
 
