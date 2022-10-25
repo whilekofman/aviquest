@@ -5,6 +5,7 @@
     width: 260px;
     margin-left: 25px;
     transition: all;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .navbar-team-names a {
