@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalProvider } from './context/Modal';
+// import configureStore from "./store";
 
 function Root() {
+  const store = configureStore();
+
   return (
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+    <ModalProvider>
+        {/* <Provider store={store}> */}
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        {/* </Provider> */}
+    </ModalProvider>
   );
 }
 
