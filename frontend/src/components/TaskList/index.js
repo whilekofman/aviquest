@@ -3,7 +3,7 @@ import './TaskList.css';
 
 const TaskList = ({user}) => {
 
-    console.log(user);
+    const taskItem = user.tasks.map(task => <TaskListItem key={task.id} task={task}/>)
 
     return ( 
         <div className='tasklist-container'>
