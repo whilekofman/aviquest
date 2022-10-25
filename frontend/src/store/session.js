@@ -10,7 +10,7 @@ const receiveCurrentUser = currentUser => ({
     currentUser
 })
 
-const recieveErrors = errors => ({
+const receiveErrors = errors => ({
     type: RECEIVE_CURRENT_USER,
     errors
 })
@@ -23,25 +23,33 @@ export const clearSessionErrors = () => ({
     type: CLEAR_SESSION_ERRORS
 })
 
+
+
 export const signup = user => startSession(user, 'api/users/register');
 export const login = user => startSession(user, 'api/users/login');
 
+export const getCurrentUser = () => async dispatch => {
+    const res = await jwtFetch('/api/users/current');
+    const user = await res.json();
+    return dispatch(receiveCurrentUser(user));
+};
+
 const startSession = (userInfo, route) => async dispatch => {
-    try {
+    try {  
         const res = await jwtFetch(route, {
             method: "POST",
             body: JSON.stringify(userInfo)
-        })
-    const { user, token } = await res.json();
-    localStorage.setItem('jwtToken', token);
-    return dispatch(receiveCurrentUser(user))
+        });
+        const { user, token } = await res.json();
+        localStorage.setItem('jwtToken', token);
+        return dispatch(receiveCurrentUser(user));
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
-            return dispatch(recieveErrors(res.errors));
+        return dispatch(receiveErrors(res.errors));
         }
     }
-}
+};
 
 export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken');
