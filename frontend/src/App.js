@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navigation />
-    <SplashPage />
+    {/* <SplashPage /> */}
       <Switch>
           <Route exact path="/login">
           </Route>

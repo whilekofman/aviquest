@@ -36,11 +36,19 @@ const SplashPage = () => {
             </section>
 
             <section className="SplashPagePg2">
-                page 2
+                
+                <div>
+                    left
+                </div>
+                <br />
+                <div>
+                    SIGN UP
+                </div>
             </section>
 
             <section className="SplashPagePg3">
                 <img src={logoImg} alt="" />
+
                 <br />
                 <br />
                 <div className="SplashPageJoinAviQuest">
