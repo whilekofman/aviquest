@@ -1,14 +1,27 @@
 .quest-info-container {
     height: 100vh;
-    background-color: lightsalmon;
-    width: 100%;
+    background-color: #EDECEE;
+    width: 92%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.quest-info-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.quest-info-window {
+    height: 25%;
+    width: 75%;
+    background-color: transparent;
+    border: 2px solid black;
+    margin-top: 45px;
+}
+
+.quest-info-details-container {
+    
+}
+
+.quest-window-image {
+    height: 100%;
     width: 100%;
+    object-fit: contain;
+    background-color: transparent;
 }

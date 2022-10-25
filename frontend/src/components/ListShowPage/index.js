@@ -42,9 +42,22 @@ const ListShowPage = () => {
     }
 
     const quests = [
-        {title: "Slime Hunter", description: "Kill 5 Slimes", reward: {coin: 5, item: null}, timeFrame: 3, id: 1},
-        {title: "Goblin Hunter", description: "Kill 3 Goblins", reward: {coin: 10, item: "Scuffed Dagger"}, timeFrame: 2, id: 2},
-        {title: "Orc Disaster", description: "Kill 1 Orc General", reward: {coin: 5, item: "Orc General's Chipped Warblade"}, timeFrame: 4, id: 3}
+        {title: "Slime Hunter", 
+        description: "Kill 5 Slimes", 
+        reward: {coin: 5, item: null}, 
+        timeFrame: 3, 
+        id: 1, 
+        monster: {name: "slime", health: 25, attack: 5, imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/45736226-4350-419f-acd8-d950e4a3c1c6/de9ited-2332eae4-a0ff-4966-915c-33735dfc7c37.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ1NzM2MjI2LTQzNTAtNDE5Zi1hY2Q4LWQ5NTBlNGEzYzFjNlwvZGU5aXRlZC0yMzMyZWFlNC1hMGZmLTQ5NjYtOTE1Yy0zMzczNWRmYzdjMzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.dRz9i0hMJMBCGVGMpux2cML4Sl5P3sxMmshAHIFU0iI'} },
+
+        {title: "Goblin Hunter", 
+        description: "Kill 3 Goblins", 
+        reward: {coin: 10, item: "Scuffed Dagger"}, 
+        timeFrame: 2, id: 2, monster: {name: 'goblin', health: 30, attack: 8, imageUrl: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/12360a9d-6bea-4e05-a2c7-ae68bbd32678/dcpdh7p-7a484499-6499-444d-8fcc-9d7bcdb31941.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEyMzYwYTlkLTZiZWEtNGUwNS1hMmM3LWFlNjhiYmQzMjY3OFwvZGNwZGg3cC03YTQ4NDQ5OS02NDk5LTQ0NGQtOGZjYy05ZDdiY2RiMzE5NDEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lnYtxIp9Z1yLeh2DkVLQKRq3ckRWofyEiEqLmpoxBJA'}},
+
+        {title: "Orc Disaster", 
+        description: "Kill 1 Orc General", 
+        reward: {coin: 5, item: "Orc General's Chipped Warblade"}, 
+        timeFrame: 4, id: 3, monster: {name: 'orc', health: 50, attack: 10, imageUrl: 'https://thumbs.gfycat.com/DependableIllArmyworm-max-1mb.gif'}}
     ]
 
     return ( 
@@ -62,10 +75,6 @@ const ListShowPage = () => {
                 <QuestList quests={quests}/>
             </div>
 
-            {/* <div className='quest-info-section'> */}
-                {/* <div className='quest-info-header'>Quest Info</div> */}
-                {/* <QuestInfo quests={quests} /> */}
-            {/* </div> */}
         </div>
      );
 }
