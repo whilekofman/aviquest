@@ -3,6 +3,7 @@
     border: none;
     background-color: #DFF6FF;
     cursor: pointer;
+    box-shadow: 2px 2px rgba(0, 0, 0, .3);
 }
 
 .navbar-profile-button:hover {
@@ -38,7 +39,7 @@
     cursor: pointer;
 }
 
-.navbar-profile-dropdown>a>li {
+.navbar-profile-dropdown>li:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
