@@ -15,7 +15,6 @@ function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
-    console.log(sessionUser)
 
     let sessionLinks;
     if (sessionUser) {
