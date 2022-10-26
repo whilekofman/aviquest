@@ -1,4 +1,4 @@
-import './index.css'
+import './StatusBar.css'
 import Avitar from "./Avitar";
 import AvitarStats from "./AvitarStats";
 import AviQuestSprite from "./AviQuestSprite";
@@ -29,7 +29,7 @@ const StatusBar = () => {
                 </div>
 
                 <div className="statusBarRight">
-                    <AviQuestSprite className="aviQuestSprite" />
+                    <AviQuestSprite className="aviQuestSprite" user={user} monster={monster} />
                     
                     <HPBar health={monster.health}/>
                 </div> 

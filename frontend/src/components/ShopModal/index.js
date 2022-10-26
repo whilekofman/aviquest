@@ -1,5 +1,5 @@
 import { Modal } from '../../context/Modal';
-import './index.css'
+import './ShopModal.css'
 import ShopItemEach from './ShopItemEach';
 import { allItems } from './ShopItemTest';
 
