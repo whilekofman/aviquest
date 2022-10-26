@@ -12,10 +12,17 @@ const TaskListItem = ({task}) => {
         setOptions(!options);
     }
 
+    const handleShowTask = (e) => {
+        e.preventDefault();
+
+        console.log("Show Task");
+    }
+
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
+        onClick={(e) => handleShowTask(e)}
         >
             <div className='task-item-body'>
                 <div className='task-item-body-start'>
