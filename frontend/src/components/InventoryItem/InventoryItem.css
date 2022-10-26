@@ -24,3 +24,22 @@
     justify-items: center;
     align-items: center;
 }
+
+.inventory-popup {
+    white-space: nowrap;
+}
+
+.inventory-item-div p {
+    display: none;
+}
+
+.inventory-item-div:hover p{
+    display: flex;
+    width: auto;
+    height: auto;
+    background: rgba(223, 246, 255, 0.85);
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 101;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}

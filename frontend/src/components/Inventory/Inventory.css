@@ -1,5 +1,5 @@
 .inventory-modal {
-    width: 460px;
+    width: 410px;
     height: 600px;
     background-color: #DFF6FF;
     border-radius: 12px;
@@ -46,7 +46,7 @@
     background-size: 262px 380px;
     background-repeat: no-repeat;
     position: sticky;
-    width: 80%;
+    width: 263.66px;
     height: 380px;
     display: flex;
     align-items: center;

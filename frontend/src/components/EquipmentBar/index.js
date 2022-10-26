@@ -11,14 +11,13 @@ const seedItems = [
     price: 5, 
     imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__01.png'
     },
-    {name: 'Curved Sword', 
-    description: 'A fairly short, thin, curved blade made of iron is held by a grip wrapped in low-cost, leather.', 
-    attack: 5,
-    health: 0, 
-    rarity: 1, 
-    price: 10,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__03.png'
-    },
+    {name: 'Scale Armor', 
+    description: 'The breastplate is made from many layers of smaller metal pieces, mimicking the scales of a fish. It covers everything from the neck down and ending at the groin.', 
+    attack: 0,
+    health: 20, 
+    rarity: 3, 
+    price: 25,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_43.png'},
     {name: 'Maple Long Sword', 
     description: 'The blade is broken into several pieces, currently has a blunt edge, and has no marks or engravings.It has a practical guard, a leather-bound grip, and a pommel decorated with skulls.It is very heavy, is well balanced and is not to be underestimated.The scabbard is made of wood with steel trimmings.', 
     attack: 7, 
@@ -26,14 +25,6 @@ const seedItems = [
     rarity: 2, 
     price: 15,
     imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_10.png'
-    },
-    {name: 'Iron Headed Spear', 
-    description: 'It was created as a decoration. The knife-like, uneven head is bound to the shaft with a highly decorated metal sleeve. The 6ft/1.8m shaft is made of low quality ebony (dense, strong dark wood) and is elaborately engraved.', 
-    attack: 6, 
-    health: 0, 
-    rarity: 2, 
-    price: 6,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_04.png'
     }
 ];
 
