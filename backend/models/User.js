@@ -14,10 +14,36 @@ const userSchema = Schema({
         type: String,
         required: true
     },
-    tasks: [ {
+    tasks: [{
         type: Schema.Types.ObjectId,
         ref: 'Task'
-    }]
+    }],
+    items: {
+        type: Array,
+        required: true,
+        default: []
+    },
+    equipment: {
+        type: Array,
+        required: true,
+        default: []
+    },
+    quest: {
+        type: Object
+    },
+
+    maxHealth: {
+        type: Number,
+        required: true,
+        default: 50
+    },
+    currentHealth: {
+        type: Number,
+        default: this.maxHealth
+    },
+
+    imageUrl: String
+
 }, {
     timestamps: true
 });

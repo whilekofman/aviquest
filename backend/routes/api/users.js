@@ -23,6 +23,8 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+
+
 router.get('/current', restoreUser, (req, res) =>{
     if(!isProduction) {
       const csrfToken = req.csrfToken();
