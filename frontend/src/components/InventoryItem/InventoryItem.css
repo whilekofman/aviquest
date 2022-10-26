@@ -1,0 +1,47 @@
+/* .inventory-item-div{
+    display: flex;
+    width: 25%;
+    background-color: blue;
+} */
+
+.inventory-item {
+    /* flex-wrap: wrap; */
+    width: 70%;
+    margin: 4px 0 0 12px;
+    /* border: 1px solid black; */
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.inventory-item-div {
+    aspect-ratio: 1;
+    width: 60.3px;
+    height: 60.3px;
+    /* background-color: #EAEAEA; */
+    border-radius: 12px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.inventory-popup {
+    white-space: nowrap;
+}
+
+.inventory-item-div>p {
+    display: none;
+}
+
+.inventory-item-div:hover>p{
+    display: flex;
+    margin-left: 55px;
+    position: absolute;
+    width: auto;
+    height: auto;
+    background: rgba(223, 246, 255, 0.85);
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 101;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
