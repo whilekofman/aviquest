@@ -3,12 +3,12 @@ import userAvitarURL from './RunningSprite.gif'
 
 const health1 = {
     maxhp: 100,
-    currenthp: 99
+    currenthp: 92
 }
 
 const health2 = {
     maxhp: 100,
-    currenthp: 9
+    currenthp: 19
 }
 
 const item1 = {
