@@ -22,7 +22,9 @@ function SignUpForm() {
         e.preventDefault();
         if (password === confirmPassword) {
         setErrors([]);
-        return dispatch(sessionActions.signup({ email, password, username }))
+          console.log({ email,username, password });
+        dispatch(sessionActions.signup({ email,username, password }))
+
             .catch(async (res) => {
             let data;
             try {
