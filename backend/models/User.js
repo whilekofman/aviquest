@@ -39,7 +39,7 @@ const userSchema = Schema({
     },
     currentHealth: {
         type: Number,
-        default: { ...this.maxHealth }
+        default: 50
     },
 
     imageUrl: String
