@@ -2,10 +2,6 @@ import './QuestInfo.css';
 
 const QuestInfo = ({currentQuest}) => {
 
-    console.table(currentQuest)
-
-
-
     return ( 
         <div className='quest-info-container'>
             <div className='quest-info-top'>
