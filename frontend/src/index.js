@@ -8,6 +8,7 @@ import { ModalProvider } from './context/Modal';
 import configureStore from './store/store'
 import jwtFetch from './store/jwt';
 import * as sessionActions from './store/session';
+import * as taskActions from './store/task';
 
 function Root() {
   const store = configureStore();
@@ -16,6 +17,7 @@ function Root() {
     window.store = store;
     window.jwtFetch = jwtFetch;
     window.sessionActions = sessionActions;
+    window.taskActions = taskActions;
   }
   
   return (

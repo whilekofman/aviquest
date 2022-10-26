@@ -1,8 +1,9 @@
 import { useState } from "react";
-
-
+import { useDispatch } from "react-redux";
+import * as taskActions from "../../store/task";
 
 const TaskForm = () => {
+    const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [ difficulty, setDifficulty ] = useState(1);
@@ -11,7 +12,12 @@ const TaskForm = () => {
     console.log(complete)
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        dispatch(taskActions.createTask({
+            title,
+            body,
+            difficulty,
+            complete
+        }))
     }
 
     return (
