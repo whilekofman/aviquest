@@ -1,4 +1,25 @@
-.equipment-bar {
+.equipment-list {
+
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1, 1fr;
+    width: 263.4px;
+    background: rgba(235, 235, 235, .4);
+}
+
+.equipment-list-background {
+    margin-top: 20px;
+    background: url('../../assets/images/eq_grid.png');
+    background-position: contain;
+    background-size: 263.67px 64.3px;
+    background-repeat: no-repeat;
+    position: sticky;
+    width: 263.67px;
+    height: 64.3px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }

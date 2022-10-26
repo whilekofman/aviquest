@@ -41,13 +41,15 @@ const EquipmentBar = () => {
     const user = useSelector(({session}) => session.user);
 
     return (
-        <div className='equipment-bar'>
-            {seedItems.map((item) => (
-                <EquipmentItem
-                key={item.name}
-                item={item}
-                />
-            ))}
+        <div className='equipment-list-background'>
+            <div className='equipment-list'>
+                {seedItems.map((item) => (
+                    <EquipmentItem
+                    key={item.name}
+                    item={item}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

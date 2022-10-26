@@ -1,0 +1,16 @@
+.equipment-item-div {
+    width: 60.3px;
+    height: 60.3px;
+    border-radius: 12px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.equipment-item {
+    aspect-ratio: 1;
+    object-fit: contain;
+    height: 42.2px;
+    font-weight: 42.2px;
+    margin: 4px 0 0 12px;
+}
