@@ -81,7 +81,7 @@ function SignUpForm() {
 
           <br />
           
-          <label htmlFor="signup-password-input">Password:</label>
+          <label htmlFor="signup-password">Password:</label>
           <input
             className="signup-password-input"
             id='signup-password'
