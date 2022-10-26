@@ -31,8 +31,8 @@ export const createTask = (task) => async dispatch => {
         body: JSON.stringify(task)
     });
     const data = await res.json();
-    console.log(data);
-    // dispatch(addTask(task));
+    // console.log(data);
+    dispatch(addTask(task));
 }
 
 export const fetchTasks = (userId) => async dispatch => {
@@ -47,20 +47,15 @@ export const deleteTask = (taskId) => dispatch => {
     dispatch(removeTask(taskId));
 };
 
-const taskReducer = (state = {}, action) => {
-    Object.freeze(state);
-    const nextState = {...state};
-
+const taskReducer = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_TASK:
-            nextState["tasks"] = action.task;
-            return nextState;
-        case REMOVE_TASK:
-            delete nextState[action.task];
-            return nextState;
+            return [...action.task]
+        // case REMOVE_TASK:
+        //     delete nextState[action.task];
+        //     return nextState;
         case ADD_TASK:
-            const task = action.task;
-            return {...state, ...task};
+            return [...state, action.task];
         default:
             return state;
     }

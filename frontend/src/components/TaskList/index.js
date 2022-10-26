@@ -9,28 +9,31 @@ const TaskList = () => {
 
     const dispatch = useDispatch();
     const [title, setTitle] = useState("");
-    const [tasks, setTasks] = useState([]);
+    const tasks = useSelector(state => state.tasks)
     const currentUser = useSelector(state => state.session.user);
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(()  => {
         const generateTasks = async () => {
             const res = await dispatch(taskActions.fetchTasks(currentUser._id));
             const data = await res;
-            setTasks(data);
         }
 
         generateTasks();
-    }, [currentUser])
+    }, [])
 
-    console.log(tasks);
+
+    useEffect(() => {
+        if (tasks && tasks.length > 0) {
+            setLoaded(true)
+        }
+    }, [tasks])
     
-    const taskItem = tasks.map(task => <TaskListItem key={task._id} task={task}/>)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {title};
         dispatch(taskActions.createTask(data));
-        dispatch(taskActions.fetchTasks(currentUser._id));
     }
 
     return ( 
@@ -51,7 +54,13 @@ const TaskList = () => {
                 
                 <div className='task-list-items'>
                     <ul className='task-ul'>
-                        {taskItem}
+                        {loaded && 
+                        (tasks.map(task => {
+                            return (
+                                <TaskListItem key={task._id} task={task}/>
+                                )
+                            }))
+                        }
                     </ul>
                 </div>
 
