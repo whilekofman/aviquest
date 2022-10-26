@@ -26,11 +26,11 @@ router.get('/user/:userId', async (req, res, next) => {
       return res.json([])
     }
 });
-router.post("/", async (req, res, next) => { // requireUser, tasks/new? /new??
+router.post("/", requireUser, async (req, res, next) => { // requireUser, tasks/new? /new??
     try {
         const newTask = new Task({
             user: req.user._id,
-            title: req.body.text,
+            title: req.body.title,
             body: req.body.body,
             isComplete: req.body.isComplete,
             difficulty: req.body.difficulty
@@ -42,7 +42,7 @@ router.post("/", async (req, res, next) => { // requireUser, tasks/new? /new??
         next(err)
     }
 }) 
-router.delete('/:id', async (req, res, next) => { //requireUser, tasks/:id? || :userId/:id
+router.delete('/:id', requireUser, async (req, res, next) => { //requireUser, tasks/:id? || :userId/:id
     try {
         const task = await Task.findById(req.params.id)
             .delete(task)

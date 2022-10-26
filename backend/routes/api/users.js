@@ -50,9 +50,12 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
 })
 
 router.post('/register', validateRegistrationInput, async(req, res, next) => {
+    console.log(req.body);
     const user = await User.findOne({
-        $or: [{ email: req.body.email }, { username: req.body.username }]
+        $or: [{ email: req.body.email }, { userName: req.body.username }]
     });
+
+    console.log(user);
 
     if (user) {
         const err = new Error("Validation Error");
@@ -61,14 +64,14 @@ router.post('/register', validateRegistrationInput, async(req, res, next) => {
         if (user.email === req.body.email) {
             errors.email = "A user has already registered using that email address"  
         }
-        if (user.username === req.body.username) {
+        if (user.userName === req.body.userName) {
             errors.username = "That username is already in use"
         }
         err.errors = errors;
         return next(err);
     }
     const newUser = new User({
-        username: req.body.username,
+        userName: req.body.username,
         email: req.body.email
     });
 
