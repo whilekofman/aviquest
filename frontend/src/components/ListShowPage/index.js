@@ -73,7 +73,7 @@ const ListShowPage = () => {
             timeFrame: 3,
             id: 4,
             monster: {name: 'Brown Bird', health: 12, attack: 6, imageUrl: 'https://aviquest-dev.s3.amazonaws.com/brown-bird.gif'},
-            text: "We have lived in peace with the neighboring Brown-Birds for years, but all that has changed. They attacked us, claiming they own our lands and we should leave or they would make us leave."
+            text: "We have lived in peace with the neighboring Brown-Birds for years, but all that has changed. They attacked us, claiming they own our lands and we should leave or they would make us leave. Please Hero, exterminate the monsters for us."
         }
     ]
 
