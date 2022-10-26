@@ -5,6 +5,8 @@ const User = mongoose.model('User');
 const router = express.Router();
 const { requireUser } = require('../../config/passport')
 
+// add middleware for requireUser, add validators both to validation file and as middleware 
+
 router.get('/user/:userId', async (req, res, next) => {
     let user;
     try {
@@ -24,11 +26,14 @@ router.get('/user/:userId', async (req, res, next) => {
       return res.json([])
     }
 });
-router.post("/tasks/new", async (req, res, next) => {
+router.post("/", async (req, res, next) => { // requireUser, tasks/new? /new??
     try {
         const newTask = new Task({
-            text: req.body.text,
-            user: req.user._id //, ? MIGHT NEED A COMMA
+            user: req.user._id,
+            title: req.body.text,
+            body: req.body.body,
+            isComplete: req.body.isComplete,
+            difficulty: req.body.difficulty
         })
     let task = await newTask.save();
     res.json(task)
@@ -37,7 +42,7 @@ router.post("/tasks/new", async (req, res, next) => {
         next(err)
     }
 }) 
-router.delete('/tasks/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => { //requireUser, tasks/:id? || :userId/:id
     try {
         const task = await Task.findById(req.params.id)
             .delete(task)
@@ -46,9 +51,16 @@ router.delete('/tasks/:id', async (req, res, next) => {
         next(err)
     }
 })
-// router.patch('/:taskId', requireUser, async (req, res, next) => {
+// router.patch('/:id', async (req, res, next) => {  // requireUser,tasks/:id? || :userId/:id
 //     try {
-//         const 
+//         let task = Task.findById(req.params.id) 
+//         const updateTask = {
+//             user: req.user._id,
+//             title: req.body.text,
+//             body: req.body.body,
+//             isComplete: req.body.isComplete,
+//             difficulty: req.body.difficulty
+//         }
 //     } catch (err) {
 //         next(err)
 //     }
