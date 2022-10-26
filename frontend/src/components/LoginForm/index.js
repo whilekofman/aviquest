@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useSelector } from 'react-redux';
+// import * as errors from '../../store/errors'
 
 const LoginForm = (props) => {
     const dispatch = useDispatch();
@@ -36,25 +37,29 @@ const LoginForm = (props) => {
     }
     
     return (
-        <>
-            <form onSubmit={loginUser} className="login-form">
-            <input 
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-            />
-            <button type="submit" className="button">Log In</button>
-            </form>
-            <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-        </>
+        <div className='login-modal'>
+            <div className='login-modal-border'>
+                <div className='login-header'>Welcome back</div>
+                <form onSubmit={loginUser} className="login-form">
+                <input 
+                    className='login-email'
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder='Email'
+                    required
+                />
+                <input
+                    className='login-password'
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    placeholder='Password'
+                    required
+                />
+                <button className='login-submit-button' type="submit">Login</button>
+                </form>
+            </div>
+        </div>
     );
 }
 
