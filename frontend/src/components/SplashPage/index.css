@@ -20,7 +20,7 @@
     background: linear-gradient(  #06283D, #DFF6FF);
     /* background-size: 300% 300%; */
     animation: gradient 10s ease infinite;
-    height: 100vh;
+    margin-top: -57px;
     display: flex;
 }
 
@@ -31,10 +31,9 @@
 }
 
 .SplashPagePg1 > div {
-    width: 40%;
+    /* width: 40%; */
     display: flex;
     align-items: center;
-    justify-content: space-around;
     color: white;
 }
     
@@ -51,6 +50,7 @@
     flex-direction: column;
     justify-content: center;
     font-size: 50px;
+    height: 100%;
     text-align: center;
 }
 
@@ -58,6 +58,7 @@
 .SplashPagePg1Right {
     display: flex;
     height: 100%;
+    width: 516.39px;
     justify-content: space-around;
 }
 
