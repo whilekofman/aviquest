@@ -1,4 +1,6 @@
 import './Inventory.css'
+import InventoryItem from '../InventoryItem';
+import EquipmentBar from '../EquipmentBar';
 
 const seedItems = [
     {name: 'Beginner Sword', 
@@ -80,70 +82,6 @@ const seedItems = [
     rarity: 3, 
     price: 15,
     imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_35.png'
-    },
-    {name: 'Iron Armor', 
-    description: 'The upper arms are protected by squared, half covering rerebraces which sit nicely under the shoulderplates.', 
-    attack: 0,
-    health: 15, 
-    rarity: 2, 
-    price: 10,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_42.png'
-    },
-    {name: 'Scale Armor', 
-    description: 'The breastplate is made from many layers of smaller metal pieces, mimicking the scales of a fish. It covers everything from the neck down and ending at the groin.', 
-    attack: 0,
-    health: 20, 
-    rarity: 3, 
-    price: 25,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_43.png'
-    },
-    {name: 'Infantry Helm', 
-    description: 'A pointed helm with a squared, v-shaped opening leaving the eyes, nose and mouth exposed.', 
-    attack: 0,
-    health: 8, 
-    rarity: 1, 
-    price: 8,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_37.png'
-    },
-    {name: 'General Winged Helm', 
-    description: 'A helm with adorned wings on the side, 2 sockets open for eyes, with no opening around the rest of the head.', 
-    attack: 0,
-    health: 12, 
-    rarity: 3, 
-    price: 20,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_38.png'
-    },
-    {name: 'Platinum Knife', 
-    description: 'The exceptionally heavy 8 inch/20cm blade has a exceptionally sharp edge, and has delicate patterns etched across it. It has no guard, a diamond encrusted grip, and a square pommel. It has no scabbard.', 
-    attack: 20,
-    health: 0, 
-    rarity: 3, 
-    price: 25,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_01.png'
-    },
-    {name: 'Maple Wand', 
-    description: 'The wand measures 9 inches/23 cm and has an overall ordinary look. The particular strand of Hazel Wood used in this wand is not very common, which increases the price of the wand and fairy wing is quite rare as well, resulting in a very valuable wand.', 
-    attack: 15,
-    health: 0, 
-    rarity: 2, 
-    price: 15,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_30.png'
-    },
-    {name: 'Steel Ring', 
-    description: 'plain steel band, dented as if by some great force, the initials F.T. are carved into it', 
-    attack: 2,
-    health: 1, 
-    rarity: 1, 
-    price: 25,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_50.png'
-    },
-    {name: 'Sapphire Ring', 
-    description: 'brilliant blue ring with flecks of yellow across the surface', 
-    attack: 5,
-    health: 5, 
-    rarity: 3, 
-    price: 35,
-    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_51.png'
     }
 ]
 
@@ -152,14 +90,22 @@ const Inventory = () => {
         <div className='inventory-modal'>
             <div className='inventory-border'>
                 <div className='inventory-equipment'>
-                    <h1>equipment</h1>
+                    <h1>Aviquips</h1>
+                    <EquipmentBar />
                 </div>
                 <div className='inventory-index'>
-                    <ul className='inventory-list'>
-                        <li className='inventory-item'>
-                            <h1>inventory item</h1>
-                        </li>
-                    </ul>
+                    <h1>Inventory</h1>
+
+                    <div className='inventory-list-background'>
+                        <div className='inventory-list'>
+                            {seedItems.map((item) => (
+                                <InventoryItem 
+                                key={item.name}
+                                item={item}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
