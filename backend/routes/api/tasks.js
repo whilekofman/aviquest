@@ -8,6 +8,8 @@ const { requireUser, restoreUser } = require('../../config/passport')
 const { findByIdAndUpdate } = require('../../models/User');
 // add middleware for requireUser, add validators both to validation file and as middleware 
 
+
+
 router.get('/user/:userId', async (req, res, next) => {
     let user;
     try {
@@ -28,7 +30,21 @@ router.get('/user/:userId', async (req, res, next) => {
       return res.json(['am i an error'])
     }
 });
-
+router.get('/:id', requireUser, async (req, res, next) => {
+    try {
+        const task = await Task.findById(req.params.id)
+        console.log(task)
+        if (!task.user._id.equals(req.user._id)){ 
+            const error = new Error('Not the ownere of this task');
+            error.statusCode = 400;
+            error.errors = { message: 'Please do not edit tasks that do not belong to you' }
+        } else {
+             res.json(task)
+        }
+        } catch (err) {
+            next(err)
+        }
+})
 
 
 router.post("/", requireUser, async (req, res, next) => { // requireUser, tasks/new? /new??
@@ -53,17 +69,20 @@ router.post("/", requireUser, async (req, res, next) => { // requireUser, tasks/
 router.delete('/:id', requireUser, async (req, res, next) => { //requireUser, tasks/:id? || :userId/:id
     try {
         const task = await Task.findById(req.params.id)
-
-        task.delete({_id: req.params.id })
-        User.updateOne({_id: req.user._id}, {$pull: {tasks: req.params.id}}, (err, task) => {
-            if (err) {
-                res.json(err)
-            } else {
-                res.status(200).json(task)
-            }
-
-        })
-
+        if (!task.user._id.equals(req.user._id)){ 
+            const error = new Error('Not the ownere of this task');
+            error.statusCode = 400;
+            error.errors = { message: 'Please do not edit tasks that do not belong to you' }
+        } else {
+            task.delete({_id: req.params.id })
+            User.updateOne({_id: req.user._id}, {$pull: {tasks: req.params.id}}, (err, task) => {
+                if (err) {
+                    res.json(err)
+                } else {
+                    res.status(200).json(task)
+                }          
+            })
+        }
     } catch (err) {
         next(err)
     }
@@ -93,7 +112,6 @@ router.patch('/:id', requireUser, async (req, res, next) => {  // requireUser,ta
                 isComplete: req.body.isComplete,
                 difficulty: req.body.difficulty
             }  )
-            console.log(task)
             return res.json(task);
     }
     } catch (err) {

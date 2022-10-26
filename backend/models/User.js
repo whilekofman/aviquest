@@ -32,6 +32,18 @@ const userSchema = Schema({
         type: Object
     },
 
+    attack: {
+        type: Number,
+        required: true,
+        default: 5
+    },
+
+    coins: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+
     maxHealth: {
         type: Number,
         required: true,
