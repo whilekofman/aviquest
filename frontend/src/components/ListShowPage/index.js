@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import QuestInfo from '../QuestInfo';
 import QuestList from '../QuestList';
 import TaskList from '../TaskList';
+import questData from '../Util/quest_data';
 import './ListShowPage.css';
 
 const ListShowPage = () => {
 
+    console.table(questData);
     const user = {
         username: 'testUser',
         email: 'user@test.io',
@@ -89,7 +89,7 @@ const ListShowPage = () => {
 
             <div className='quest-section'>
                 <div className='quest-header'>Quest</div>
-                <QuestList quests={quests}/>
+                <QuestList quests={questData}/>
             </div>
 
         </div>
