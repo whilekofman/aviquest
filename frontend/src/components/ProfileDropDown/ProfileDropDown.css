@@ -3,6 +3,7 @@
     border: none;
     background-color: #DFF6FF;
     cursor: pointer;
+    box-shadow: 2px 2px rgba(0, 0, 0, .3);
 }
 
 .navbar-profile-button:hover {
