@@ -33,14 +33,16 @@
 .login-header {
     text-align: center;
     width: 100%;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     height: 20px;
     margin-top: 10px;
+    color: #DFF6FF;
 }
 
 .login-submit-button {
     margin-top: 20px;
+    font-size: 15px;
     height: 32px;
     border-radius: 8px;
     border: none;

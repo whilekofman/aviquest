@@ -49,16 +49,18 @@ function SignUpForm() {
         <br />
         <br />
 
-        <div className="signup-header-text">SIGN UP HERE</div>
+        <div className="signup-header-text">Join us today !</div>
         <br />
       </header>
       
       <div className="signup-body">
         <form className='splash-signup-form' onSubmit={handleSubmit}>
           
-          Username:
+          
+          <label htmlFor="signup-username">Username:</label>
           <input
             className="signup-username-input"
+            id='signup-username'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -67,9 +69,10 @@ function SignUpForm() {
 
           <br />
           
-          Email:
+          <label htmlFor="signup-email">Email:</label>
           <input
             className="signup-email"
+            id='signup-email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -78,9 +81,10 @@ function SignUpForm() {
 
           <br />
           
-          Password:
+          <label htmlFor="signup-password-input">Password:</label>
           <input
             className="signup-password-input"
+            id='signup-password'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -90,9 +94,10 @@ function SignUpForm() {
           
           <br />
           
-          Confirm Password:
+          <label htmlFor="signup-confirm-password">Confirm password:</label>
           <input
             className="signup-confirm-password-input"
+            id='signup-confirm-password'
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}

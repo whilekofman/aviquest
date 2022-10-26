@@ -1,4 +1,4 @@
-import './index.css'
+import './SplashPage.css'
 import logoImg from '../../assets/images/logo.png';
 import avengersImg from './Avengers8bit.png'
 import SignUpForm from '../SignUpForm';
