@@ -11,11 +11,13 @@ import { useSelector } from 'react-redux';
 import LoginButton from '../LoginButton';
 import LoginForm from '../../components/LoginForm'
 import TaskForm from '../TaskForm';
+import Inventory from '../Inventory';
 import { Link } from 'react-router-dom';
 
 function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
+    const [inventoryModal, setInventoryModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
@@ -51,7 +53,7 @@ function Navigation() {
                     </div>
                 </Link>
                 <div className='navbar-links'>
-                    <div className='navbar-inventory'>
+                    <div onClick={()=>setInventoryModal(open => !open)} className='navbar-inventory'>
                         Inventory
                     </div>
                     <div className='navbar-shop'>
@@ -69,8 +71,14 @@ function Navigation() {
             {sessionLinks}      
             {loginModal && (
                 <Modal onClose={() => setLoginModal(false)}>
-                    {/* <LoginForm setLoginModal={setLoginModal}/> */}
-                    <TaskForm />
+                    <LoginForm setLoginModal={setLoginModal}/>
+                    {/* <TaskForm /> */}
+                    {/* <Inventory /> */}
+                </Modal>
+            )}
+            {inventoryModal && (
+                <Modal onClose={() => setInventoryModal(false)}>
+                    <Inventory />
                 </Modal>
             )}
      

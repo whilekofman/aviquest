@@ -13,9 +13,8 @@ const LoginForm = (props) => {
         };
     }, [dispatch]);
 
-    const [email, setEmail] = useState("");
+    let [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [errors, setErrors] = useState([]);
     const { setLoginModal } = props;
     const sessionUser = useSelector(state => state.session.user);
     const errors = useSelector(state => state.errors.session);
@@ -23,14 +22,14 @@ const LoginForm = (props) => {
 
     const loginUser = (e) => {
         e.preventDefault();
+        email = email.toLowerCase();
         dispatch(sessionActions.login({ email, password }))
     }
 
     if(sessionUser) {
         setLoginModal(false);
     }
-    
-    console.log(errors)
+
     return (
         <div className='login-modal'>
             <div className='login-modal-border'>

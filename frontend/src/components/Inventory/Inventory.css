@@ -1,0 +1,22 @@
+.inventory-modal {
+    width: 500px;
+    height: 600px;
+    background-color: #DFF6FF;
+    border-radius: 12px;
+}
+
+.inventory-border {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory-equipment {
+    height: 80px;
+}
+
+.invetory-list {
+    height: 480px;
+}
