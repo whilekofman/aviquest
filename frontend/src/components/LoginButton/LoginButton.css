@@ -1,0 +1,18 @@
+.navbar-login-div {
+    position: absolute;
+    right: 4%;
+}
+
+.navbar-login-button {
+    padding: 8px 12px 8px 12px;
+    border-radius: 8px;
+    background-color: #DFF6FF;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-login-button:hover {
+    background-color: #47B5FF;
+    color: #DFF6FF;
+}

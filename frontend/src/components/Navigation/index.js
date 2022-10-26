@@ -5,26 +5,31 @@ import ProfileDropDown from '../ProfileDropDown';
 import coin from '../../assets/images/coin.png';
 import TeamDropdown from '../TeamDropdown';
 import { Modal } from '../../context/Modal';
-
-// import LoginDropDown from '../LoginDropdown';
 import './Navigation.css';
 import logoImg from '../../assets/images/blue_inversed_logo.png';
 import { useSelector } from 'react-redux';
+import LoginButton from '../LoginButton';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   console.log(sessionUser)
 
-//   let sessionLinks;
-//   if (sessionUser) {
-//     sessionLinks = (
-//       <ProfileButton user={sessionUser}/>
-//     );
-//   } else {
-//     sessionLinks = (
-//         <LoginDropDown/>
-//     );
-//   }
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+        <div className='navbar-right'>
+            <div className='navbar-coinbox'>
+                <img src={coin} alt="" className='navbar-coins'/>
+                <span className='navbar-coin-amount'>85,000</span>
+            </div>
+            <ProfileDropDown />
+        </div>
+    );
+  } else {
+    sessionLinks = (
+        <LoginButton />
+    );
+  }
     const [memberDropdown, setMemberDropdown] = useState(false);
     
     const toggleMemberDropdown = (e) => {
@@ -53,22 +58,10 @@ function Navigation() {
                     </div>
                 </div>
                 {memberDropdown && (
-                <Modal onClose={() => setMemberDropdown(false)}> 
-                    <h1>dasfdsaf</h1>
-                </Modal>
-            )}
+                <TeamDropdown />
+                )}
             </div>
-            
-            <div className='navbar-right'>
-                <div className='navbar-coinbox'>
-                    <img src={coin} alt="" className='navbar-coins'/>
-                    <span className='navbar-coin-amount'>85,000</span>
-                </div>
-                <ProfileDropDown />
-            </div>
-        {/* </NavLink> */}
-        {/* {sessionLinks} */}
-            
+            {sessionLinks}            
         </div>
     );
 }
