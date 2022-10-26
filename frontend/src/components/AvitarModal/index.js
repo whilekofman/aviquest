@@ -1,4 +1,4 @@
-import './index.css'
+import './AvitarModal.css'
 import AvitarModalContent from './AvitarModalContent'
 
 

@@ -24,22 +24,26 @@
 .aviQuestSprite {
     height:75%;
     border-radius: 5px;
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/94/978/549/super-mario-pixels-triple-screen-video-games-wallpaper-thumb.jpg');
-    background-size: 500%;
-    background-position: 0 95%;
+    /* background-image: url('https://c4.wallpaperflare.com/wallpaper/94/978/549/super-mario-pixels-triple-screen-video-games-wallpaper-thumb.jpg'); */
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/710/191/733/1920x1080-px-8-bit-pixel-art-retro-games-wallpaper-preview.jpg');
+    background-size: 150%;
+    background-position: 0 90%;
     background-repeat: repeat-x;
     animation: 50s para infinite linear;
     margin-bottom: 2%;
-    box-shadow: 3px 3px rgba(128, 128, 128, 0.3)
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3);
+    display: flex;
+    justify-content: space-around;
 }
 
 @keyframes para {
     100% {
-        background-position:-1000px 100%
+        background-position:-1000px 90%
     }
 }
 .runningSprite {
-    height: 100%;
+    padding-top: 1%;
+    height: 90%;
 }
 
 .avitar {
