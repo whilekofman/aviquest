@@ -66,7 +66,7 @@ function Navigation() {
             {sessionLinks}      
             {loginModal && (
                 <Modal onClose={() => setLoginModal(false)}>
-                    <LoginForm />
+                    <LoginForm setLoginModal={setLoginModal}/>
                 </Modal>
             )}
      
