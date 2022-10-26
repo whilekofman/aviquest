@@ -4,8 +4,9 @@
 }
 
 .navbar-login-button {
-    padding: 8px 12px 8px 12px;
+    padding: 6px 12px 6px 12px;
     border-radius: 8px;
+    border: 1px solid #222222;
     background-color: #DFF6FF;
     font-weight: 600;
     font-size: 15px;
