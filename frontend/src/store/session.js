@@ -11,7 +11,7 @@ const receiveCurrentUser = currentUser => ({
 })
 
 const receiveErrors = errors => ({
-    type: RECEIVE_CURRENT_USER,
+    type: RECEIVE_SESSION_ERRORS,
     errors
 })
 
@@ -45,6 +45,7 @@ const startSession = (userInfo, route) => async dispatch => {
         return dispatch(receiveCurrentUser(user));
     } catch(err) {
         const res = await err.json();
+        debugger
         if (res.statusCode === 400) {
         return dispatch(receiveErrors(res.errors));
         }

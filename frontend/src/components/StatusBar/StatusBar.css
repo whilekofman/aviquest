@@ -84,7 +84,6 @@
 
 .redhpbar{
     position: absolute;
-    background-color: rgba(255, 0, 0, 0.618);
     height: 100%;
     display: flex;
     border-radius: 5px;
@@ -108,7 +107,7 @@
 }
 
 .equiptmentTitle{
-    padding-block: 2%;
+    padding-block: 5%;
     font-weight: bold;
 }
 .equipmentItem {
