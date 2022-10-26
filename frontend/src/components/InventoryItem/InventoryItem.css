@@ -29,12 +29,14 @@
     white-space: nowrap;
 }
 
-.inventory-item-div p {
+.inventory-item-div>p {
     display: none;
 }
 
-.inventory-item-div:hover p{
+.inventory-item-div:hover>p{
     display: flex;
+    margin-left: 55px;
+    position: absolute;
     width: auto;
     height: auto;
     background: rgba(223, 246, 255, 0.85);
