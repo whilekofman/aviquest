@@ -10,6 +10,8 @@ import logoImg from '../../assets/images/blue_inversed_logo.png';
 import { useSelector } from 'react-redux';
 import LoginButton from '../LoginButton';
 import LoginForm from '../../components/LoginForm'
+import TaskForm from '../TaskForm';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
@@ -42,10 +44,12 @@ function Navigation() {
         <div className='navbar'>
         {/* <NavLink exact to="/"> */}
             <div className='navbar-left'>
-                <div className='navbar-homebox'>
-                    <img className='navbar-logo' src={logoImg} alt="logo" />
-                    <div className='navbar-logotext'>Aviquest</div> 
-                </div>
+                <Link style={{textDecoration: 'none'}} exact to='/home'>
+                    <div className='navbar-homebox'>
+                        <img className='navbar-logo' src={logoImg} alt="logo" />
+                        <div className='navbar-logotext'>Aviquest</div> 
+                    </div>
+                </Link>
                 <div className='navbar-links'>
                     <div className='navbar-inventory'>
                         Inventory
@@ -65,7 +69,8 @@ function Navigation() {
             {sessionLinks}      
             {loginModal && (
                 <Modal onClose={() => setLoginModal(false)}>
-                    <LoginForm setLoginModal={setLoginModal}/>
+                    {/* <LoginForm setLoginModal={setLoginModal}/> */}
+                    <TaskForm />
                 </Modal>
             )}
      

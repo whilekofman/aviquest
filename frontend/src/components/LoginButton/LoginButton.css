@@ -18,3 +18,15 @@
     background-color: #47B5FF;
     color: #DFF6FF;
 }
+
+.errors {
+    position: absolute;
+    top: 183px;
+    margin-left: 25px;
+    font-size: 12px;
+    width: 200px;
+    height: 20px;
+    /* background: blue; */
+    color: white;
+}
+

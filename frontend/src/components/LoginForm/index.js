@@ -1,41 +1,36 @@
 import './LoginForm.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useSelector } from 'react-redux';
-// import * as errors from '../../store/errors'
+
 
 const LoginForm = (props) => {
     const dispatch = useDispatch();
+    useEffect(() => {
+        return () => {
+          dispatch(sessionActions.clearSessionErrors());
+        };
+    }, [dispatch]);
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const { setLoginModal } = props;
     const sessionUser = useSelector(state => state.session.user);
-
+    const errors = useSelector(state => state.errors.session);
     
+
     const loginUser = (e) => {
         e.preventDefault();
-        setErrors([]);
-        return dispatch(sessionActions.login({ email, password }))
-        .catch(async (res) => {
-            let data;
-            try {
-                data = await res.clone().json();
-                
-            } catch {
-                data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
+        dispatch(sessionActions.login({ email, password }))
     }
 
     if(sessionUser) {
         setLoginModal(false);
     }
     
+    console.log(errors)
     return (
         <div className='login-modal'>
             <div className='login-modal-border'>
@@ -58,6 +53,8 @@ const LoginForm = (props) => {
                 />
                 <button className='login-submit-button' type="submit">Login</button>
                 </form>
+                <div className="errors">{errors?.email}</div>
+                <div className="errors">{errors?.password}</div>
             </div>
         </div>
     );
