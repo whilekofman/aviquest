@@ -2,17 +2,24 @@ import React, { useState, useEffect} from 'react';
 // import { Modal } from '../../context/Modal';
 // import LoginForm from './LoginForm';
 // import SignUpForm from '../SignUpModal/SignupForm';
+import { useDispatch } from 'react-redux';
 import './ProfileDropDown.css';
+import * as sessionActions from '../../store/session' 
 
 function ProfileDropDown() {
 //   const [showLoginModal, setShowLoginModal] = useState(false);
 //   const [showSignupModal, setShowSignupModal] = useState(false);
-
+    const dispatch = useDispatch();
     const [menu, setMenu] = useState(false);
 
     const toggleMenu = () => {
         setMenu(open => !open);
     };
+
+    const logoutUser = (e) => {
+      e.preventDefault();
+      dispatch(sessionActions.logout());
+    }
 
     useEffect(() => {
         if (!menu) return;
@@ -38,8 +45,9 @@ function ProfileDropDown() {
               <li>Stats</li>
               <li>Inventory</li>
               <li id='profiledropdown-divider'></li>
-              <li>Share</li>
+              
               <a  href="https://github.com/whilekofman/aviquest" target="_blank" rel="noopener noreferrer"><li id='github-help'>Help</li></a> 
+              <li onClick={logoutUser}>Logout</li>
           </ul>
       )}
 

@@ -9,28 +9,30 @@ import './Navigation.css';
 import logoImg from '../../assets/images/blue_inversed_logo.png';
 import { useSelector } from 'react-redux';
 import LoginButton from '../LoginButton';
+import LoginForm from '../../components/LoginForm'
 
 function Navigation() {
-  const sessionUser = useSelector(state => state.session.user);
-  console.log(sessionUser)
-
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-        <div className='navbar-right'>
-            <div className='navbar-coinbox'>
-                <img src={coin} alt="" className='navbar-coins'/>
-                <span className='navbar-coin-amount'>85,000</span>
-            </div>
-            <ProfileDropDown />
-        </div>
-    );
-  } else {
-    sessionLinks = (
-        <LoginButton />
-    );
-  }
     const [memberDropdown, setMemberDropdown] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
+    const sessionUser = useSelector(state => state.session.user);
+    console.log(sessionUser)
+
+    let sessionLinks;
+    if (sessionUser) {
+        sessionLinks = (
+            <div className='navbar-right'>
+                <div className='navbar-coinbox'>
+                    <img src={coin} alt="" className='navbar-coins'/>
+                    <span className='navbar-coin-amount'>{sessionUser.email}</span>
+                </div>
+                <ProfileDropDown />
+            </div>
+        );
+    } else {
+        sessionLinks = (
+            <LoginButton setLoginModal={setLoginModal}/>
+        );
+    }
     
     const toggleMemberDropdown = (e) => {
         e.preventDefault();
@@ -61,7 +63,13 @@ function Navigation() {
                 <TeamDropdown />
                 )}
             </div>
-            {sessionLinks}            
+            {sessionLinks}      
+            {loginModal && (
+                <Modal onClose={() => setLoginModal(false)}>
+                    <LoginForm />
+                </Modal>
+            )}
+     
         </div>
     );
 }

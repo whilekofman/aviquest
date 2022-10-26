@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 
-.navbar-profile-dropdown>a>li {
+.navbar-profile-dropdown>li:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
