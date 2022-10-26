@@ -1,46 +1,64 @@
 import './SignUpForm.css'
-import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector} from "react-redux";
 import * as sessionActions from "../../store/session";
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 
 function SignUpForm() {
-  const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
+    const errmessages = []
+    const [oldErrors, setOldErrors] = useState([]);
 
-  // const sessionUser = useSelector(state => state.session.user);
-
+    const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors.session);
     // const [firstName, setFirstName] = useState("");
     // const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(false);
     const [password, setPassword] = useState("");
+    const [redirect, setRedirect] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState("");
     const [username, setUsername] = useState("");
+    const history = useHistory();
+
+
+
+   
+
+    useEffect(() => {
+      return () => {
+        dispatch(sessionActions.clearSessionErrors());
+      };
+    }, [dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
-        setErrors([]);
+          setOldErrors([]);
 
-        dispatch(sessionActions.signup({ email,username, password }))
-
-            .catch(async (res) => {
-            let data;
-            try {
-            data = await res.clone().json();
-            } catch {
-            data = await res.clone().text(); 
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
+          const res =  dispatch(sessionActions.signup({ email,username, password })).then(() => {
+            history.push('/home');
+          });
+          // setRedirect(true)
+            //   .catch(async (res) => {
+            //     let data;
+            //     try {
+            //     data = await res.clone().json();
+            //     } catch {
+            //     data = await res.clone().text(); 
+            //     }
+            //     if (data?.errors) setErrors(data.errors);
+            //     else if (data) setErrors([data]);
+            //     else setErrors([res.statusText]);
+            // });
+        } else {
+        return setOldErrors(['Confirm Password field must be the same as the Password field']);
         }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
-    // if (sessionUser) return <Redirect to="/" />;
+
 
   return (
 
@@ -69,8 +87,13 @@ function SignUpForm() {
 
           <br />
           
+          {/* <div className="errors">{errors ? errors.errors[0].msg : ""}</div> */}
+
+          {/* {errors ? errors.errors.map(error => error.msg) : ""} */}
+
           <label htmlFor="signup-email">Email:</label>
           <input
+            type='email'
             className="signup-email"
             id='signup-email'
             value={email}
@@ -105,9 +128,11 @@ function SignUpForm() {
             placeholder="Confirm Password"
           />
           
-
+          {errors?.username}
+          <br />
+          {errors?.email}
           <ul className="signup-error-message">
-            {errors.map(error => {
+            {oldErrors.map(error => {
                 return <li key={error}>{error}</li> 
               })
             }

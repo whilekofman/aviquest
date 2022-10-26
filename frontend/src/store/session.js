@@ -11,7 +11,7 @@ const receiveCurrentUser = currentUser => ({
 })
 
 const receiveErrors = errors => ({
-    type: RECEIVE_CURRENT_USER,
+    type: RECEIVE_SESSION_ERRORS,
     errors
 })
 
