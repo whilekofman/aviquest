@@ -34,7 +34,7 @@
 
 .inventory-index>h1{
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 0 15px 0;
     font-size: 18px;
     width: 100%;
     margin-bottom: px;
@@ -47,7 +47,7 @@
     background-repeat: no-repeat;
     position: sticky;
     width: 80%;
-    height: 376.5px;
+    height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
     column-gap: 0px;
-    row-gap: 3px;
+    row-gap: 0px;
     background-color: rgba(234, 234, 234, .4);
     /* margin-left: 2px; */
 }
