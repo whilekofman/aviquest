@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 const LoginForm = (props) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     useEffect(() => {
         return () => {
@@ -18,12 +20,18 @@ const LoginForm = (props) => {
     const { setLoginModal } = props;
     const sessionUser = useSelector(state => state.session.user);
     const errors = useSelector(state => state.errors.session);
-    
+    // const [invalidEmail, setInvalidEmail] = useState('')
+
+
 
     const loginUser = (e) => {
         e.preventDefault();
         email = email.toLowerCase();
+
         dispatch(sessionActions.login({ email, password }))
+            // .then(() => {
+            //     history.push('/home');
+            // })
     }
 
     if(sessionUser) {
@@ -36,6 +44,7 @@ const LoginForm = (props) => {
                 <div className='login-header'>Welcome back</div>
                 <form onSubmit={loginUser} className="login-form">
                 <input 
+                    type ='email'
                     className='login-email'
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -52,6 +61,7 @@ const LoginForm = (props) => {
                 />
                 <button className='login-submit-button' type="submit">Login</button>
                 </form>
+                {/* {invalidEmail} */}
                 <div className="errors">{errors?.email}</div>
                 <div className="errors">{errors?.password}</div>
             </div>

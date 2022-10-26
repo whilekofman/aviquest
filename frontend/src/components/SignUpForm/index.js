@@ -38,10 +38,12 @@ function SignUpForm() {
         if (password === confirmPassword) {
           setOldErrors([]);
 
-          const res =  dispatch(sessionActions.signup({ email,username, password })).then(() => {
-            history.push('/home');
-          });
-          // setRedirect(true)
+          const res =  dispatch(sessionActions.signup({ email,username, password }))
+            // .then(() => {
+            //   history.push('/home');
+            // });
+
+
             //   .catch(async (res) => {
             //     let data;
             //     try {

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import SplashPage from "./components/SplashPage";
+import HomePage from "./components/HomePage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,16 +21,18 @@ function App() {
     <>
       <Navigation />
       <Switch>
-          <Route exact path="/login">
-            <LoginForm />
-          </Route>
-          <Route exact path="/">
-            <SplashPage />
-          </Route>
-          <Route exact path="/home">
-            <StatusBar />
-            <ListShowPage />
-          </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+
+        {/* <Route exact path="/login">
+          <LoginForm />
+        </Route> */}
+        {/* <Route exact path="/home">
+          <StatusBar />
+          <ListShowPage />
+        </Route> */}
+        
       </Switch>
     </>
   );

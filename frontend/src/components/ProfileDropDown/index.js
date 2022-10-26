@@ -5,12 +5,15 @@ import React, { useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import './ProfileDropDown.css';
 import * as sessionActions from '../../store/session' 
+import { useHistory } from 'react-router-dom';
 
 function ProfileDropDown() {
 //   const [showLoginModal, setShowLoginModal] = useState(false);
 //   const [showSignupModal, setShowSignupModal] = useState(false);
     const dispatch = useDispatch();
     const [menu, setMenu] = useState(false);
+    const history = useHistory();
+
 
     const toggleMenu = () => {
         setMenu(open => !open);
@@ -18,7 +21,10 @@ function ProfileDropDown() {
 
     const logoutUser = (e) => {
       e.preventDefault();
-      dispatch(sessionActions.logout());
+      dispatch(sessionActions.logout())
+        // .then(() => {
+        //     history.push('/');
+        // });
     }
 
     useEffect(() => {
