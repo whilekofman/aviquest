@@ -1,0 +1,29 @@
+.ShopModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.464);
+    width: 50%;
+}
+
+.ShowModal-ShopItems {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* background-color: yellow; */
+}
+
+.ShopModal-ShopItemEach {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+}
+
+.ShopModal-ShopItemEachPic {
+    height: 100px;
+    width: 100px;
+    padding: 10%;
+}
