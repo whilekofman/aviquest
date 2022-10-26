@@ -5,8 +5,13 @@ import SignUpForm from '../SignUpForm';
 import RedBird from './RedBirdSplash.gif'
 import BlueBird from './BlueBirdSplash.gif'
 
+import { Modal } from '../../context/Modal';
+import { useState } from 'react';
+import ShopModal from '../ShopModal';
 
 const SplashPage = () => {
+
+
 
     return ( 
         <div className="SplashPage" >
@@ -64,7 +69,9 @@ const SplashPage = () => {
                 </div>
             </section>
 
-
+            {/* <section>
+                    <ShopModal/>
+            </section> */}
         </div>
      );
 }
