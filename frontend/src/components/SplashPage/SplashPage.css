@@ -20,12 +20,17 @@
 }
 
 .SplashPagePg1 {
-    /* background: linear-gradient(-45deg, #06283D, #DFF6FF); */
     background: linear-gradient(  #06283D, #DFF6FF);
-    /* background-size: 300% 300%; */
     animation: gradient 10s ease infinite;
     margin-top: -57px;
     display: flex;
+}
+
+.splash1-container {
+    justify-self: center;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 @keyframes gradient {
@@ -37,10 +42,11 @@
 .SplashPagePg1 > div {
     /* width: 40%; */
     display: flex;
+    /* justify-content: space-between; */
     align-items: center;
     color: white;
 }
-    
+
 .SplashPagePg2>div {
     width: 40%;
     display: flex;

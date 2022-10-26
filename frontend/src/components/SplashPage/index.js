@@ -17,16 +17,18 @@ const SplashPage = () => {
         <div className="SplashPage" >
 
             <section className="SplashPagePg1" >
-                <div className="SplashPagePg1Left">
-                    <img src={avengersImg} alt="" />
-                    <br />
-                    <div> Transform your life</div>
+                <div className='splash1-container'>
+                    <div className="SplashPagePg1Left">
+                        <img src={avengersImg} alt="" />
+                        <br />
+                        <div> Transform your life</div>
 
-                    <div> into an Adventure</div>
+                        <div> into an Adventure</div>
 
-                </div>
-                <div className="SplashPagePg1Right">
-                    <SignUpForm/>
+                    </div>
+                    <div className="SplashPagePg1Right">
+                        <SignUpForm/>
+                    </div>
                 </div>
 
                 
