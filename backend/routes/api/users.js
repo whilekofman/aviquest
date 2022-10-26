@@ -12,7 +12,6 @@ const validateRegistrationInput = require('../../validations/register');
 
 
 router.get('/', async (req, res, next) => {
-  // res.send('respond with a resource');
     try {
       const users = await User
         .find()

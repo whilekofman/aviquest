@@ -1,27 +1,27 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const questSchema = Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
+// const questSchema = Schema({
+//     title: {
+//         type: String,
+//         required: true
+//     },
+//     description: {
+//         type: String,
+//         required: true
 
-    },
-    // rewards: {
+//     },
+//     // rewards: {
 
-    // }
+//     // }
 
-    difficulty: {
-        type: Number,
-        required: true
-    },
+//     difficulty: {
+//         type: Number,
+//         required: true
+//     },
 
-}, {
-    timestamps: true
-});
+// }, {
+//     timestamps: true
+// });
 
-module.exports = mongoose.model('Quest', questSchema);
+// module.exports = mongoose.model('Quest', questSchema);
