@@ -9,9 +9,9 @@ const getTask = task => ({
     task
 });
 
-const removeTask = taskId => ({
+const removeTask = tasks => ({
     type: REMOVE_TASK,
-    taskId
+    tasks
 });
 
 const addTask = task => ({
@@ -43,8 +43,11 @@ export const fetchTasks = (userId) => async dispatch => {
     return data;
 }
 
-export const deleteTask = (taskId) => async dispatch => {
-    dispatch(removeTask(taskId));
+export const deleteTask = (taskId, tasks) => async dispatch => {
+    await jwtFetch(`/api/tasks/${taskId}`, {
+        method: 'DELETE'
+    })
+    dispatch(removeTask(tasks));
 };
 
 const taskReducer = (state = [], action) => {
@@ -52,8 +55,7 @@ const taskReducer = (state = [], action) => {
         case RECEIVE_TASK:
             return [...action.task]
         case REMOVE_TASK:
-            delete state[action.task];
-            return state;
+            return action.tasks;
         case ADD_TASK:
             return [...state, action.task];
         default:

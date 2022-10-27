@@ -1,11 +1,17 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import * as taskActions from '../../store/task';
+import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
+import TaskForm from '../TaskForm';
 
 const TaskListItem = ({task, tasks}) => {
 
+    const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
     const [checked, setChecked] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleOptions = (e) => {
         e.preventDefault();
@@ -15,6 +21,7 @@ const TaskListItem = ({task, tasks}) => {
     const handleShowTask = (e) => {
         e.preventDefault();
         console.log("Show Task");
+        setShowModal(true);
     }
 
     const handleEdit = (e) => {
@@ -23,15 +30,11 @@ const TaskListItem = ({task, tasks}) => {
         console.log("Edit Task");
     }
 
-    const handleDelete = (e) => {
+    const handleDelete = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        // console.log(task._id);
-        console.log(tasks.length);
-        const newTaskList = tasks.filter(task => task._id !== task._id);
-        console.log(newTaskList.length)
-        console.table(newTaskList);
-        
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
 
     return ( 
@@ -39,7 +42,12 @@ const TaskListItem = ({task, tasks}) => {
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
         onClick={(e) => handleShowTask(e)}
-        >
+        >        
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <TaskForm setShowModal={setShowModal}/>
+                </Modal>
+            )}
             <div className='task-item-body'>
                 <div className='task-item-body-start'>
                     <div className='task-item-check'>
