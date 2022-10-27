@@ -37,6 +37,7 @@
     align-items: center;
     margin-top: 8px;
     position: relative;
+    margin-bottom: 26px;
 }
 
 .task-input-container {

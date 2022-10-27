@@ -67,5 +67,32 @@
     text-indent: 15px;
     align-self: center;
     overflow-y: scroll;
-    margin-top: 20px;
+    margin-top: 20px;  
+    margin-bottom: 26px; 
+    position: relative;
+}
+
+.quest-details-cover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #edecee;
+    /* content: ""; */
+    bottom: 0;
+    right: 0;
+    animation-name: uncover;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    box-shadow: 70px 0 0 0 rgba(255,255,255,.2)
+}
+
+
+
+@keyframes uncover {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
 }
