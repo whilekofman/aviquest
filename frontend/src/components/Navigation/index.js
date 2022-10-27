@@ -46,7 +46,7 @@ function Navigation() {
         <div className='navbar'>
         {/* <NavLink exact to="/"> */}
             <div className='navbar-left'>
-                <Link style={{textDecoration: 'none'}} to='/home'>
+                <Link style={{textDecoration: 'none'}} to='/'>
                     <div className='navbar-homebox'>
                         <img className='navbar-logo' src={logoImg} alt="logo" />
                         <div className='navbar-logotext'>Aviquest</div> 
