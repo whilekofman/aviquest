@@ -1,14 +1,16 @@
 import aviQuest from './RunningSprite.gif'
-import * as seed from './demouser.js'
+import * as seed from '../Util/demouser.js'
 
 const AviQuestSprite = ({user, monster}) => {
-    const hp = (seed.monster.health.currenthp / seed.monster.health.maxhp) * 100 + 40
+    const hp = (user.quest.monster.health.currenthp / user.quest.monster.health.maxhp) * 100 + 40
 
 
     return (
         <div className="aviQuestSprite">
             <img src={user.imageURL} className="runningSprite" alt="" />
-            <img src={monster.monsterURL} className="runningSprite" style={{opacity: `${hp}%`}} />
+
+
+            <img src={user.quest.monster.imageUrl} className="runningSprite" style={{opacity: `${hp}%`}} />
         </div>
       );
 }

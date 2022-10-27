@@ -21,6 +21,7 @@ function ProfileDropDown() {
 
     const logoutUser = (e) => {
       e.preventDefault();
+      
       dispatch(sessionActions.logout())
         // .then(() => {
         //     history.push('/');

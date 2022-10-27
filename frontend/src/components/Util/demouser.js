@@ -1,14 +1,16 @@
-import userAvitarURL from './RunningSprite.gif'
+// import userAvitarURL from './RunningSprite.gif'
+import userAvitarURL from '../StatusBar/RunningSprite.gif'
+import questData from './quest_data'
 
 
 const health1 = {
-    maxhp: 100,
-    currenthp: 92
+    maxHealth: 100,
+    currentHealth: 92
 }
 
 const health2 = {
-    maxhp: 100,
-    currenthp: 19
+    maxHealth: 100,
+    currentHealth: 19
 }
 
 const item1 = {
@@ -70,7 +72,18 @@ export const user = {
     items: items,
     quest: quest,
     equipment: equipment,
-    imageURL: userAvitarURL
+    imageURL: userAvitarURL,
+    quest: {
+        id: 5,
+        title: 'Kill the Trents',
+        description: 'Defeat 5 Trents',
+        reward: {coin: 5, item: {name: 'Wooden Bow', 
+        description: 'This elegant flatbow has been admirably constructed of exceptional red elm. Its string is made from exceptional hemp, its a common material around these parts of the world.', attack: 6, health: 0, rarity: 1, price: 5, imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__16.png'
+        }},
+        monster: {name: 'Trent', health: health2, attack: 10, imageUrl: 'https://aviquest-dev.s3.amazonaws.com/GIFS/trent.gif', movingUrl: 'https://aviquest-dev.s3.amazonaws.com/GIFS/trent-moving.gif'},
+        timeFrame: 4,
+        text: 'As you can see these lands have been corrupted. For the longest time we didn not know what caused it, but now we do. The Trents are taking over the forest, we must stop them.'
+    }
 }
 
 // export default user;
