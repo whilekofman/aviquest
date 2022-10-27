@@ -28,15 +28,24 @@ const AvitarModalContent = () => {
             </div>
             <br />
             <AvitarStats user={currentUser} id="AvitarModalStats"/>
-            {currentUser.email}
-            {currentUser.atk}
-            {currentUser.coins}
-            <br />
-            Aviquips:
-            <EquipmentBar/>
+            {/* {currentUser.email} */}
+            {/* {currentUser.coins} */}
+
+            <div className="avitar-show-stats">
+                <div>
+                    Health: {currentUser.currentHealth}
+                </div>
+                <div>
+                    Attack: {currentUser.attack}
+                </div>
+            </div>
+            {/* Aviquips: */}
+            <div className="avitar-modal-equips">
+                <EquipmentBar/>
+            </div>
             <br />
 
-            <button className="AvitarModalEditButton" onClick={(e) => setEditing(true)}>Edit</button>
+            {/* <button className="AvitarModalEditButton" onClick={(e) => setEditing(true)}>Edit</button> */}
         </div>
      );
 
@@ -68,7 +77,7 @@ const AvitarModalContent = () => {
 
      )
 
-     return editing ? edit : show
+     return editing ? show : show
 }
  
 export default AvitarModalContent;
