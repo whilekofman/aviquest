@@ -63,12 +63,10 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
 })
 
 router.post('/register', validateRegistrationInput, async(req, res, next) => {
-    console.log(req.body);
     const user = await User.findOne({
         $or: [{ email: req.body.email }, { userName: req.body.username }]
     });
 
-    console.log(user);
 
     if (user) {
         const err = new Error("Validation Error");

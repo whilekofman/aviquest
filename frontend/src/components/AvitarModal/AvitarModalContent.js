@@ -14,7 +14,6 @@ const AvitarModalContent = () => {
     const user = demouser.user
     const currentUser = useSelector(state => state.session.user)
     const [avitarPicURL, setavitarPicURL] = useState('currentUserURl')
-    // console.log(avitarPicURL);
 
     const avitar1 = 'https://www.pngfind.com/pngs/m/55-557958_iron-man-final-fantasy-pixel-art-hd-png.png'
     const avitar2 = 'https://img.favpng.com/24/10/8/thor-pixel-art-marvel-cinematic-universe-loki-png-favpng-L9NYWsCxgygXbYPNgXF6aky4a.jpg'
