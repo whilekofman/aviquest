@@ -38,6 +38,7 @@
     margin-top: 8px;
     position: relative;
     margin-bottom: 26px;
+    overflow-y: scroll;
 }
 
 .task-input-container {

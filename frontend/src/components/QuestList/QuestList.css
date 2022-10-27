@@ -25,6 +25,7 @@
     height: 100%;
     align-items: center;
     margin-bottom: 26px;
+    overflow-y: scroll;
 }
 
 .quest-block {
