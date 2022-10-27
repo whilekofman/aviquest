@@ -34,7 +34,17 @@ router.get('/current', restoreUser, (req, res) =>{
     res.json({
         _id: req.user._id,
         username: req.user.userName,
-        email: req.user.email
+        email: req.user.email,
+        items: req.user.items,
+        equipment: req.user.items,
+        quest: req.user.quest,
+        attack: req.user.attack,
+        coins: req.user.coins,
+        maxHealth: req.user.maxHealth,
+        currentHealth: req.user.currentHealth,
+        avitar: req.user.imageUrl,
+        movingImageUrl: req.user.movingImageUrl
+
     })
 })
 

@@ -54,7 +54,9 @@ const userSchema = Schema({
         default: 50
     },
 
-    imageUrl: String
+    imageUrl: String,
+    
+    movingImageUrl: String
 
 }, {
     timestamps: true
