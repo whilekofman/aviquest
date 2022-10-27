@@ -17,24 +17,34 @@ const StatusBar = () => {
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
+    // useEffect(() => {
+    //     dispatch(getCurrentUser())
+    // },[])
 
-  return  (
+    // console.log(currentUser.quest[0].monster) 
+
+    const monsterHealth = {
+        currentHealth: currentUser.quest[0].monster.currentHealth,
+        maxHealth: currentUser.quest[0].monster.maxHealth
+    }
+
+  return (
 
 
             <div className="statusBar">
                 <div className="statusBarLeft">
                     <Avitar className="statusBarAvitar" />
-                    <AvitarStats className="statusBarAvitarStats" user={user} />
+                    <AvitarStats className="statusBarAvitarStats" user={currentUser} />
                 </div>
 
                 <div className="statusBarMid">
-                    <Equipments equipments={user.equipment} />
+                    <Equipments equipments={currentUser.equipment} />
                 </div>
 
                 <div className="statusBarRight">
-                    <AviQuestSprite className="aviQuestSprite" user={user} monster={monster} />
+                    <AviQuestSprite className="aviQuestSprite" user={currentUser} monster={currentUser.quest[0].monster} />
                     
-                    <HPBar health={monster.health}/>
+                    <HPBar health={monsterHealth}/>
                 </div> 
             </div>
 

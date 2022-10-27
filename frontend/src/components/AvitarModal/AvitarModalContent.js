@@ -28,7 +28,7 @@ const AvitarModalContent = () => {
                 <AvitarPic/>
             </div>
             <br />
-            <AvitarStats user={user} id="AvitarModalStats"/>
+            <AvitarStats user={currentUser} id="AvitarModalStats"/>
             {currentUser.email}
             {currentUser.atk}
             {currentUser.coins}
@@ -54,7 +54,7 @@ const AvitarModalContent = () => {
                 </div>
 
                 <br />
-                <AvitarStats user={user} id="AvitarModalStats"/>
+                <AvitarStats user={currentUser} id="AvitarModalStats"/>
                 {currentUser.email}
                 <input type="email" placeholder="Enter New Email"/> 
                 {currentUser.atk}

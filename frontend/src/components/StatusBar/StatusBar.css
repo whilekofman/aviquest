@@ -52,7 +52,7 @@
 .avitar {
     height: 100%;
     border-radius: 10px;
-    box-shadow: 3px 3px rgba(128, 128, 128, 0.3);
+    /* box-shadow: 3px 3px rgba(128, 128, 128, 0.3); */
     cursor: pointer;
 }
 .AvitarUsername{
