@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as taskActions from "../../store/task";
+import './TaskForm.css'
 
 const TaskForm = () => {
     const dispatch = useDispatch();
@@ -9,9 +10,10 @@ const TaskForm = () => {
     const [ difficulty, setDifficulty ] = useState(1);
     const [ complete, setComplete ] = useState(false);
 
+    console.log(complete)
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        e.stopPropagation();
         dispatch(taskActions.createTask({
             title,
             body,
@@ -21,8 +23,8 @@ const TaskForm = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="task-modal">
+            <form className="task-form" onSubmit={handleSubmit}>
             <input className="taskform-title"
                 value={title}
                 onChange={(e)=>setTitle(e.target.value)} 
@@ -42,7 +44,7 @@ const TaskForm = () => {
                 value={difficulty} 
                 placeholder='Difficulty' 
                 onChange={(e)=>setDifficulty(e.target.value)} />
-            <button className="taskform-submit">Create task</button>
+            <button className="taskform-submit">Update task</button>
             </form>
         </div>
     );

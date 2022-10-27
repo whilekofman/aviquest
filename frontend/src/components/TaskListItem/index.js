@@ -21,13 +21,11 @@ const TaskListItem = ({task, tasks}) => {
 
     const handleShowTask = (e) => {
         e.preventDefault();
-        console.log("Show Task");
     }
     
     const handleEdit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log("Edit Task");
         setShowModal(true);
         setOptions(!options);
     }
