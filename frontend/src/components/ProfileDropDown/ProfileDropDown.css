@@ -14,7 +14,6 @@
     position: absolute;
     right: 4%;
     top: 50px;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     border-radius: 8px;

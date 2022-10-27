@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as taskActions from '../../store/task';
 import { Modal } from '../../context/Modal';
@@ -13,8 +13,19 @@ const TaskListItem = ({task, tasks}) => {
     const [checked, setChecked] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
+    useEffect(() => {
+        if (!showOptions) return;
+
+        const closeMenu = () => {
+        setShowOptions(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showOptions]);
+
     const handleOptions = (e) => {
-        e.stopPropagation();
+        // e.stopPropagation();
         e.preventDefault();
         setOptions(!options);
     }
@@ -40,8 +51,9 @@ const TaskListItem = ({task, tasks}) => {
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
-        onMouseLeave={() => setShowOptions(false)}
-        onClick={(e) => handleShowTask(e)}
+        // onMouseLeave={() => setShowOptions(false)}
+        // onClick={(e) => handleShowTask(e)}
+        // onMouseUp={(e) => setShowOptions(false)}
         >        
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
