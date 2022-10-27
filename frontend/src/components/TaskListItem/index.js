@@ -14,6 +14,7 @@ const TaskListItem = ({task, tasks}) => {
     const [showModal, setShowModal] = useState(false);
 
     const handleOptions = (e) => {
+        e.stopPropagation();
         e.preventDefault();
         setOptions(!options);
     }
@@ -21,13 +22,14 @@ const TaskListItem = ({task, tasks}) => {
     const handleShowTask = (e) => {
         e.preventDefault();
         console.log("Show Task");
-        setShowModal(true);
     }
-
+    
     const handleEdit = (e) => {
         e.preventDefault();
         e.stopPropagation();
         console.log("Edit Task");
+        setShowModal(true);
+        setOptions(!options);
     }
 
     const handleDelete = async (e) => {

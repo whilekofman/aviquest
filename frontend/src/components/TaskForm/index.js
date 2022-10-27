@@ -9,7 +9,6 @@ const TaskForm = () => {
     const [ difficulty, setDifficulty ] = useState(1);
     const [ complete, setComplete ] = useState(false);
 
-    console.log(complete)
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -35,7 +34,7 @@ const TaskForm = () => {
             <input type="checkbox"
                 className="taskform-complete"
                 value={complete}
-                onChange={(e) => setComplete((state) => !state)} />
+                onChange={(e) => setComplete((complete) => !complete)} />
             <input type="number"
                 min='1'
                 max='3'
