@@ -8,19 +8,21 @@ import { useHistory } from 'react-router-dom';
 
 const LoginForm = (props) => {
     // const history = useHistory();
+
+
+    let [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { setLoginModal } = props;
+    const sessionUser = useSelector(state => state.session.user);
+    let errors = useSelector(state => state.errors.session);
+
+    
     const dispatch = useDispatch();
     useEffect(() => {
         return () => {
           dispatch(sessionActions.clearSessionErrors());
         };
     }, [dispatch]);
-
-    let [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const { setLoginModal } = props;
-    const sessionUser = useSelector(state => state.session.user);
-    const errors = useSelector(state => state.errors.session);
-    
     // const [invalidEmail, setInvalidEmail] = useState('')
 
     // function isValidEmail(email) {
@@ -47,6 +49,8 @@ const LoginForm = (props) => {
             <div className='login-modal-border'>
                 <div className='login-header'>Welcome back</div>
                 <form onSubmit={loginUser} className="login-form">
+                <div className="errors">{errors?.email}</div>
+
                 <input 
                     type ='email'
                     className='login-email'
@@ -55,6 +59,8 @@ const LoginForm = (props) => {
                     placeholder='Email'
                     required
                 />
+                <div className="errors">{errors?.password}</div>
+
                 <input
                     className='login-password'
                     type="password"
@@ -66,8 +72,6 @@ const LoginForm = (props) => {
                 <button className='login-submit-button' type="submit" >Login</button>
                 </form>
                 {/* {invalidEmail} */}
-                <div className="errors">{errors?.email}</div>
-                <div className="errors">{errors?.password}</div>
             </div>
         </div>
     );

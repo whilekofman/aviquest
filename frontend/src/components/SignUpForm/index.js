@@ -94,6 +94,7 @@ function SignUpForm() {
           {/* {errors ? errors.errors.map(error => error.msg) : ""} */}
 
           <label htmlFor="signup-email">Email:</label>
+
           <input
             type='email'
             className="signup-email"
@@ -130,18 +131,22 @@ function SignUpForm() {
             placeholder="Confirm Password"
           />
           
-          {errors?.username}
+          
           <br />
-          {errors?.email}
-          <ul className="signup-error-message">
+          {/* {errors?.email} */}
+          {/* <ul className="signup-error-message">
             {oldErrors.map(error => {
                 return <li key={error}>{error}</li> 
               })
-            }
-          </ul>
+            } */}
+          {/* </ul> */}
 
           <br />
           <br />
+          <div className="signupErrors">{errors?.username}</div>
+          <div className="signupErrors">{errors?.email}</div>
+          <div className="signupErrors">{errors?.password}</div>
+
 
 
           <button className='splash-page-SignUp' type="submit">Sign up</button>
