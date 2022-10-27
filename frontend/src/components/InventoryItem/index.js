@@ -13,15 +13,10 @@ const InventoryItem = (props) => {
     // const [items, setItems] = useState(items);
 
     const equipItem = () => {
-<<<<<<< HEAD
-        if (user.equipment.length < 4) {
-            user.equipment.push(item);
-=======
         if (equipment.length < 4) {
             let index = items.indexOf(item);
             items.splice(index, 1);
             equipment.push(item);
->>>>>>> equiping
         } else {
             equipment.push(item);
             items.push(equipment[0]);
