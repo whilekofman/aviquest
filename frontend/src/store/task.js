@@ -3,6 +3,7 @@ import jwtFetch from "./jwt";
 const RECEIVE_TASK = 'tasks/RECEIVE_TASK';
 const REMOVE_TASK = 'tasks/REMOVE_TASK';
 const ADD_TASK = 'tasks/ADD_TASK';
+const UPDATE_TASK = 'tasks/UPDATE_TASK';
 
 const getTask = task => ({
     type: RECEIVE_TASK,
@@ -17,6 +18,11 @@ const removeTask = tasks => ({
 const addTask = task => ({
     type: ADD_TASK,
     task
+})
+
+const receiveTasks = tasks => ({
+    type: UPDATE_TASK,
+    tasks
 })
 
 export const getTasks = () => ({tasks}) => tasks ? Object.values(tasks) : null;
@@ -35,13 +41,13 @@ export const createTask = (task) => async dispatch => {
     dispatch(addTask(task));
 }
 
-export const updateTask = (task) => async dispatch => {
+export const updateTask = (task, tasks) => async dispatch => {
     const res = await jwtFetch(`/api/tasks/${task._id}`, {
         method: 'PATCH',
         body: JSON.stringify(task)
     });
     const data =  await res.json();
-    console.log(data);
+    dispatch(receiveTasks(tasks));
 }
 
 export const fetchTasks = (userId) => async dispatch => {
@@ -67,6 +73,8 @@ const taskReducer = (state = [], action) => {
             return action.tasks;
         case ADD_TASK:
             return [...state, action.task];
+        case UPDATE_TASK:
+            return action.tasks;
         default:
             return state;
     }
