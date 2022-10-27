@@ -10,7 +10,7 @@ const TaskListItem = ({task, tasks}) => {
     const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const TaskListItem = ({task, tasks}) => {
         >        
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <TaskForm task={task} tasks={tasks}/>
+                    <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}/>
                 </Modal>
             )}
             <div className='task-item-body'>

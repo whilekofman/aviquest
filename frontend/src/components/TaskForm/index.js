@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import * as taskActions from "../../store/task";
 import './TaskForm.css'
 
-const TaskForm = ({task, tasks}) => {
+const TaskForm = ({task, tasks, setShowModal}) => {
     const dispatch = useDispatch();
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+    const [title, setTitle] = useState(task.title);
+    const [body, setBody] = useState(task.body);
     const [ difficulty, setDifficulty ] = useState(1);
     const [ complete, setComplete ] = useState(false);
 
@@ -24,6 +24,7 @@ const TaskForm = ({task, tasks}) => {
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         newTaskList.unshift(taskData);
         dispatch(taskActions.updateTask(taskData, newTaskList));
+        setShowModal(false);
     }
 
     const handleComplete = (e) => {
