@@ -9,6 +9,7 @@ const { isProduction } = require('../../config/keys')
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
 const validateRegistrationInput = require('../../validations/register');
+const usersController = require('../../controllers/usersController')
 
 
 router.get('/', async (req, res, next) => {
@@ -36,7 +37,7 @@ router.get('/current', restoreUser, (req, res) =>{
         username: req.user.userName,
         email: req.user.email,
         items: req.user.items,
-        equipment: req.user.items,
+        equipment: req.user.equipment,
         quest: req.user.quest,
         attack: req.user.attack,
         coins: req.user.coins,
@@ -101,6 +102,8 @@ router.post('/register', validateRegistrationInput, async(req, res, next) => {
       })
     })
 })
+
+router.patch('/:id', requireUser, usersController.updateAttributes)
 
 // router.patch('/:id', requireUser, async (req, res, next) => {  
 //     try {
