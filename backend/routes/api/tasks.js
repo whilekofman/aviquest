@@ -75,7 +75,7 @@ router.delete('/:id', requireUser, async (req, res, next) => { //requireUser, ta
             error.errors = { message: 'Please do not edit tasks that do not belong to you' }
         } else {
             task.delete({_id: req.params.id })
-            User.updateOne({_id: req.user._id}, {$pull: {tasks: req.params.id}}, (err, task) => {
+            User.updateOne({ _id: req.user._id }, {$pull: { tasks: req.params.id }}, (err, task) => {
                 if (err) {
                     res.json(err)
                 } else {
