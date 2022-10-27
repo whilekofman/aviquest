@@ -21,7 +21,6 @@ const StatusBar = () => {
     //     dispatch(getCurrentUser())
     // },[])
 
-    // console.log(currentUser.quest[0].monster) 
 
     const monsterHealth = {
         currentHealth: currentUser.quest[0].monster.currentHealth,

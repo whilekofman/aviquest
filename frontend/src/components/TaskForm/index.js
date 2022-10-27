@@ -20,7 +20,6 @@ const TaskForm = ({task, tasks, setShowModal}) => {
             difficulty: parseInt(difficulty),
             isComplete: complete
         }
-        console.table(taskData);
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         newTaskList.unshift(taskData);
         dispatch(taskActions.updateTask(taskData, newTaskList));
@@ -30,7 +29,6 @@ const TaskForm = ({task, tasks, setShowModal}) => {
     const handleComplete = (e) => {
         e.preventDefault();
         setComplete(!complete);
-        console.log(complete);
     }
 
     const completeStyle = {

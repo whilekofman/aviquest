@@ -37,7 +37,6 @@ export const createTask = (task) => async dispatch => {
         body: JSON.stringify(task)
     });
     const data = await res.json();
-    // console.log(data);
     dispatch(addTask(task));
 }
 
@@ -51,7 +50,6 @@ export const updateTask = (task, tasks) => async dispatch => {
 }
 
 export const fetchTasks = (userId) => async dispatch => {
-    console.log(userId);
     const res = await jwtFetch(`/api/tasks/user/${userId}`);
     const data = await res.json();
     dispatch(getTask(data));

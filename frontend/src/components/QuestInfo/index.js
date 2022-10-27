@@ -24,7 +24,6 @@ const QuestInfo = ({currentQuest}) => {
     }, []);
 
     const quest = useSelector(state => state.quests)
-    console.log(quest);
 
     return ( 
         <div className='quest-info-container'>
