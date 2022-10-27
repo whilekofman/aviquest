@@ -33,7 +33,9 @@
     /* left: 15%; */
     margin-left: 5%;
     margin-bottom: 12px;
-
+    width: 100%;
+    white-space: nowrap;
+    /* overflow-x: hidden; */
 }
 
 .task-checkbox {

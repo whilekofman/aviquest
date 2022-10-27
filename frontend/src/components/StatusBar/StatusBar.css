@@ -127,3 +127,7 @@
     padding-right: 10px;
     
 }
+
+.equiptname {
+    white-space: nowrap;
+}

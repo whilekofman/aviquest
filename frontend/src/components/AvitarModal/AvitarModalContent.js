@@ -32,9 +32,9 @@ const AvitarModalContent = () => {
             {/* {currentUser.coins} */}
 
             <div className="avitar-show-stats">
-                <div>
+                {/* <div>
                     Health: {currentUser.currentHealth}
-                </div>
+                </div> */}
                 <div>
                     Attack: {currentUser.attack}
                 </div>
