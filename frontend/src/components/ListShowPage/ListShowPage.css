@@ -2,17 +2,21 @@
     display: flex;
     width: 100%;
     background-color: #DFF6FF;
+    margin-left: 3px;
+    height: 80.2vh;
+    overflow-y: hidden;
 }
 
 .todo-section {
-    width: 30%;
-    margin: 15px 20px 15px 20px;
+    width: 29.5%;
+    margin: 15px 7px 15px 20px;
+    height: 100%;
 }
 
 .quest-section {
     width: 64%;
     margin: 15px 15px 15px 15px;
-
+    height: 100%;
 }
 
 .quest-info-section {
@@ -23,7 +27,7 @@
 
 .quest-header {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
 .quest-info-header {

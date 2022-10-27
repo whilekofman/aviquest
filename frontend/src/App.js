@@ -28,10 +28,10 @@ function App() {
         {/* <Route exact path="/login">
           <LoginForm />
         </Route> */}
-        {/* <Route exact path="/home">
+        <Route exact path="/home">
           <StatusBar />
           <ListShowPage />
-        </Route> */}
+        </Route>
         
       </Switch>
     </>
