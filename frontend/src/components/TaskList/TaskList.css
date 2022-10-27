@@ -1,16 +1,17 @@
 .tasklist-container {
-    height: 100vh;
+    height: 90%;
     background-color: #EDECEE;
     width: 100%;
     display: flex;
     flex-direction: column;
-    width: 96%;
     border-radius: 5px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 .tasklist-header {
     display: flex;
     font-weight: bold;
+    margin-bottom: 3px;
 }
 
 .tasklist-header div {
@@ -30,11 +31,14 @@
 }
 
 .tasklist-body {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 8px;
+    position: relative;
+    margin-bottom: 26px;
+    /* overflow-y: scroll; */
 }
 
 .task-input-container {
@@ -56,6 +60,8 @@
     border: none;
     border-radius: 5px;
     text-indent: 5px;
+    margin-top: 8px;
+    outline: none;
 }
 
 .task-input:focus {

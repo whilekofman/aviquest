@@ -2,21 +2,44 @@
     display: flex;
     width: 100%;
     background-color: #DFF6FF;
+    /* margin-left: 3px; */
+    height: calc(100vh - 247px);
+    overflow-y: hidden;
+    /* align-self: center; */
+    justify-content: center;
 }
 
 .todo-section {
-    width: 100%;
-    margin: 15px 20px 15px 20px;
+    width: 29.5%;
+    margin: 15px calc(2.3% - 18px) 15px 20px;
+    height: 100%;
 }
 
 .quest-section {
-    width: 100%;
+    width: 64%;
     margin: 15px 15px 15px 15px;
-
+    height: 90%;
 }
 
 .quest-info-section {
     width: 100%;
     margin: 15px 15px 15px 15px;
 
+}
+
+
+
+.quest-header {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.quest-info-header {
+    font-weight: bold;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
 }

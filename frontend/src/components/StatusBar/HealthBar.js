@@ -1,10 +1,14 @@
 const HPBar = ({health}) => {
 
-    const hp = (health.currenthp / health.maxhp) * 100
+    const hp = (health.currentHealth / health.maxHealth) * 100
+    const color1 = (hp/100 * 255)
+    const color2 = 255-(hp/100 * 255)
+    const color3 = 255-(hp/100 * 255)
 
 
     const hpbarstyle = {
-        width: `${hp}%`
+        width: `${hp}%`,
+        backgroundColor: `rgba(${color2}, ${color1}, 250, .7)`
     }
 
     return ( 
@@ -12,7 +16,7 @@ const HPBar = ({health}) => {
             <div className="hp">❤️</div>
             <div className="hpbar" > 
                 <div className="redhpbar" style={hpbarstyle}></div>
-                <div className="hpnum"> {health.currenthp} / {health.maxhp} </div>
+                <div className="hpnum"> {health.currentHealth} / {health.maxHealth} </div>
             </div>
         </div>
      );

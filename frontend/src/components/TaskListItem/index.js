@@ -1,22 +1,67 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import * as taskActions from '../../store/task';
+import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
+import TaskForm from '../TaskForm';
 
-const TaskListItem = ({task}) => {
+const TaskListItem = ({task, tasks}) => {
 
+    const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(task.isComplete);
+    const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        if (!options) return;
+
+        const closeMenu = () => {
+            setOptions(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+        return () => document.removeEventListener("click", closeMenu);
+    }, [options]);
+
+
+
 
     const handleOptions = (e) => {
+        // e.stopPropagation();
         e.preventDefault();
         setOptions(!options);
+    }
+
+    const handleShowTask = (e) => {
+        e.preventDefault();
+    }
+    
+    const handleEdit = (e) => {
+        e.preventDefault();
+        // e.stopPropagation();
+        setShowModal(true);
+        setOptions(!options);
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        // e.stopPropagation();
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
 
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
-        >
+        // onClick={(e) => handleShowTask(e)}
+        >        
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}/>
+                </Modal>
+            )}
             <div className='task-item-body'>
                 <div className='task-item-body-start'>
                     <div className='task-item-check'>
@@ -44,14 +89,18 @@ const TaskListItem = ({task}) => {
                 {showOptions && <div className='task-item-options'
                 onClick={(e) => handleOptions(e)}
                 >⋮
-                    {options && 
+                </div>}
+                {options && 
                         <div className='task-options-dropdown'
                         >
-                            <div className='task-options-edit'>✎ &nbsp;  Edit</div>
-                            <div className='task-options-delete'>🗑 Delete</div>
+                            <div className='task-options-edit'
+                            onClick={(e) => handleEdit(e)}
+                            >✎ &nbsp;  Edit</div>
+                            <div className='task-options-delete'
+                            onClick={(e) => handleDelete(e)}
+                            >🗑 Delete</div>
                         </div>
-                    }
-                </div>}
+                }
             </div>
         </div>
      );

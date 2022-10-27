@@ -1,5 +1,6 @@
 const express = require('express');
 require('./models/User');
+require('./models/Task')
 require('./config/passport');
 const passport = require('passport')
 const cookieParser = require('cookie-parser');

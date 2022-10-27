@@ -3,12 +3,14 @@ import thunk from 'redux-thunk';
 import session from './session';
 import errors from './errors';
 import quests from './quest';
+import tasks from './task';
 
 
 const rootReducer = combineReducers({
     session,
     errors,
-    quests
+    quests,
+    tasks
 })
 
 let enhancer;

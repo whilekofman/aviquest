@@ -6,10 +6,20 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
 import configureStore from './store/store'
+import jwtFetch from './store/jwt';
+import * as sessionActions from './store/session';
+import * as taskActions from './store/task';
 
 function Root() {
   const store = configureStore();
 
+  if (process.env.NODE_ENV !== "production") {
+    window.store = store;
+    window.jwtFetch = jwtFetch;
+    window.sessionActions = sessionActions;
+    window.taskActions = taskActions;
+  }
+  
   return (
     <ModalProvider>
         <Provider store={store}>

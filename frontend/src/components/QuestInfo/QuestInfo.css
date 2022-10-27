@@ -1,14 +1,98 @@
 .quest-info-container {
-    height: 100vh;
-    background-color: lightsalmon;
-    width: 100%;
+    height: 100%;
+    background-color: #EDECEE;
+    width: 94%;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    /* overflow-y: scroll; */
+
 }
 
-.quest-info-body {
+.quest-info-top {
+    display: flex;
+    width: 100%;
+    height: 400px;
+}
+
+.quest-info-window {
+    height: 100%;
+    width: 75%;
+}
+
+.quest-info-details-container {
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.quest-info-details-container div {
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DFF6FF;
+    padding: 2px;
+    margin-right: 25px;
+    margin-top: -5px;
+    font-size: 16px;
+}
+
+.quest-info-details-container div:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.quest-info-details-container div:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.quest-window-image {
+    height: 100%;
     width: 100%;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+.quest-info-details {
+    height: 100%;
+    font-size: 17px;
+    width: 84%;
+    line-height: 28px;
+    text-indent: 15px;
+    align-self: center;
+    overflow-y: scroll;
+    margin-top: 20px;  
+    margin-bottom: 26px; 
+    position: relative;
+}
+
+.quest-details-cover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #edecee;
+    /* content: ""; */
+    bottom: 0;
+    right: 0;
+    animation-name: uncover;
+    animation-duration: 12s;
+    animation-fill-mode: forwards;
+    box-shadow: 70px 0 0 0 rgba(255,255,255,.2)
+}
+
+
+
+@keyframes uncover {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
 }

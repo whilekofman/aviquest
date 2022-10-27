@@ -1,9 +1,18 @@
 import aviQuest from './RunningSprite.gif'
+import * as seed from '../Util/demouser.js'
+import { useRef } from 'react'
 
-const AviQuestSprite = () => {
+const AviQuestSprite = ({user, monster}) => {
+    const ref = useRef()
+    const hp = (monster.currentHealth / monster.maxHealth) * 100 + 40
+
+
     return (
-        <div className="aviQuestSprite">
-            <img src={aviQuest} className="runningSprite" alt="" />
+        <div className="aviQuestSprite" id='aviQuestSprite' ref={useRef()}>
+            <img src={user.movingImageUrl} className="runningSprite" alt="" />
+
+
+            <img src={monster.movingUrl} className="runningSprite" style={{opacity: `${hp}%`}} />
         </div>
       );
 }

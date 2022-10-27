@@ -22,7 +22,8 @@
   
   #modal-content {
     position: absolute;
-    background-color:white;
-    border-radius: 12px;
-    z-index: 70;
+    /* background-color:#47B5FF; */
+    /* border-radius: 12px; */
+    z-index: 100;
+    display: flex;
   }

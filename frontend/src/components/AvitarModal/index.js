@@ -1,5 +1,6 @@
-import './index.css'
-import AvitarModalContent from './AvitarModalContent'
+import './AvitarModal.css'
+import AvitarModalContent from './AvitarModalContent';
+
 
 
 const AvitarShow = ({open, setOpen}) => {

@@ -47,6 +47,15 @@ table {
 	border-spacing: 0;
 }
 
+@font-face {
+	font-family:roboto_slab;
+	src: url('./assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf');
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roboto_slab;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

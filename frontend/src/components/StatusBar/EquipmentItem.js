@@ -1,8 +1,8 @@
 const EquipmentItem = ({equipt}) => {
     return ( 
-        <div className='equipmentItem'>
-            <img src={equipt.imageURL} className="equipItemPic" />
-            <div className="equiptname">{equipt.name}</div>
+        <div className='equipmentItem' key={equipt.name}>
+            <img src={equipt.imageUrl} className="equipItemPic" />
+            <div className="equiptname">{equipt.name} ({equipt.attack})</div>
         </div>
      );
 }

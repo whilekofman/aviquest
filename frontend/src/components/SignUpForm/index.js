@@ -1,124 +1,161 @@
 import './SignUpForm.css'
-import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector} from "react-redux";
 import * as sessionActions from "../../store/session";
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 
 function SignUpForm() {
-  const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
+    const errmessages = []
+    const [oldErrors, setOldErrors] = useState([]);
 
-  // const sessionUser = useSelector(state => state.session.user);
-
+    const sessionUser = useSelector(state => state.session.user);
+    const errors = useSelector(state => state.errors.session);
     // const [firstName, setFirstName] = useState("");
     // const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(false);
     const [password, setPassword] = useState("");
+    const [redirect, setRedirect] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState("");
     const [username, setUsername] = useState("");
+    const history = useHistory();
+
+
+
+   
+
+    useEffect(() => {
+      return () => {
+        dispatch(sessionActions.clearSessionErrors());
+      };
+    }, [dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
-        setErrors([]);
-        return dispatch(sessionActions.signup({ email, password, username }))
-            .catch(async (res) => {
-            let data;
-            try {
-            data = await res.clone().json();
-            } catch {
-            data = await res.clone().text(); 
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
+          setOldErrors([]);
+
+          const res =  dispatch(sessionActions.signup({ email,username, password }))
+            // .then(() => {
+            //   history.push('/home');
+            // });
+
+
+            //   .catch(async (res) => {
+            //     let data;
+            //     try {
+            //     data = await res.clone().json();
+            //     } catch {
+            //     data = await res.clone().text(); 
+            //     }
+            //     if (data?.errors) setErrors(data.errors);
+            //     else if (data) setErrors([data]);
+            //     else setErrors([res.statusText]);
+            // });
+        } else {
+        return setOldErrors(['Confirm Password field must be the same as the Password field']);
         }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
-    // if (sessionUser) return <Redirect to="/" />;
+
 
   return (
-    <>
-      <div className="splash-signup">
+
+    <div className="splash-signup">
       <header className="signup-header">
-        <div></div>
-        <div className="signup-header-text">Sign Up</div>
-        <div></div>
+        <br />
+        <br />
+
+        <div className="signup-header-text">Join us today !</div>
+        <br />
       </header>
+      
       <div className="signup-body">
-        <form onSubmit={handleSubmit}>
-          {/* <div className="input-div">
-            <input
-              className="signup-firstname-input"
-              placeholder="First name"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-div">
-            <input
-            className="signup-lastname-input"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-              placeholder="Last name"
-            />
-          </div> */}
-          <div className="input-div">
-            <input
+        <form className='splash-signup-form' onSubmit={handleSubmit}>
+          
+          
+          <label htmlFor="signup-username">Username:</label>
+          <input
             className="signup-username-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              placeholder="Username"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            id='signup-username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder="Username"
+          />
+
+          <br />
+          
+          {/* <div className="errors">{errors ? errors.errors[0].msg : ""}</div> */}
+
+          {/* {errors ? errors.errors.map(error => error.msg) : ""} */}
+
+          <label htmlFor="signup-email">Email:</label>
+
+          <input
+            type='email'
             className="signup-email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              placeholder="Email"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            id='signup-email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="Email"
+          />
+
+          <br />
+          
+          <label htmlFor="signup-password">Password:</label>
+          <input
             className="signup-password-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              placeholder="Password"
-            />
-          </div>
-          <div className="input-div">
-            <input
+            id='signup-password'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Password"
+          />
+          
+          <br />
+          
+          <label htmlFor="signup-confirm-password">Confirm password:</label>
+          <input
             className="signup-confirm-password-input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              placeholder="Confirm Password"
-            />
-          </div>
-          <ul className="signup-error-message">
-            {errors.map(error => {
+            id='signup-confirm-password'
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            placeholder="Confirm Password"
+          />
+          
+          
+          <br />
+          {/* {errors?.email} */}
+          {/* <ul className="signup-error-message">
+            {oldErrors.map(error => {
                 return <li key={error}>{error}</li> 
               })
-            }
-          </ul>
-          <button type="submit">Sign up</button>
+            } */}
+          {/* </ul> */}
+
+          <br />
+          <br />
+          <div className="signupErrors">{errors?.username}</div>
+          <div className="signupErrors">{errors?.email}</div>
+          <div className="signupErrors">{errors?.password}</div>
+
+
+
+          <button className='splash-page-SignUp' type="submit">Sign up</button>
+          
         </form>
       </div>
-      </div>
+    </div>
       
-    </>
+
   );
 }
 

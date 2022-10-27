@@ -1,26 +1,64 @@
+import { useEffect, useState } from 'react';
 import TaskListItem from '../TaskListItem';
+import * as taskActions from '../../store/task';
 import './TaskList.css';
+import { useDispatch, useSelector } from 'react-redux';
 
-const TaskList = ({user}) => {
+const TaskList = () => {
 
-    const taskItem = user.tasks.map(task => <TaskListItem key={task.id} task={task}/>)
+    const dispatch = useDispatch();
+    const [title, setTitle] = useState("");
+    const tasks = useSelector(state => state.tasks)
+    const currentUser = useSelector(state => state.session.user);
+    const [loaded, setLoaded] = useState(false)
+
+    useEffect(()  => {
+        const generateTasks = async () => {
+            const res = await dispatch(taskActions.fetchTasks(currentUser._id));
+            const data = await res;
+        }
+
+        generateTasks();
+    }, [])
+
+    useEffect(() => {
+        if (tasks && tasks.length > 0) {
+            setLoaded(true)
+        }
+    }, [tasks])
+    
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {title};
+        dispatch(taskActions.createTask(data));
+    }
 
     return ( 
         <div className='tasklist-container'>
-
             <div className='tasklist-body'>
                 <div className='task-input-container'>
-                    <form className='task-input-form'>
+                    <form className='task-input-form'
+                    onSubmit={(e) => handleSubmit(e)}
+                    >
                         <input type="text" 
                         className='task-input'
                         placeholder='Add a task'
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
                         />
                     </form>
                 </div>
                 
                 <div className='task-list-items'>
                     <ul className='task-ul'>
-                        {taskItem}
+                        {loaded && 
+                        (tasks.map(task => {
+                            return (
+                                <TaskListItem key={task._id} task={task} tasks={tasks}/>
+                                )
+                            }))
+                        }
                     </ul>
                 </div>
 
