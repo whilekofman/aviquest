@@ -3,7 +3,6 @@ import TaskListItem from '../TaskListItem';
 import * as taskActions from '../../store/task';
 import './TaskList.css';
 import { useDispatch, useSelector } from 'react-redux';
-import * as sessionActions from '../../store/session';
 
 const TaskList = () => {
 
@@ -21,7 +20,6 @@ const TaskList = () => {
 
         generateTasks();
     }, [])
-
 
     useEffect(() => {
         if (tasks && tasks.length > 0) {
@@ -57,7 +55,7 @@ const TaskList = () => {
                         {loaded && 
                         (tasks.map(task => {
                             return (
-                                <TaskListItem key={task._id} task={task}/>
+                                <TaskListItem key={task._id} task={task} tasks={tasks}/>
                                 )
                             }))
                         }

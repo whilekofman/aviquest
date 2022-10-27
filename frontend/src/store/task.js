@@ -43,7 +43,7 @@ export const fetchTasks = (userId) => async dispatch => {
     return data;
 }
 
-export const deleteTask = (taskId) => dispatch => {
+export const deleteTask = (taskId) => async dispatch => {
     dispatch(removeTask(taskId));
 };
 
@@ -51,9 +51,9 @@ const taskReducer = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_TASK:
             return [...action.task]
-        // case REMOVE_TASK:
-        //     delete nextState[action.task];
-        //     return nextState;
+        case REMOVE_TASK:
+            delete state[action.task];
+            return state;
         case ADD_TASK:
             return [...state, action.task];
         default:

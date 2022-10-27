@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './TaskListItem.css';
 
-const TaskListItem = ({task}) => {
+const TaskListItem = ({task, tasks}) => {
 
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
@@ -14,8 +14,24 @@ const TaskListItem = ({task}) => {
 
     const handleShowTask = (e) => {
         e.preventDefault();
-
         console.log("Show Task");
+    }
+
+    const handleEdit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Edit Task");
+    }
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // console.log(task._id);
+        console.log(tasks.length);
+        const newTaskList = tasks.filter(task => task._id !== task._id);
+        console.log(newTaskList.length)
+        console.table(newTaskList);
+        
     }
 
     return ( 
@@ -54,8 +70,12 @@ const TaskListItem = ({task}) => {
                     {options && 
                         <div className='task-options-dropdown'
                         >
-                            <div className='task-options-edit'>✎ &nbsp;  Edit</div>
-                            <div className='task-options-delete'>🗑 Delete</div>
+                            <div className='task-options-edit'
+                            onClick={(e) => handleEdit(e)}
+                            >✎ &nbsp;  Edit</div>
+                            <div className='task-options-delete'
+                            onClick={(e) => handleDelete(e)}
+                            >🗑 Delete</div>
                         </div>
                     }
                 </div>}
