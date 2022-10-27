@@ -26,7 +26,7 @@ function Navigation() {
             <div className='navbar-right'>
                 <div className='navbar-coinbox'>
                     <img src={coin} alt="" className='navbar-coins'/>
-                    <span className='navbar-coin-amount'>{sessionUser.email}</span>
+                    <span className='navbar-coin-amount'>{sessionUser.coins}</span>
                 </div>
                 <ProfileDropDown />
             </div>

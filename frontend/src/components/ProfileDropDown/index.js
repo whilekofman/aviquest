@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 // import { Modal } from '../../context/Modal';
 // import LoginForm from './LoginForm';
 // import SignUpForm from '../SignUpModal/SignupForm';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ProfileDropDown.css';
 import * as sessionActions from '../../store/session' 
 import { useHistory } from 'react-router-dom';
@@ -13,7 +13,7 @@ function ProfileDropDown() {
     const dispatch = useDispatch();
     const [menu, setMenu] = useState(false);
     const history = useHistory();
-
+    // const user = useSelector(state => state.session.user)
 
     const toggleMenu = () => {
         setMenu(open => !open);
