@@ -1,6 +1,6 @@
 import './QuestListItem.css';
 
-const QuestListItem = ({quest, setCurrentQuest}) => {
+const QuestListItem = ({quest, setCurrentQuest, setCoverAnimation}) => {
 
     const handleClick = (e) => {
         e.preventDefault();

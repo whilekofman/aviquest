@@ -6,6 +6,8 @@ import './QuestList.css';
 const QuestList = ({quests}) => {
 
     const [currentQuest, setCurrentQuest] = useState(quests[0]);
+    const [coverAnimation, setCoverAnimation ] = useState(true);
+    
     // console.log(currentQuest);
     const questItem = quests.map(quest => <QuestListItem key={quest.id} quest={quest} setCurrentQuest={setCurrentQuest} />)
 
@@ -21,7 +23,7 @@ const QuestList = ({quests}) => {
             </div>
 
             <div className='quest-panel-info'>
-                <QuestInfo currentQuest={currentQuest}/>
+                <QuestInfo currentQuest={currentQuest} coverAnimation={coverAnimation} />
             </div>
         </div>
      );
