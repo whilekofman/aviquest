@@ -10,16 +10,19 @@ const TaskForm = ({task}) => {
     const [ difficulty, setDifficulty ] = useState("");
     const [ complete, setComplete ] = useState(false);
 
-    console.log(task);
+    console.table(task);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const taskData = {
+            id: task._id,
             title: title,
             body: body,
             difficulty: parseInt(difficulty),
             isComplete: complete
         }
+
+        dispatch()
     }
 
     const handleComplete = (e) => {
