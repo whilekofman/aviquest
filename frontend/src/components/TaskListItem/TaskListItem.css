@@ -108,7 +108,8 @@
 }
 
 .task-item-options {
-    margin-right: 10px;
+    margin-right: 5px;
+    padding: 8px;
 }
 
 /* .task-options-edit {
