@@ -24,6 +24,16 @@ const TaskListItem = ({task, tasks}) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [options]);
 
+
+    const handleSelected = (e) => {
+        e.preventDefault();
+
+        setChecked(!checked)
+        let sprite = document.getElementById("aviQuestSprite")
+        sprite.inputElement.id = "shake";
+        
+    }
+
     const handleOptions = (e) => {
         // e.stopPropagation();
         e.preventDefault();
@@ -65,7 +75,7 @@ const TaskListItem = ({task, tasks}) => {
                         <label>
                             <input type="checkbox"
                             className='task-checkbox'
-                            onChange={() => setChecked(!checked)}
+                            onChange={(e) => handleSelected(e)}
                             />
                             <svg
                                 className={`checkbox ${checked ? "checkbox--active" : ""}`}

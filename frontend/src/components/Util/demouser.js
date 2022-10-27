@@ -18,7 +18,7 @@ const item1 = {
     name: "Helmet",
     description: "helm",
     attack: 50,
-    imageURL: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_38.png',
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_38.png',
     rarity: 4
 }
 
@@ -27,7 +27,7 @@ const item2 = {
     name: "Weapon",
     description: "weapon",
     attack: 50,
-    imageURL:'https://aviquest-dev.s3.amazonaws.com/Items/Item_10.png',
+    imageUrl:'https://aviquest-dev.s3.amazonaws.com/Items/Item_10.png',
     rarity: 4
 }
 const item3 = {
@@ -35,7 +35,7 @@ const item3 = {
     name: "Armor",
     description: "armor",
     attack: 50,
-    imageURL: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_43.png',
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_43.png',
     rarity: 4
 }
 const item4 = {
@@ -43,7 +43,7 @@ const item4 = {
     name: "Socks",
     description: "socks",
     attack: 50,
-    imageURL: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_51.png',
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_51.png',
     rarity: 4
 }
 
