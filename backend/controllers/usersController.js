@@ -6,7 +6,7 @@ const User = mongoose.model('User');
 
 
 module.exports = { 
-    updateEquipment: async (req, res, next) => {
+    updateAttributes: async (req, res, next) => {
 
         try { 
             let user = await User.findById(req.params.id) 
@@ -16,7 +16,6 @@ module.exports = {
                 error.statusCode = 400;
                 error.errors = { message: 'Please do not edit attributes that do not belong to you' }
             } else {
-                
                 user = User.updateOne( {_id: req.params.id }, { equipment: req.body.equipment,
                 items: req.body.items,
                 quest: req.body.quest,

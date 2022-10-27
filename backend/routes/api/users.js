@@ -103,7 +103,7 @@ router.post('/register', validateRegistrationInput, async(req, res, next) => {
     })
 })
 
-router.patch('/:id', requireUser, usersController.updateEquipment)
+router.patch('/:id', requireUser, usersController.updateAttributes)
 
 // router.patch('/:id', requireUser, async (req, res, next) => {  
 //     try {
