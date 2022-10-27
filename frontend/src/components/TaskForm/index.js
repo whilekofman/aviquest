@@ -12,6 +12,7 @@ const TaskForm = () => {
     console.log(complete)
     const handleSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         dispatch(taskActions.createTask({
             title,
             body,
