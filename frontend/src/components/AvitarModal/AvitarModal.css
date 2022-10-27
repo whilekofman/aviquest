@@ -41,4 +41,16 @@
      margin-bottom: 10%;
 }
 
+.AvitarModalPicsEdit {
+    display: flex;
+    justify-content: center;
+    cursor: pointer
+}
 
+.AvitarModalPicsEditPic {
+    height:100px
+}
+
+.AvitarModalEditButton {
+    padding: 10px;
+}
