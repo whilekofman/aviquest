@@ -1,24 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './QuestInfo.css';
 import * as questActions from '../../store/quest'
 
 const QuestInfo = ({currentQuest}) => {
-
-    // let divs = '<div>' + currentQuest.text.split('').join('</div><div>') + '</div>';
-    // $(divs).hide().appendTo('.quest-info-details').each(function (i) {
-    //     $(this).delay(100 * i).css({
-    //         display: 'inline',
-    //         opacity: 0
-    //     }).animate({
-    //         opacity: 1
-    //     }, 100);
-    // });
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(questActions.setQuest(currentQuest));
-    // },[currentQuest.text])
 
     // function restartAnimation() {
     //     let circle = document.querySelector(".circle");
@@ -31,6 +16,15 @@ const QuestInfo = ({currentQuest}) => {
     //       }, 0);
     //     });
     //   }
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(questActions.getQuests);
+    }, []);
+
+    const quest = useSelector(state => state.quests)
+    console.log(quest);
 
     return ( 
         <div className='quest-info-container'>
