@@ -36,6 +36,13 @@ const LoginForm = (props) => {
         dispatch(sessionActions.login({ email, password }))
     }
 
+    const loginDemo = () => {
+        dispatch(sessionActions.login({
+            email:'demo@user.io',
+            password: 'password'
+        }));
+    }
+
     const hideSignUpError = (e) => {
         // e.preventDefault()
     } 
@@ -69,6 +76,7 @@ const LoginForm = (props) => {
                     placeholder='Password'
                     required
                 />
+                <button onClick={loginDemo} className='login-demo'>Login as Demo User</button>
                 <button className='login-submit-button' type="submit" >Login</button>
                 </form>
                 {/* {invalidEmail} */}

@@ -1,21 +1,46 @@
 import './InventoryItem.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../../store/user';
+import { useEffect, useState } from 'react';
+import * as sessionActions from '../../store/session';
 
 const InventoryItem = (props) => {
 
-    const user = useSelector(state => state.session.user)
-
+    const user = useSelector(state => state.session.user);
+    let {attack, coins, currentHealth, email, equipment, items, maxHealth, _id } = user;
+    const dispatch = useDispatch();
     const {item} = props;
+    // const [items, setItems] = useState(items);
 
     const equipItem = () => {
+<<<<<<< HEAD
         if (user.equipment.length < 4) {
             user.equipment.push(item);
+=======
+        if (equipment.length < 4) {
+            let index = items.indexOf(item);
+            items.splice(index, 1);
+            equipment.push(item);
+>>>>>>> equiping
         } else {
-            let removedItem = user.equipment[0];
-            console.log(removedItem);
-            user.equipment = user.equipment.slice(1,4);
-            user.equipment.push(item);
+            equipment.push(item);
+            items.push(equipment[0]);
+            equipment.splice(0,1);
+            let index = items.indexOf(item);
+            items.splice(index,1);
+            // let removedItem = equipment[0];
         }
+        dispatch(updateUser({
+            attack,
+            coins,
+            currentHealth,
+            email,
+            equipment,
+            items,
+            maxHealth,
+            _id
+        }));
+        dispatch(sessionActions.getCurrentUser());
     }
 
     return (
