@@ -1,7 +1,7 @@
 import ListShowPage from "./components/ListShowPage";
 import Navigation from "./components/Navigation";
 import StatusBar from "./components/StatusBar";
-import { Switch } from "react-router-dom";
+import { Redirect, Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import { useDispatch } from "react-redux";
@@ -20,10 +20,13 @@ function App() {
   return loaded && (
     <>
       <Navigation />
+
       <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
+
+        <Route render={() => <Redirect to={{pathname: "/"}} />} />
 
         {/* <Route exact path="/login">
           <LoginForm />

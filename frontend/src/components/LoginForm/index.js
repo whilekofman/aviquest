@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 const LoginForm = (props) => {
-    const history = useHistory();
+    // const history = useHistory();
     const dispatch = useDispatch();
     useEffect(() => {
         return () => {
@@ -20,19 +20,23 @@ const LoginForm = (props) => {
     const { setLoginModal } = props;
     const sessionUser = useSelector(state => state.session.user);
     const errors = useSelector(state => state.errors.session);
+    
     // const [invalidEmail, setInvalidEmail] = useState('')
 
-
+    // function isValidEmail(email) {
+    //     return /\S+@\S+\.\S+/.test(email);
+    // }
 
     const loginUser = (e) => {
         e.preventDefault();
         email = email.toLowerCase();
 
         dispatch(sessionActions.login({ email, password }))
-            // .then(() => {
-            //     history.push('/home');
-            // })
     }
+
+    const hideSignUpError = (e) => {
+        // e.preventDefault()
+    } 
 
     if(sessionUser) {
         setLoginModal(false);
@@ -59,7 +63,7 @@ const LoginForm = (props) => {
                     placeholder='Password'
                     required
                 />
-                <button className='login-submit-button' type="submit">Login</button>
+                <button className='login-submit-button' type="submit" >Login</button>
                 </form>
                 {/* {invalidEmail} */}
                 <div className="errors">{errors?.email}</div>
