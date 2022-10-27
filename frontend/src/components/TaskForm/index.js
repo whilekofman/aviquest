@@ -3,26 +3,27 @@ import { useDispatch } from "react-redux";
 import * as taskActions from "../../store/task";
 import './TaskForm.css'
 
-const TaskForm = ({task}) => {
+const TaskForm = ({task, tasks}) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [ difficulty, setDifficulty ] = useState("");
+    const [ difficulty, setDifficulty ] = useState(1);
     const [ complete, setComplete ] = useState(false);
 
-    console.table(task);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const taskData = {
-            id: task._id,
+            _id: task._id,
             title: title,
             body: body,
             difficulty: parseInt(difficulty),
             isComplete: complete
         }
-
-        dispatch()
+        console.table(taskData);
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        newTaskList.unshift(taskData);
+        dispatch(taskActions.updateTask(taskData, newTaskList));
     }
 
     const handleComplete = (e) => {
@@ -32,11 +33,11 @@ const TaskForm = ({task}) => {
     }
 
     const completeStyle = {
-        backgroundColor: '#FF0000'
+        backgroundColor: '#00FF00'
     }
     
     const incompleteStyle = {
-        backgroundColor: '#00FF00'
+        backgroundColor: '#FF0000'
     }
 
 
@@ -60,7 +61,7 @@ const TaskForm = ({task}) => {
                 onClick={(e) => handleComplete(e)}
                 style={complete ? completeStyle : incompleteStyle}
                 >
-                Complete</button>
+                { complete ? "Complete" : "Incomplete"}</button>
 
                 <select  
                 className="taskform-difficulty"

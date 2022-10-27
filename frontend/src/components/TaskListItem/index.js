@@ -56,7 +56,7 @@ const TaskListItem = ({task, tasks}) => {
         >        
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <TaskForm task={task}/>
+                    <TaskForm task={task} tasks={tasks}/>
                 </Modal>
             )}
             <div className='task-item-body'>
