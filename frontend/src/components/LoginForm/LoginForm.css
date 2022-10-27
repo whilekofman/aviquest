@@ -1,6 +1,6 @@
 .login-modal {
     width: 400px;
-    height: 285px;
+    height: 335px;
     background-color: rgba(71, 181, 255, .96);
     border-radius: 12px;
     box-shadow: 3px 3px rgba(0, 0, 0, .3);
@@ -41,6 +41,18 @@
 }
 
 .login-submit-button {
+    margin-top: 20px;
+    font-size: 15px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, #256D85 5%, #06283D 99%);
+    cursor: pointer;
+    box-shadow: 2px 2px rgba(0, 0, 0, .3);
+}
+
+.login-demo {
     margin-top: 20px;
     font-size: 15px;
     height: 32px;

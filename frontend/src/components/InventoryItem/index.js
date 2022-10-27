@@ -1,7 +1,7 @@
 import './InventoryItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session';
 
 const InventoryItem = (props) => {
@@ -10,17 +10,20 @@ const InventoryItem = (props) => {
     let {attack, coins, currentHealth, email, equipment, items, maxHealth, _id } = user;
     const dispatch = useDispatch();
     const {item} = props;
+    // const [items, setItems] = useState(items);
 
     const equipItem = () => {
         if (equipment.length < 4) {
             let index = items.indexOf(item);
-            items = items.splice(index, 1);
+            items.splice(index, 1);
             equipment.push(item);
         } else {
-            let removedItem = equipment[0];
-            equipment = equipment.slice(1,4);
-            items.push(removedItem);
             equipment.push(item);
+            items.push(equipment[0]);
+            equipment.splice(0,1);
+            let index = items.indexOf(item);
+            items.splice(index,1);
+            // let removedItem = equipment[0];
         }
         dispatch(updateUser({
             attack,
@@ -31,7 +34,7 @@ const InventoryItem = (props) => {
             items,
             maxHealth,
             _id
-        }))
+        }));
         dispatch(sessionActions.getCurrentUser());
     }
 
