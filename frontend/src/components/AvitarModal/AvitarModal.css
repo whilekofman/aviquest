@@ -17,14 +17,14 @@
 }
 
 .AvitarModalContent {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 25%;
-    transform: translateY(20%);
+    /* transform: translateY(20%); */
     display: flex;
-    width: 300px;
+    width: 200px;
     height: 400px;
-    background-color: rgb(255, 255, 255) ;
+    background-color: #DFF6FF ;
     opacity: 100% !important;
     z-index: 11;
     flex-direction: column;
@@ -33,7 +33,9 @@
     color: black;
     border-radius: 20px;
     padding-inline:150px;
-    padding-block: 100px
+    padding-block: 100px;
+    justify-self: center;
+    align-self: center;
 }
 
 .AvitarModalPic {
@@ -53,4 +55,14 @@
 
 .AvitarModalEditButton {
     padding: 10px;
+}
+
+/* .avitar-modal-equips {
+
+} */
+
+.avitar-show-stats {
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
