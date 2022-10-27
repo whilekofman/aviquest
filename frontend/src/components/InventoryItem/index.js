@@ -8,7 +8,6 @@ const InventoryItem = (props) => {
     const {item} = props;
 
     const equipItem = () => {
-        console.log(item)
         if (user.equipment.length < 4) {
             user.equipment.push(item);
         } else {

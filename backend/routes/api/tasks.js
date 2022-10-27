@@ -33,7 +33,6 @@ router.get('/user/:userId', async (req, res, next) => {
 router.get('/:id', requireUser, async (req, res, next) => {
     try {
         const task = await Task.findById(req.params.id)
-        console.log(task)
         if (!task.user._id.equals(req.user._id)){ 
             const error = new Error('Not the ownere of this task');
             error.statusCode = 400;
@@ -90,7 +89,6 @@ router.delete('/:id', requireUser, async (req, res, next) => { //requireUser, ta
 router.patch('/:id', requireUser, async (req, res, next) => {  // requireUser,tasks/:id? || :userId/:id
     try {
         let task = await Task.findById(req.params.id) 
-        // console.log(task)
         if (!task.user._id.equals(req.user._id)){ 
             const error = new Error('Not the ownere of this task');
             error.statusCode = 400;
@@ -104,7 +102,6 @@ router.patch('/:id', requireUser, async (req, res, next) => {  // requireUser,ta
                 isComplete: req.body.isComplete,
                 difficulty: req.body.difficulty
             } 
-            console.log(updatedTask)
             task = await Task.findOneAndUpdate({ _id: req.params.id },  {
                 user: req.user._id,
                 title: req.body.title,
