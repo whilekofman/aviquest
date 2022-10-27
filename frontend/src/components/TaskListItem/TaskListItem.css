@@ -73,9 +73,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .task-options-dropdown div:hover {
     background-color: #DFF6FF;
+}
+
+.task-item-options {
+    z-index: 20;
 }
 
