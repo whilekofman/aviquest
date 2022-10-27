@@ -14,15 +14,15 @@ const TaskListItem = ({task, tasks}) => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        if (!showOptions) return;
+        if (!options) return;
 
         const closeMenu = () => {
-        setShowOptions(false);
+            setOptions(false);
         };
 
         document.addEventListener('click', closeMenu);
         return () => document.removeEventListener("click", closeMenu);
-    }, [showOptions]);
+    }, [options]);
 
     const handleOptions = (e) => {
         // e.stopPropagation();
@@ -36,14 +36,14 @@ const TaskListItem = ({task, tasks}) => {
     
     const handleEdit = (e) => {
         e.preventDefault();
-        e.stopPropagation();
+        // e.stopPropagation();
         setShowModal(true);
         setOptions(!options);
     }
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        e.stopPropagation();
+        // e.stopPropagation();
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
@@ -51,9 +51,8 @@ const TaskListItem = ({task, tasks}) => {
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
-        // onMouseLeave={() => setShowOptions(false)}
+        onMouseLeave={() => setShowOptions(false)}
         // onClick={(e) => handleShowTask(e)}
-        // onMouseUp={(e) => setShowOptions(false)}
         >        
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
@@ -87,7 +86,8 @@ const TaskListItem = ({task, tasks}) => {
                 {showOptions && <div className='task-item-options'
                 onClick={(e) => handleOptions(e)}
                 >⋮
-                    {options && 
+                </div>}
+                {options && 
                         <div className='task-options-dropdown'
                         >
                             <div className='task-options-edit'
@@ -97,8 +97,7 @@ const TaskListItem = ({task, tasks}) => {
                             onClick={(e) => handleDelete(e)}
                             >🗑 Delete</div>
                         </div>
-                    }
-                </div>}
+                }
             </div>
         </div>
      );
