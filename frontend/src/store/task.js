@@ -35,6 +35,15 @@ export const createTask = (task) => async dispatch => {
     dispatch(addTask(task));
 }
 
+export const updateTask = (task) => async dispatch => {
+    const res = await jwtFetch(`/api/tasks/${task._id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(task)
+    });
+    const data =  await res.json();
+    console.log(data);
+}
+
 export const fetchTasks = (userId) => async dispatch => {
     console.log(userId);
     const res = await jwtFetch(`/api/tasks/user/${userId}`);
