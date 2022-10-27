@@ -1,8 +1,6 @@
 const { router } = require("../app");
-// const { findByIdAndUpdate } = require('../../models/User');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-
 
 
 module.exports = { 
@@ -42,5 +40,4 @@ module.exports = {
         }
     }
 }
-
 
