@@ -31,7 +31,7 @@ const TaskListItem = ({task, tasks}) => {
         if (checked) {
             // console.log(`do ${dmg} damage`);
             // console.table(currentUser);
-            console.table(currentUser.quest.monster);
+            console.log(currentUser.quest[0].monster.imageUrl);
             // when checked, change update user iscomplete and monster hp
             const userData = {
                 _id: currentUser._id,
