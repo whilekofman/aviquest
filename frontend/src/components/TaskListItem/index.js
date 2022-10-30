@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as taskActions from '../../store/task';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
@@ -12,6 +12,9 @@ const TaskListItem = ({task, tasks}) => {
     const [options, setOptions] = useState(false);
     const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
+    const [dmg, setDmg] = useState(5);
+
+    const currentUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         if (!options) return;
@@ -23,6 +26,19 @@ const TaskListItem = ({task, tasks}) => {
         document.addEventListener('click', closeMenu);
         return () => document.removeEventListener("click", closeMenu);
     }, [options]);
+
+    useEffect(() => {
+        if (checked) {
+            // console.log(`do ${dmg} damage`);
+            // console.table(currentUser);
+            console.table(currentUser.quest.monster);
+            // when checked, change update user iscomplete and monster hp
+            const userData = {
+                _id: currentUser._id,
+            }
+
+        }
+    }, [checked]);
 
     const handleOptions = (e) => {
         // e.stopPropagation();
@@ -50,11 +66,9 @@ const TaskListItem = ({task, tasks}) => {
 
     const handleCheck = (e) => {
         setChecked(!checked);
-        console.table(task);
-        let dmg = 5;
-        if (task.difficulty === 3 ) dmg = 15;
-        if (task.difficulty === 2 ) dmg = 10;
-        
+        if (task.difficulty === 3 ) setDmg(15);
+        if (task.difficulty === 2 ) setDmg(10);
+        setChecked(!checked);
     }
 
     return ( 

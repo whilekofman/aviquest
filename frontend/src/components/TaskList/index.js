@@ -33,6 +33,7 @@ const TaskList = () => {
         e.preventDefault();
         const data = {title};
         dispatch(taskActions.createTask(data));
+        setTitle("");
     }
 
     return ( 
