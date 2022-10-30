@@ -24,9 +24,6 @@ const TaskListItem = ({task, tasks}) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [options]);
 
-
-
-
     const handleOptions = (e) => {
         // e.stopPropagation();
         e.preventDefault();
@@ -51,6 +48,15 @@ const TaskListItem = ({task, tasks}) => {
         dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
 
+    const handleCheck = (e) => {
+        setChecked(!checked);
+        console.table(task);
+        let dmg = 5;
+        if (task.difficulty === 3 ) dmg = 15;
+        if (task.difficulty === 2 ) dmg = 10;
+        
+    }
+
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
@@ -68,7 +74,7 @@ const TaskListItem = ({task, tasks}) => {
                         <label>
                             <input type="checkbox"
                             className='task-checkbox'
-                            onChange={() => setChecked(!checked)}
+                            onChange={(e) => handleCheck(e)}
                             />
                             <svg
                                 className={`checkbox ${checked ? "checkbox--active" : ""}`}
