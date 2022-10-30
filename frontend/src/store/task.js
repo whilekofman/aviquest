@@ -1,9 +1,11 @@
 import jwtFetch from "./jwt";
+import * as sessionActions from '../store/session';
 
 const RECEIVE_TASK = 'tasks/RECEIVE_TASK';
 const REMOVE_TASK = 'tasks/REMOVE_TASK';
 const ADD_TASK = 'tasks/ADD_TASK';
 const UPDATE_TASK = 'tasks/UPDATE_TASK';
+
 
 const getTask = task => ({
     type: RECEIVE_TASK,
@@ -37,7 +39,7 @@ export const createTask = (task) => async dispatch => {
         body: JSON.stringify(task)
     });
     const data = await res.json();
-    dispatch(addTask(task));
+    dispatch(addTask(data));
 }
 
 export const updateTask = (task, tasks) => async dispatch => {
@@ -61,6 +63,7 @@ export const deleteTask = (taskId, tasks) => async dispatch => {
         method: 'DELETE'
     })
     dispatch(removeTask(tasks));
+    dispatch(sessionActions.getCurrentUser());
 };
 
 const taskReducer = (state = [], action) => {

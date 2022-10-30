@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TaskListItem from '../TaskListItem';
 import * as taskActions from '../../store/task';
+import * as sessionActions from '../../store/session';
 import './TaskList.css';
 import { useDispatch, useSelector } from 'react-redux';
 
