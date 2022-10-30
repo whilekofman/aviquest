@@ -52,17 +52,18 @@ function Navigation() {
                         <div className='navbar-logotext'>Aviquest</div> 
                     </div>
                 </Link>
-                <div className='navbar-links'>
+                {sessionUser && (
+                    <div className='navbar-links'>
                     <div onClick={()=>setInventoryModal(open => !open)} className='navbar-inventory'>
                         Inventory
                     </div>
                     <div className='navbar-shop'>
                         Shop
                     </div>
-                    <div className='navbar-teams'
+                </div>)}
+                <div className='navbar-teams'
                     onClick={toggleMemberDropdown}>
                         DevTeam
-                    </div>
                 </div>
                 {memberDropdown && (
                 <TeamDropdown />
