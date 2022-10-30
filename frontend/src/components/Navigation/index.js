@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 import ProfileDropDown from '../ProfileDropDown';
 import coin from '../../assets/images/coin.png';
 import TeamDropdown from '../TeamDropdown';
@@ -10,14 +8,15 @@ import logoImg from '../../assets/images/blue_inversed_logo.png';
 import { useSelector } from 'react-redux';
 import LoginButton from '../LoginButton';
 import LoginForm from '../../components/LoginForm'
-import TaskForm from '../TaskForm';
 import Inventory from '../Inventory';
 import { Link } from 'react-router-dom';
+import AvitarModalContent from '../AvitarModal/AvitarModalContent';
 
 function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
     const [inventoryModal, setInventoryModal] = useState(false);
+    const [statsModal, setStatsModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
@@ -28,7 +27,7 @@ function Navigation() {
                     <img src={coin} alt="" className='navbar-coins'/>
                     <span className='navbar-coin-amount'>{sessionUser.coins}</span>
                 </div>
-                <ProfileDropDown />
+                <ProfileDropDown setInventoryModal={setInventoryModal} setStatsModal={setStatsModal} />
             </div>
         );
     } else {
@@ -80,6 +79,11 @@ function Navigation() {
             {inventoryModal && (
                 <Modal onClose={() => setInventoryModal(false)}>
                     <Inventory />
+                </Modal>
+            )}
+            {statsModal && (
+                <Modal onClose={() => setStatsModal(false)}>
+                    <AvitarModalContent />
                 </Modal>
             )}
      

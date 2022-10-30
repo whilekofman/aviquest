@@ -1,19 +1,14 @@
 import React, { useState, useEffect} from 'react';
-// import { Modal } from '../../context/Modal';
-// import LoginForm from './LoginForm';
-// import SignUpForm from '../SignUpModal/SignupForm';
 import { useDispatch, useSelector } from 'react-redux';
 import './ProfileDropDown.css';
 import * as sessionActions from '../../store/session' 
 import { useHistory } from 'react-router-dom';
 
-function ProfileDropDown() {
-//   const [showLoginModal, setShowLoginModal] = useState(false);
-//   const [showSignupModal, setShowSignupModal] = useState(false);
+function ProfileDropDown({setInventoryModal, setStatsModal}) {
+
     const dispatch = useDispatch();
     const [menu, setMenu] = useState(false);
     const history = useHistory();
-    // const user = useSelector(state => state.session.user)
 
     const toggleMenu = () => {
         setMenu(open => !open);
@@ -48,9 +43,9 @@ function ProfileDropDown() {
       </button>
       {menu && (
           <ul className="navbar-profile-dropdown" onClick={() => setMenu(false)}>
-              <li>Profile</li>
-              <li>Stats</li>
-              <li>Inventory</li>
+              {/* <li>Profile</li> */}
+              <li onClick={() => setStatsModal(true)}>Stats</li>
+              <li onClick={() => setInventoryModal(true)}>Inventory</li>
               <li id='profiledropdown-divider'></li>
               
               <a  href="https://github.com/whilekofman/aviquest" target="_blank" rel="noopener noreferrer"><li id='github-help'>Help</li></a> 
