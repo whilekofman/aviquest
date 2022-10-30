@@ -76,9 +76,9 @@ const LoginForm = (props) => {
                     placeholder='Password'
                     required
                 />
-                <button onClick={loginDemo} className='login-demo'>Login as Demo User</button>
                 <button className='login-submit-button' type="submit" >Login</button>
                 </form>
+                <button onClick={loginDemo} className='login-demo'>Login as Demo User</button>
                 {/* {invalidEmail} */}
             </div>
         </div>

@@ -18,11 +18,12 @@ const InventoryItem = (props) => {
             items.splice(index, 1);
             equipment.push(item);
         } else {
-            equipment.push(item);
+            // equipment.push(item);
             items.push(equipment[0]);
-            equipment.splice(0,1);
+            equipment.shift();
             let index = items.indexOf(item);
             items.splice(index,1);
+            equipment.push(item);
             // let removedItem = equipment[0];
         }
         dispatch(updateUser({
@@ -35,7 +36,7 @@ const InventoryItem = (props) => {
             maxHealth,
             _id
         }));
-        dispatch(sessionActions.getCurrentUser());
+        // dispatch(sessionActions.getCurrentUser());
     }
 
     return (

@@ -51,9 +51,10 @@ table {
 	font-family:roboto_slab;
 	src: url('./assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf');
 }
-
+	
 body {
     font-family: roboto_slab;
+	user-select: none;
 }
 
 ::-webkit-scrollbar {

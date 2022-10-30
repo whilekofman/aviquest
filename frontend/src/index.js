@@ -9,6 +9,7 @@ import configureStore from './store/store'
 import jwtFetch from './store/jwt';
 import * as sessionActions from './store/session';
 import * as taskActions from './store/task';
+import { updateUser } from './store/user';
 
 function Root() {
   const store = configureStore();
@@ -18,6 +19,7 @@ function Root() {
     window.jwtFetch = jwtFetch;
     window.sessionActions = sessionActions;
     window.taskActions = taskActions;
+    window.updateUser = updateUser;
   }
   
   return (

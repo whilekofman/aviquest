@@ -11,10 +11,9 @@ const EquipmentItem = ({item, user}) => {
 
     const unEquipItem = () => {
         if (equipment.length > 0 && items.length < 24) {
-            let unEquipptedItem = item;
+            items.push(item)
             const index = equipment.indexOf(item);
-            equipment.splice(index, 1)
-            items.push(unEquipptedItem);
+            equipment.splice(index, 1);
             // equipment = [];
             // items = [
             //     {name: 'Beginner Sword', 
@@ -138,21 +137,15 @@ const EquipmentItem = ({item, user}) => {
             //     imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_01.png'
             //     }
             // ]
-        } 
-        else {
-            return
+        } else {
+            return;
         }
         dispatch(updateUser({
-            attack,
-            coins,
-            currentHealth,
-            email,
             equipment,
             items,
-            maxHealth,
             _id
         }));
-        dispatch(sessionActions.getCurrentUser());
+        // dispatch(sessionActions.getCurrentUser());
     }
 
     return (
