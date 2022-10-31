@@ -56,9 +56,9 @@ function Navigation() {
                     <div onClick={()=>setInventoryModal(open => !open)} className='navbar-inventory'>
                         Inventory
                     </div>
-                    <div className='navbar-shop'>
+                    {/* <div className='navbar-shop'>
                         Shop
-                    </div>
+                    </div> */}
                 </div>)}
                 <div className='navbar-teams'
                     onClick={toggleMemberDropdown}>
