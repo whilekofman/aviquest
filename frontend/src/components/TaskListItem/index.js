@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as taskActions from '../../store/task';
+import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
@@ -13,8 +14,12 @@ const TaskListItem = ({task, tasks}) => {
     const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
     const [dmg, setDmg] = useState(5);
-
-    const currentUser = useSelector(state => state.session.user);
+    
+    const {attack, avitar, coins, currentHealth, quest,
+        email, equipment, items, maxHealth, movingImageUrl, username, _id
+    } = useSelector(state => state.session.user);
+    
+    const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
 
     useEffect(() => {
         if (!options) return;
@@ -29,13 +34,38 @@ const TaskListItem = ({task, tasks}) => {
 
     useEffect(() => {
         if (checked) {
-            // console.log(`do ${dmg} damage`);
-            // console.table(currentUser);
-            console.log(currentUser.quest[0].monster.imageUrl);
             // when checked, change update user iscomplete and monster hp
-            const userData = {
-                _id: currentUser._id,
+            let {id, reward, text, timeFrame, title, description} = quest[0];
+
+            let questCopy = quest[0];
+
+            // questData.monster.currentHealth += dmg;
+            console.log(`monster hp: ${monsterHp}`);
+
+            console.log(`current health: ${questCopy.monster.currentHealth}`);
+
+            // const newHealth = monster.currentHealth += dmg;
+            // setMonsterHp(monsterHp - dmg);
+
+            const monsterData = {
+                attack: questCopy.monster.attack,
+                imageUrl: questCopy.monster.imageUrl,
+                maxHealth: questCopy.monster.maxHealth,
+                movingUrl: questCopy.monster.movingUrl,
+                name: questCopy.monster.name,
+                currentHealth: (questCopy.monster.currentHealth - dmg)
             }
+            
+            const questData = {
+                id, reward, text, timeFrame, title, monster: monsterData
+            }
+
+            const userData = {
+                _id, attack, avitar, coins, currentHealth, email, equipment, items,
+                maxHealth, movingImageUrl, username, description, quest: [questData]
+            }
+
+            dispatch(userActions.updateUser(userData));
 
         }
     }, [checked]);
