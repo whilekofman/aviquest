@@ -38,7 +38,7 @@ const LoginForm = (props) => {
 
     const loginDemo = () => {
         dispatch(sessionActions.login({
-            email:'biggie2@test.io',
+            email:'demo@user.io',
             password: 'password'
         }));
     }

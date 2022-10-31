@@ -7,36 +7,28 @@ import * as sessionActions from '../../store/session';
 const InventoryItem = (props) => {
 
     const user = useSelector(state => state.session.user);
-    let {attack, coins, currentHealth, email, equipment, items, maxHealth, _id } = user;
+    let {equipment, items, _id } = user;
     const dispatch = useDispatch();
     const {item} = props;
-    // const [items, setItems] = useState(items);
 
     const equipItem = () => {
+        let index;
         if (equipment.length < 4) {
-            let index = items.indexOf(item);
+            index = items.indexOf(item);
             items.splice(index, 1);
             equipment.push(item);
         } else {
-            // equipment.push(item);
             items.push(equipment[0]);
             equipment.shift();
-            let index = items.indexOf(item);
+            index = items.indexOf(item);
             items.splice(index,1);
             equipment.push(item);
-            // let removedItem = equipment[0];
         }
         dispatch(updateUser({
-            attack,
-            coins,
-            currentHealth,
-            email,
             equipment,
             items,
-            maxHealth,
             _id
         }));
-        // dispatch(sessionActions.getCurrentUser());
     }
 
     return (
