@@ -56,4 +56,10 @@
 
 .taskform-complete {
     align-self: flex-start;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #DFF6FF;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }

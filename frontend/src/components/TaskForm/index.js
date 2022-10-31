@@ -51,6 +51,7 @@ const TaskForm = ({task, tasks, setShowModal}) => {
 
                 <textarea className="taskform-body" 
                 value={body}
+                placeholder='Add your notes here.'
                 onChange={(e)=>setBody(e.target.value)} 
                 >
                 </textarea>        
