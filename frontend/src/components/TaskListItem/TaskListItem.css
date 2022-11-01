@@ -19,23 +19,25 @@
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
+    overflow-x: hidden;
 }
 
 .task-item-body-start {
     display: flex;
+    width: 100%;
 }
 
 .task-item-title {
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative;
+    width: 80%;
     /* left: 15%; */
     margin-left: 5%;
     margin-bottom: 12px;
-    width: 100%;
-    white-space: nowrap;
-    /* overflow-x: hidden; */
+    white-space: wrap;
+    font-size: 16px;
+    /* overflow: scroll; */
 }
 
 .task-checkbox {

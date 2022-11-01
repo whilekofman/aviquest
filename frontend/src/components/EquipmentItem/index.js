@@ -14,6 +14,7 @@ const EquipmentItem = ({item, user}) => {
             items.push(item)
             const index = equipment.indexOf(item);
             equipment.splice(index, 1);
+
             // equipment = [];
             // items = [
             //     {name: 'Beginner Sword', 
@@ -140,12 +141,29 @@ const EquipmentItem = ({item, user}) => {
         } else {
             return;
         }
+        let damage = maxHealth - currentHealth;
+        let totalHp = 50;
+        let totalAttack = 5;
+
+        equipment.forEach((item) => {
+            totalHp += item.health;
+        })
+        equipment.forEach((item) => {
+            totalAttack += item.attack;
+        })
+
+        if (currentHealth > totalHp) currentHealth = totalHp;
+
+        currentHealth = totalHp - damage;
+            
         dispatch(updateUser({
             equipment,
             items,
+            maxHealth:totalHp,
+            currentHealth,
+            attack:totalAttack,
             _id
         }));
-        // dispatch(sessionActions.getCurrentUser());
     }
 
     return (

@@ -14,7 +14,7 @@ const AvitarStats = ({user}) => {
             <br />
             <HPBar health={health} />
             <br />
-            {/* <div className="StatusBarAttack main">Attack: {user.attack}</div>  */}
+            <div className="StatusBarAttack main">Attack: {user.attack}</div> 
             
         </div>
      );
