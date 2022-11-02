@@ -19,7 +19,7 @@ const Wilson = () => {
                 <img src={WilsonPic} alt="Wilsons photo" className="engineer-img"/>
             </div>
             <div className="engineer-about-blurb">
-                <p>Wilson is the front-end lead on this project, and sounding board for the team accross all aspects of the project. You can contact him using the links below or send him an <a href="mailto:wilsonchen901@gmail.com">email!</a></p>
+                <p  className="engineer-blurb">Wilson is the front-end lead on this project, and sounding board for the team accross all aspects of the project. You can contact him using the links below or send him an <a href="mailto:wilsonchen901@gmail.com">email!</a></p>
             </div>
             <div className="engineer-profesional-links">
                 <div className="engineer-git">

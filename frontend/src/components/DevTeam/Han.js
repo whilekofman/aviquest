@@ -22,7 +22,7 @@ const Han = () => {
                     <img src={HanPic} alt="Han" className="engineer-img"/>
                 </div>
                 <div className="engineer-about-blurb">
-                    <p>Han served as teamlead and project flex, working on all aspects of AviQuest.  Han was our northstar and guiding light. You can contact him using the links below or send him an <a href="mailto:hanmikechen@gmail.com">email!</a></p>
+                    <p className="engineer-blurb">Han served as teamlead and project flex, working on all aspects of AviQuest.  Han was our northstar and guiding light. You can contact him using the links below or send him an <a href="mailto:hanmikechen@gmail.com">email!</a></p>
                 </div>
                 <div className="engineer-profesional-links">
                     <div className="engineer-git">

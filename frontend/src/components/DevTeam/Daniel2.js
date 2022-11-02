@@ -8,24 +8,27 @@ import AngelList from '../../assets/images/icons8-angellist-50.png'
 const Daniel = () => {
     return ( 
         <>
-            <div className="engineer-avitar">
-                <div className="inner-avitar-box">
-                    <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/dan.gif" alt="Daniel-avitar" className="self-avitar"/>
-                </div>
+        
+            <div className="inner-avitar-box">
+                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/dan.gif" alt="daniel-avitar" className="self-avitar"/>
             </div>
-            <div className="engineer-name">
-                Daniel Li
+            <div className="engineer-name-container">
+
+                    <div className="engineer-name">
+                    Daniel Li
+
+                </div>
             </div>
             <div className="engineer-about-container">
                 <div className="engineer-photo">
                     <img src={DanielPic} alt="Daniels photo" className="engineer-img"/>
                 </div>
                 <div className="engineer-about-blurb">
-                    <p className="engineer-blurb">Daniel the CSS master, crafted the design language of AviQuest to deliver a cohesive user experience. and served as our comedic relief. You can contact him using the links below or send him an  <a href="mailto:dli53@outlook.com">email!</a></p>
+                    <p>Daniel crafted the design language of AviQuest and served as our comedic relief. You can contact him using the links below or send him an <a href="mailto:dli53@outlook.com">email!</a></p>
                 </div>
                 <div className="engineer-profesional-links">
                     <div className="engineer-git">
-                        <a href="https://github.com/DLi5" target="_blank"><img src={GitHub} alt="Github logo" /> </a>
+                        <a href="https://github.com/DLi53" target="_blank"><img src={GitHub} alt="Github logo" /> </a>
                     </div>
                     <div className="engineer-linkedin">
                         <a href="https://www.linkedin.com/in/danielli52" target="_blank"><img src={LinkedIn} alt="LinkedIn logo" /> </a>

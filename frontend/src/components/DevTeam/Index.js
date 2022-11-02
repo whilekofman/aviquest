@@ -6,7 +6,8 @@ import './DevTeam.css'
 
 const DevTeam = () => {
     return (  
-    <div className="team-container">
+    
+    <div className="team-container-inner">
 
         <div className="engineer-container">
             <Eugene />
