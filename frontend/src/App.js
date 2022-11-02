@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
+import DevTeam from "./components/DevTeam";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +23,10 @@ function App() {
       <Navigation />
 
       <Switch>
+        <Route exact path="/devteam">
+          <DevTeam />
+        </Route>
+
         <Route exact path="/">
           <HomePage />
         </Route>
