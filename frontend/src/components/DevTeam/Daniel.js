@@ -8,11 +8,15 @@ import AngelList from '../../assets/images/icons8-angellist-50.png'
 const Daniel = () => {
     return ( 
         <>
-            <div className="engineer-avitar">
-                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/wilson.gif" alt="dan-avitar" className="self-avitar"/>
+            <div className="inner-avitar-box">
+                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/eugene.gif" alt="eugene-avitar" className="self-avitar"/>
             </div>
-            <div className="daniel-name">
-                <H1>Daniel Li</H1>
+            <div className="engineer-name-container">
+                <div className="engineer-name-inner">
+                    <div className="engineer-name">
+                    Daniel Li
+                    </div>
+                </div>
             </div>
             <div className="engineer-about-container">
                 <div className="engineer-photo">

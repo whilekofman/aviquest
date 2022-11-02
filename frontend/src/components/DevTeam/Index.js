@@ -2,23 +2,26 @@ import Eugene from "./Eugene";
 import Wilson from "./Wilson"
 import Daniel from "./Daniel";
 import Han from "./Han";
-const DevPage = () => {
+import './DevTeam.css'
+
+const DevTeam = () => {
     return (  
-        <>
-            <div className="eugene-container">
-                {Eugene}
-            </div>
-            <div className="wilson-container">
-                {Wilson}
-            </div>
-            <div className="daniel-container">
-                {Daniel}
-            </div>
-            <div className="han-container">
-                {Han}
-            </div>
-        </>
+    <div className="team-container">
+
+        <div className="engineer-container">
+            <Eugene />
+        </div>
+        <div className="engineer-container">
+            <Wilson />
+        </div>
+        <div className="engineer-container">
+            <Daniel />
+        </div>
+        <div className="engineer-container">
+            <Han />
+        </div>
+    </div>
     );
 }
  
-export default DevPage;
+export default DevTeam;

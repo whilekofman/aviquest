@@ -9,14 +9,17 @@ const Han = () => {
     return ( 
         <>
             <div className="engineer-avitar">
-                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/han.gif" alt="han-avitar" className="self-avitar"/>
+                <div className="inner-avitar-box">
+                    <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/han.gif" alt="han-avitar" className="self-avitar"/>
+                </div>
+
             </div>
             <div className="engineer-name">
-                <H1>Han Chen</H1>
+                Han Chen
             </div>
             <div className="engineer-about-container">
                 <div className="engineer-photo">
-                    <img src={HanPic} alt="Hans photo" className="engineer-img"/>
+                    <img src={HanPic} alt="Han" className="engineer-img"/>
                 </div>
                 <div className="engineer-about-blurb">
                     <p>Han served as teamlead and project flex, working on all aspects of AviQuest.  Han was our northstar and guiding light. You can contact him using the links below or send him an <a href="mailto:hanmikechen@gmail.com">email!</a></p>

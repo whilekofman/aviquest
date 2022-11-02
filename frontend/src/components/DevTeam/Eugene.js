@@ -9,10 +9,12 @@ const Eugene = () => {
     return ( 
         <>
             <div className="engineer-avitar">
-                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/eugene.gif" alt="eugene-avitar" className="self-avitar"/>
+                <div className="inner-avitar-box">
+                    <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/eugene.gif" alt="eugene-avitar" className="self-avitar"/>
+                </div>
             </div>
             <div className="engineer-name">
-                <H1>Eugene Kofman</H1>
+                Eugene Kofman
             </div>
             <div className="engineer-about-container">
                 <div className="engineer-photo">
