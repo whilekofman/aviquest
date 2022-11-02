@@ -11,9 +11,9 @@ const TaskListItem = ({task, tasks}) => {
     const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
-    const [checked, setChecked] = useState(task.isComplete);
+    const [checked, setChecked] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [dmg, setDmg] = useState(5);
+    const [dmg, setDmg] = useState(0.7);
     
     const {attack, avitar, coins, currentHealth, quest,
         email, equipment, items, maxHealth, movingImageUrl, username, _id
@@ -53,7 +53,7 @@ const TaskListItem = ({task, tasks}) => {
                 maxHealth: questCopy.monster.maxHealth,
                 movingUrl: questCopy.monster.movingUrl,
                 name: questCopy.monster.name,
-                currentHealth: (questCopy.monster.currentHealth - dmg)
+                currentHealth: (questCopy.monster.currentHealth - dmg * attack)
             }
             
             const questData = {
@@ -96,9 +96,11 @@ const TaskListItem = ({task, tasks}) => {
 
     const handleCheck = (e) => {
         setChecked(!checked);
-        if (task.difficulty === 3 ) setDmg(15);
-        if (task.difficulty === 2 ) setDmg(10);
+        if (task.difficulty === 3 ) setDmg(1.5);
+        if (task.difficulty === 2 ) setDmg(1);
         setChecked(!checked);
+        const newTask = { isComplete:checked, title:task.title, body: task.body, difficulty: task.difficulty, user: task.user };
+        dispatch(taskActions.updateTask(newTask,tasks));
     }
 
     return ( 
