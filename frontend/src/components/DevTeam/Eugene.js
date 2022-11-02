@@ -1,27 +1,38 @@
 import React  from "react";
-import Eugene from '../../assets/images/eugene.jpeg'
+import EugenePic from '../../assets/images/eugene.jpeg'
 import GitHub from '../../assets/images/icons8-github-50.png'
+import LinkedIn from '../../assets/images/icons8-linkedin-circled-50.png'
+import AngelList from '../../assets/images/icons8-angellist-50.png'
 
 
 const Eugene = () => {
     return ( 
         <>
-        <div className="eugene-name">
-            <H1>Eugene</H1>
-        </div>
-        <div className="eugene-about-container">
-            <div className="eugene-photo">
-                <img src={Eugene} alt="Eugenes photo" className="eugene-img"/>
+            <div className="engineer-avitar">
+                <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/eugene.gif" alt="eugene-avitar" className="self-avitar"/>
             </div>
-            <div className="eugene-about-blurb">
-                <p>Eugene is a New York based Software Engineer.  You can contact him using the links below or send him an <a href="mailto:eugenekofman@gmail.com">email!</a></p>
+            <div className="engineer-name">
+                <H1>Eugene Kofman</H1>
             </div>
-            <div className="eugene-profesional-links">
-                <div className="eugene-git">
-
+            <div className="engineer-about-container">
+                <div className="engineer-photo">
+                    <img src={EugenePic} alt="Eugenes photo" className="engineer-img"/>
+                </div>
+                <div className="engineer-about-blurb">
+                    <p>Eugene worked as the backend lead on this project and Wilson's personal sounding board.  You can contact him using the links below or send him an <a href="mailto:eugenekofman@gmail.com">email!</a></p>
+                </div>
+                <div className="engineer-profesional-links">
+                    <div className="engineer-git">
+                        <a href="https://github.com/whilekofman" target="_blank"><img src={GitHub} alt="Github logo" /> </a>
+                    </div>
+                    <div className="engineer-linkedin">
+                        <a href="https://www.linkedin.com/in/eugene-kofman-1119aa189/" target="_blank"><img src={LinkedIn} alt="LinkedIn logo" /> </a>
+                    </div>
+                    <div className="engineer-angellist">
+                        <a href="https://angel.co/u/eugene-kofman" target="_blank"><img src={AngelList} alt="AngelList logo" /></a>
+                    </div>
                 </div>
             </div>
-        </div>
         </>
      );
 }
