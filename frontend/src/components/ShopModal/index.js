@@ -1,11 +1,12 @@
 import { Modal } from '../../context/Modal';
 import './ShopModal.css'
-import ShopItemEach from './ShopItemEach';
-import { allItems } from './ShopItemTest';
+import InventoryItem from './ShopItemEach2';
+import ShopItemEach from './ShopItemEach'
+import itemData from '../Util/item_data';
 
 const ShopModal = () => {
 
-    const allItemsMapped = allItems.map(item => <ShopItemEach item={item}/>    )
+    const allItemsMapped = itemData.map(item => <ShopItemEach item={item} key={item.id}/> )
 
     return ( 
         <div className="ShopModal">

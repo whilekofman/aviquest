@@ -1,7 +1,7 @@
 const ShopItemEach = ({item}) => {
     return ( 
         <div className="ShopModal-ShopItemEach">
-            <img src={item.imageURL} className='ShopModal-ShopItemEachPic' />
+            <img src={item.imageUrl} className='ShopModal-ShopItemEachPic' />
             {item.name}
 
         </div>

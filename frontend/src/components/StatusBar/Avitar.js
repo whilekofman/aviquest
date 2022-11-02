@@ -4,6 +4,7 @@ import AvitarModal from '../AvitarModal'
 import avitar from './AvitarPic.webp'
 import AvitarModalContent from '../AvitarModal/AvitarModalContent'
 import { Modal } from '../../context/Modal'
+import ShopModal from '../ShopModal'
 
 const Avitar = () => {
     const [open, setOpen] = useState(false)

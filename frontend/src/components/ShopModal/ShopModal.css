@@ -3,15 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.464);
-    width: 50%;
+    background-color: rgba(255, 255, 255, 0.889);
+    width: 500px;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .ShowModal-ShopItems {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 500px;
     /* background-color: yellow; */
 }
 
@@ -19,11 +21,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10%;
+    padding: 5%;
 }
 
 .ShopModal-ShopItemEachPic {
-    height: 100px;
-    width: 100px;
-    padding: 10%;
+    height: 30px;
+    width: 30px;
+    padding: 5%;
 }
