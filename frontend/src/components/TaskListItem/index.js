@@ -5,6 +5,8 @@ import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
+import Inventory from '../Inventory';
+import RewardsContent from '../Rewards/RewardsContent';
 
 const TaskListItem = ({task, tasks}) => {
 
@@ -13,6 +15,7 @@ const TaskListItem = ({task, tasks}) => {
     const [options, setOptions] = useState(false);
     const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
+    const [showQuestModal, setShowQuestModal] = useState(false);
     const [dmg, setDmg] = useState(0.7);
     
     const {attack, avitar, coins, currentHealth, quest,
@@ -41,37 +44,44 @@ const TaskListItem = ({task, tasks}) => {
             let questCopy = quest[0];
 
             // questData.monster.currentHealth += dmg;
-            console.log(`monster hp: ${monsterHp}`);
-
-            console.log(`current health: ${questCopy.monster.currentHealth}`);
 
             // const newHealth = monster.currentHealth += dmg;
             // setMonsterHp(monsterHp - dmg);
 
-            const monsterData = {
-                attack: questCopy.monster.attack,
-                imageUrl: questCopy.monster.imageUrl,
-                maxHealth: questCopy.monster.maxHealth,
-                movingUrl: questCopy.monster.movingUrl,
-                name: questCopy.monster.name,
-                currentHealth: (questCopy.monster.currentHealth - dmg * attack)
-            }
+            // const currenthealth = () => {
+            //     const newhealff = questCopy.monster.currentHealth
+            //     if (questCopy.monster.name !== 'Reward') {
+            //         newhealff = questCopy.monster.currentHealth - dmg * attack
+            //     }
+            //     return newhealff
+            // }
+
+            if ( (questCopy.monster.currentHealth - dmg * attack)  <= 0 ) {
+                setShowQuestModal(true)
+            } 
+
+                const monsterData = {
+                    attack: questCopy.monster.attack,
+                    imageUrl: questCopy.monster.imageUrl,
+                    maxHealth: questCopy.monster.maxHealth,
+                    movingUrl: questCopy.monster.movingUrl,
+                    name: questCopy.monster.name,
+                    currentHealth: (questCopy.monster.currentHealth - dmg * attack)
+                }
+                
+                const questData = {
+                    id, reward, text, timeFrame, title, monster: monsterData
+                }
+
+                const userData = {
+                    _id, attack, avitar, coins, currentHealth, email, equipment, items,
+                    maxHealth, movingImageUrl, username, description, quest: [questData]
+                }
+
+                dispatch(userActions.updateUser(userData));
             
-            const questData = {
-                id, reward, text, timeFrame, title, monster: monsterData
-            }
-
-            const userData = {
-                _id, attack, avitar, coins, currentHealth, email, equipment, items,
-                maxHealth, movingImageUrl, username, description, quest: [questData]
-            }
-
-            dispatch(userActions.updateUser(userData));
-
         }
 
-
-            console.log(checked);
             const taskData = { 
                 _id: task._id,
                 title: task.title, 
@@ -123,7 +133,12 @@ const TaskListItem = ({task, tasks}) => {
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
         // onClick={(e) => handleShowTask(e)}
-        >        
+        >       
+            {showQuestModal && (
+                <Modal onClose={() => setShowQuestModal(false)}>
+                     <RewardsContent closeModal={() => setShowQuestModal(false)}/>
+                </Modal>
+            )} 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}/>

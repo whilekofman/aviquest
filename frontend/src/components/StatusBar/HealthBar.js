@@ -1,4 +1,3 @@
-import rewardsUtils from '../Rewards/RewardsUtil'
 
 const HPBar = ({health}) => {
 
@@ -6,7 +5,7 @@ const HPBar = ({health}) => {
     const color1 = (hp/100 * 255)
     const color2 = 255-(hp/100 * 255)
     const color3 = 255-(hp/100 * 255)
-    const herth = rewardsUtils(health.currentHealth)
+
 
 
     const hpbarstyle = {
