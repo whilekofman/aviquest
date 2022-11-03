@@ -1,7 +1,7 @@
 # Aviquest
 
 ## Background
-<a href='https://aviquest.herokuapp.com' alt=''>Aviquest</a> is a gamified task managing system that allows users to create their own tasks for their life and be motivated to actually complete each task. Every user will start off with an Avitar character that they can customize and embark on quests. With each task that the user completes, they can progress on an ongoing quest to earn rewards that users can use to purchase weapons and equipment. This allows users to view life errands as a game rather than a chore, which will motivate users to be super productive.
+<a href='https://aviquest.herokuapp.com' alt=''>Aviquest</a> is a gamified task manager application that allows users to create their own real life tasks and complete them to receive rewards. Every user will start off with an Avitar character that they can be customized and embark on quests. With each task that the user completes, they can progress and complete quest to earn rewards that can be used to purchase weapons and equipment. The application aims to incentivize users for completing tedious chores and mundane tasks to help them complete tasks and build good habits.
 
 ## Technologies
 
