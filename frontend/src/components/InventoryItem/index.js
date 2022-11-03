@@ -1,8 +1,6 @@
 import './InventoryItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user';
-import { useEffect, useState } from 'react';
-import * as sessionActions from '../../store/session';
 
 const InventoryItem = (props) => {
 

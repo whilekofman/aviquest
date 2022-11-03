@@ -17,10 +17,6 @@ const StatusBar = () => {
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     dispatch(getCurrentUser())
-    // },[])
-
 
     const monsterHealth = {
         currentHealth: currentUser.quest[0].monster.currentHealth,

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { getCurrentUser } from "./store/session";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
-import DevTeam from "./components/DevTeam";
+import DevTeam from "./components/DevTeam/Index";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
