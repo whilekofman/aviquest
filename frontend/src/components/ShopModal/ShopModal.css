@@ -3,7 +3,7 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.889);
+    background-color: #DFF6FF;
     width: 400px;
     height: 500px;
     overflow-y: scroll;
@@ -58,12 +58,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: beige;
+    background-color: #f7f7f7;
 }
 
 .gacha-item-name {
     margin-top: 5px;
     margin-bottom: 20px;
+    height: 16px;
 }
 
 .big-gacha-button:active ~.gacha-item-name {

@@ -31,6 +31,8 @@ const ShopModal = () => {
         setItemData(itemList[randomNumber]);
     };
 
+    console.log(itemData)
+
     return ( 
         <div className="ShopModal">
             <h1>Claim your reward!</h1>
@@ -44,7 +46,9 @@ const ShopModal = () => {
                 
             </div>
             <div className='gacha-item-name'>
-                Item Name
+                {itemData && (
+                        itemData.name
+                )}
             </div>
 
             <div className="gacha-button-div">
