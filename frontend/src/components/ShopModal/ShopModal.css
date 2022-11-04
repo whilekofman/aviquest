@@ -40,12 +40,16 @@
 .big-gacha-button {
     border-radius: 8px;
     box-shadow: 4px 4px rgba(0, 0, 0,0.5);
+    height: 180px;
+    margin-top: 10px;
 }
 
 .big-gacha-button:active {
     /* margin-left: 4px;
     margin-top: 4px; */
     box-shadow: none;
+    margin-top: 14px;
+    margin-left: 4px;
 }
 
 

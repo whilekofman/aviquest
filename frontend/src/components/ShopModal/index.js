@@ -1,7 +1,6 @@
 import './ShopModal.css'
 import itemList from '../Util/item_data';
 import gachapon from '../../assets/images/gachapon.gif';
-import ShopItem from './ShopItem';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,7 +15,6 @@ const ShopModal = () => {
     let [moving, setMoving] = useState(false);
     const user = useSelector(state => state.session.user);
     const {_id, coins} = user;
-    // const [coins, setCoins] = useState(user.coins)
     const dispatch = useDispatch();
     
     let timeout;    
@@ -54,15 +52,6 @@ const ShopModal = () => {
             </div>
 
             <div id='gacha-item-box' className='gacha-item-box'>
-                {/* <div>
-                    aaa
-                </div>
-                <div>
-                    bbb
-                </div>
-                <div>
-                    abc
-                </div> */}
 
                 {itemData && (
                     <img className='gacha-item-image' src={itemData.imageUrl} alt="" />
