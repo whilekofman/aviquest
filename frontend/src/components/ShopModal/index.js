@@ -10,11 +10,11 @@ import { updateUser } from '../../store/user';
 
 const ShopModal = ({reward, setReward}) => {
     
+    const user = useSelector(state => state.session.user);
+    const {_id, coins, equipment, items} = user;
     const [itemData, setItemData] = useState(null);
     const [index, setIndex] = useState(0);
     const [moving, setMoving] = useState(false);
-    const user = useSelector(state => state.session.user);
-    const {_id, coins, equipment, items} = user;
     const dispatch = useDispatch();
     
     let timeout;    
@@ -35,17 +35,19 @@ const ShopModal = ({reward, setReward}) => {
             setItemData(itemList[index]);
             const count = setInterval(() => {
                 setIndex(Math.floor(Math.random() * itemList.length))
-            },1);
+            },60);
             return () => {
                 clearInterval(count);
             };
-        } else if (!moving && reward){
+        } else if (!moving && reward && itemList[index] && items.length < 24){
             newItems.push(itemList[index])
             dispatch(updateUser({
                 _id,
                 coins: coins -50,
-                items:newItems
+                items:newItems,
             }))
+        } else {
+            return;
         }
     },[index,moving]);
     
