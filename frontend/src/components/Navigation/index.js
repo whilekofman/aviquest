@@ -19,6 +19,7 @@ function Navigation() {
     const [inventoryModal, setInventoryModal] = useState(false);
     const [statsModal, setStatsModal] = useState(false);
     const [gachaModal, setGachaModal] = useState(false);
+    const [reward, setReward] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
@@ -95,8 +96,11 @@ function Navigation() {
                 </Modal>
             )}
             {gachaModal && (
-                <Modal onClose={() => setGachaModal(false)}>
-                    <ShopModal />
+                <Modal onClose={() => {
+                    setGachaModal(false);
+                    setReward(false);
+                }}> 
+                    <ShopModal reward={reward} setReward={setReward}/>
                 </Modal>
             )}
      

@@ -8,41 +8,58 @@ import { useSelector } from 'react-redux';
 import { updateUser } from '../../store/user';
 
 
-const ShopModal = () => {
+const ShopModal = ({reward, setReward}) => {
     
     const [itemData, setItemData] = useState(null);
-    let [index, setIndex] = useState(0);
-    let [moving, setMoving] = useState(false);
+    const [index, setIndex] = useState(0);
+    const [moving, setMoving] = useState(false);
     const user = useSelector(state => state.session.user);
-    const {_id, coins} = user;
+    const {_id, coins, equipment, items} = user;
     const dispatch = useDispatch();
     
     let timeout;    
+    let newItems = [...items];
+    const userOwnedEquipment = [...equipment, ...items];
+    
+
+    userOwnedEquipment.forEach((item) => {
+        itemList.forEach((itm, idx) => {
+            if (item && itm.name === item.name) itemList.splice(idx, 1);
+        });
+    });
+
+    // console.log(itemList);
 
     useEffect(() => {
         if (moving) {
             setItemData(itemList[index]);
             const count = setInterval(() => {
-                if (index > itemList.length - 2) {
-                    setIndex(0);
-                } else {
-                    setIndex(index + 1)
-                }
-            },70);
+                setIndex(Math.floor(Math.random() * itemList.length))
+            },1);
             return () => {
                 clearInterval(count);
             };
+        } else if (!moving && reward){
+            newItems.push(itemList[index])
+            dispatch(updateUser({
+                _id,
+                coins: coins -50,
+                items:newItems
+            }))
         }
     },[index,moving]);
-    clearTimeout(timeout);
+    
+    
     const handleClick = (e) => {
         e.preventDefault();
         setMoving(true);
         timeout = setTimeout(() => {
             setMoving(false);
-        },Math.random() * (300) + 1700);
-        dispatch(updateUser({coins: coins -50, _id}));
+        },2000);
+        setReward(true);
     };
+    clearTimeout(timeout);
+    
 
     return ( 
         <div className="ShopModal">
