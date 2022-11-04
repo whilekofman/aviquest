@@ -54,11 +54,13 @@ const ShopModal = ({reward, setReward}) => {
     
     const handleClick = (e) => {
         e.preventDefault();
-        setMoving(true);
-        timeout = setTimeout(() => {
-            setMoving(false);
-        },2000);
-        setReward(true);
+        if (user.coins > 49) {
+            setMoving(true);
+            timeout = setTimeout(() => {
+                setMoving(false);
+            },2000);
+            setReward(true);
+        }
     };
     clearTimeout(timeout);
     
