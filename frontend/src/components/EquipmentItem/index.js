@@ -14,7 +14,8 @@ const EquipmentItem = ({item, user}) => {
             items.push(item)
             const index = equipment.indexOf(item);
             equipment.splice(index, 1);
-
+            
+            // currentHealth = 50;
             // equipment = [];
             // items = [
             //     {name: 'Beginner Sword', 

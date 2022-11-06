@@ -68,6 +68,6 @@
     grid-template-rows: repeat(6, 1fr);
     column-gap: 0px;
     row-gap: 0px;
-    background-color: rgba(234, 234, 234, .4);
+    /* background-color: rgba(234, 234, 234, .4); */
     /* margin-left: 2px; */
 }

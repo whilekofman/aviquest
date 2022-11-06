@@ -18,7 +18,7 @@ const HPBar = ({health}) => {
             <div className="hp">❤️</div>
             <div className="hpbar" > 
                 <div className="redhpbar" style={hpbarstyle}></div>
-                <div className="hpnum"> {health.currentHealth} / {health.maxHealth} </div>
+                <div className="hpnum"> { parseInt(health.currentHealth)} / {health.maxHealth} </div>
             </div>
         </div>
      );

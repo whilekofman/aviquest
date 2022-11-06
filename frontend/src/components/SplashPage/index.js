@@ -16,7 +16,7 @@ const SplashPage = () => {
     return ( 
         <div className="SplashPage" >
 
-            <section className="SplashPagePg1" >
+            <section id="top-of-page" className="SplashPagePg1" >
                 <div className="SplashPagePg1Left">
                     <img src={avengersImg} alt="" />
                     <br />
@@ -62,11 +62,13 @@ const SplashPage = () => {
 
                 <br />
                 <br />
+                <a className='join-aviquest-link' href="#top-of-page">
                 <div className="SplashPageJoinAviQuest">
                     <h1 className='SplashPageJoinToday'>JOIN</h1>
                     <h1 className='SplashPagePg3H1'>AVIQUEST </h1>
                     <h1 className='SplashPageJoinToday'> TODAY! </h1>
                 </div>
+                </a>
             </section>
 
             {/* <section>

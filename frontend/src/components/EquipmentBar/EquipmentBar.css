@@ -1,10 +1,9 @@
 .equipment-list {
-
     display: inline-grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1, 1fr;
     width: 263.4px;
-    background: rgba(235, 235, 235, .4);
+    /* background: rgba(235, 235, 235, .4); */
 }
 
 .equipment-list-background {
