@@ -58,17 +58,19 @@ const SplashPage = () => {
             </section>
 
             <section className="SplashPagePg3">
-                <img src={logoImg} alt="" />
+                <div className='splash3-container'>
+                    <img className='splash3-logo' src={logoImg} alt="" />
 
-                <br />
-                <br />
-                <a className='join-aviquest-link' href="#top-of-page">
-                <div className="SplashPageJoinAviQuest">
-                    <h1 className='SplashPageJoinToday'>JOIN</h1>
-                    <h1 className='SplashPagePg3H1'>AVIQUEST </h1>
-                    <h1 className='SplashPageJoinToday'> TODAY! </h1>
+                    <br />
+                    <br />
+                    <a className='join-aviquest-link' href="#top-of-page">
+                    <div className="SplashPageJoinAviQuest">
+                        <h1 className='SplashPageJoinToday'>JOIN</h1>
+                        <h1 className='SplashPagePg3H1'>AVIQUEST </h1>
+                        <h1 className='SplashPageJoinToday'> TODAY! </h1>
+                    </div>
+                    </a>
                 </div>
-                </a>
             </section>
 
             {/* <section>
