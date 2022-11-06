@@ -23,6 +23,7 @@
     display: flex;
     justify-items: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .inventory-popup {

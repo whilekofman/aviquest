@@ -69,13 +69,16 @@ function Navigation() {
                         Gachapon
                     </div>
                 </div>)}
-                <div className='navbar-teams'
-                    onClick={toggleMemberDropdown}>
-                        DevTeam
-                </div>
-                {memberDropdown && (
+                <Link to="/devteam">
+                    <div className='navbar-teams'
+                        // onClick={toggleMemberDropdown}
+                        >
+                            DevTeam
+                    </div>
+                </Link>
+                {/* {memberDropdown && (
                 <TeamDropdown />
-                )}
+                )} */}
             </div>
             {sessionLinks}      
             {loginModal && (

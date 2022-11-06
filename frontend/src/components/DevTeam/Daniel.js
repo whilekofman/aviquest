@@ -7,7 +7,7 @@ import AngelList from '../../assets/images/icons8-angellist-50.png'
 
 const Daniel = () => {
     return ( 
-        <>
+        <div className="engineer-subcontainer">
             <div className="engineer-avitar">
                 <div className="inner-avitar-box">
                     <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/dan.gif" alt="Daniel-avitar" className="self-avitar"/>
@@ -35,7 +35,7 @@ const Daniel = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
      );
 }
  

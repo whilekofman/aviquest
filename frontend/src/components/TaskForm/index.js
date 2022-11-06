@@ -68,8 +68,8 @@ const TaskForm = ({task, tasks, setShowModal}) => {
                 value={difficulty} 
                 onChange={(e) => setDifficulty(e.target.value)}
                 >
-                    <option value="1">Basic</option>
-                    <option value="2">Average</option>
+                    <option value="1">Easy</option>
+                    <option value="2">Medium</option>
                     <option value="3">Difficult</option>
                 </select>
 

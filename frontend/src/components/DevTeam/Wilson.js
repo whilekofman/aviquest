@@ -7,9 +7,9 @@ import AngelList from '../../assets/images/icons8-angellist-50.png'
 
 const Wilson = () => {
     return ( 
-        <>
+        <div className="engineer-subcontainer">
         <div className="inner-avitar-box">
-            <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/wilson.gif" alt="eugene-avitar" className="self-avitar"/>
+            <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/wilson.gif" alt="eugene-avitar" className="engineer-avitar"/>
         </div>
         <div className="engineer-name">
             Wilson Chen
@@ -19,7 +19,7 @@ const Wilson = () => {
                 <img src={WilsonPic} alt="Wilsons photo" className="engineer-img"/>
             </div>
             <div className="engineer-about-blurb">
-                <p  className="engineer-blurb">Wilson is the front-end lead on this project, and sounding board for the team accross all aspects of the project. You can contact him using the links below or send him an <a href="mailto:wilsonchen901@gmail.com">email!</a></p>
+                <p  className="engineer-blurb">Wilson is the front-end lead on this project, and sounding board for the team across all aspects of the project. You can contact him using the links below or send him an <a href="mailto:wilsonchen901@gmail.com">email!</a></p>
             </div>
             <div className="engineer-profesional-links">
                 <div className="engineer-git">
@@ -33,7 +33,7 @@ const Wilson = () => {
                 </div>
             </div>
         </div>
-        </>
+        </div>
      );
 }
  

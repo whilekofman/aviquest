@@ -15,10 +15,8 @@
     width: 100%;
     margin-left: 2%;
     margin-right: 2%;
-    /* background-color: rgb(237, 236, 238); */
+    display: flex;
 }
-
-
 
 .engineer-img{
     height: 100px;
@@ -28,12 +26,11 @@
 }
 
 .engineer-avitar {
+    margin-top: 15%;
     height: 200px;
     width: auto;
     display: flex;
     align-items: center;
-
-    
 }
 
 .engineer-name {
@@ -64,6 +61,11 @@
     display: flex;
     flex-direction: row;
 }
+
+/* .engineer-profesional-links>div {
+    margin-left: 50%;
+
+} */
 
 
 .engineer-git {
@@ -97,5 +99,15 @@
 
 .engineer-blurb {
     margin-block: 10%;
+    line-height: 24px;
+    padding: 7%;
+    /* height: calc(27vh - 180px); */
     /* padding-inline: 10% */
+}
+
+.engineer-subcontainer {
+    background-color: rgba(237, 236, 238,.65);
+    padding: 24px;
+    height: 80vh;
+    border-radius: 8px;
 }

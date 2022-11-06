@@ -20,7 +20,7 @@ const TaskList = () => {
         }
 
         generateTasks();
-    }, [])
+    }, [tasks])
 
     useEffect(() => {
         if (tasks && tasks.length > 0) {
