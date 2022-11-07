@@ -17,12 +17,14 @@ const TaskListItem = ({task, tasks}) => {
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
     const [dmg, setDmg] = useState(0.7);
+
     
     const {attack, avitar, coins, currentHealth, quest,
         email, equipment, items, maxHealth, movingImageUrl, username, _id
     } = useSelector(state => state.session.user);
 
-    
+    let {id, reward, text, timeFrame, title, description} = quest[0];
+
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
 
     useEffect(() => {
@@ -39,7 +41,7 @@ const TaskListItem = ({task, tasks}) => {
     useEffect(() => {
         if (checked) {
             // when checked, change update user iscomplete and monster hp
-            let {id, reward, text, timeFrame, title, description} = quest[0];
+
 
             let questCopy = quest[0];
 
@@ -56,9 +58,7 @@ const TaskListItem = ({task, tasks}) => {
             //     return newhealff
             // }
 
-            if ( (questCopy.monster.currentHealth - dmg * attack)  <= 0 ) {
-                setShowQuestModal(true)
-            } 
+    
 
                 const monsterData = {
                     attack: questCopy.monster.attack,
@@ -94,7 +94,7 @@ const TaskListItem = ({task, tasks}) => {
             dispatch(taskActions.updateTask(taskData, newTaskList));
 
 
-    }, [checked]);
+    }, [checked, monsterHp]);
 
     const handleOptions = (e) => {
         // e.stopPropagation();
@@ -124,19 +124,48 @@ const TaskListItem = ({task, tasks}) => {
         if (task.difficulty === 3 ) setDmg(1.5);
         if (task.difficulty === 2 ) setDmg(1);
         setChecked(!checked);
-        const taskData = { 
-            _id: task._id,
-            title: task.title, 
-            body: task.body, 
-            difficulty: task.difficulty, 
-            isComplete: checked
-        };
-        if (checked)  {
-            let newCurrentHealth = currentHealth - dmg * attack
-            // dispatch(userActions.updateUser());
+
+        if (!checked)  {
+            let questCopy = quest[0];
+            setMonsterHp(monsterHp - dmg * attack);
+            console.log(monsterHp)
+
+            const monsterData = {
+                attack: questCopy.monster.attack,
+                imageUrl: questCopy.monster.imageUrl,
+                maxHealth: questCopy.monster.maxHealth,
+                movingUrl: questCopy.monster.movingUrl,
+                name: questCopy.monster.name,
+                currentHealth: monsterHp
+            }
+            
+            const questData = {
+                id, reward, text, timeFrame, title, monster: monsterData
+            }
+
+            dispatch(userActions.updateUser({
+                _id, attack, avitar, coins, currentHealth, email, equipment, items,
+                maxHealth, movingImageUrl, username, description, 
+                quest:[questData]
+            })).then(
+
+                console.log(questCopy.monster.currentHealth)
+                )
+            if ( monsterHp <= 0 ) {
+                setShowQuestModal(true);
+            } 
         };
         // checked ? setChecked(false) : setChecked(true);
 
+        // const monsterData = {
+        //     attack: questCopy.monster.attack,
+        //     imageUrl: questCopy.monster.imageUrl,
+        //     maxHealth: questCopy.monster.maxHealth,
+        //     movingUrl: questCopy.monster.movingUrl,
+        //     name: questCopy.monster.name,
+        //     currentHealth: (questCopy.monster.currentHealth)
+        // }
+        
     }
 
     return ( 
