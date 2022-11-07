@@ -82,7 +82,7 @@
     position: relative;
     align-items: center;
     border-radius: 5px; 
-    box-shadow: 3px 3px rgba(128, 128, 128, 0.3)
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3);
 }
 
 .redhpbar{

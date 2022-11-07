@@ -5,7 +5,6 @@ import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
-import Inventory from '../Inventory';
 import RewardsContent from '../Rewards/RewardsContent';
 
 const TaskListItem = ({task, tasks}) => {
@@ -28,6 +27,10 @@ const TaskListItem = ({task, tasks}) => {
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
 
     useEffect(() => {
+        setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
+    },[quest[0].id])
+
+    useEffect(() => {
         if (!options) return;
 
         const closeMenu = () => {
@@ -39,83 +42,32 @@ const TaskListItem = ({task, tasks}) => {
     }, [options]);
 
     useEffect(() => {
-        if (checked) {
-            // when checked, change update user iscomplete and monster hp
 
-
-            let questCopy = quest[0];
-
-            // questData.monster.currentHealth += dmg;
-
-            // const newHealth = monster.currentHealth += dmg;
-            // setMonsterHp(monsterHp - dmg);
-
-            // const currenthealth = () => {
-            //     const newhealff = questCopy.monster.currentHealth
-            //     if (questCopy.monster.name !== 'Reward') {
-            //         newhealff = questCopy.monster.currentHealth - dmg * attack
-            //     }
-            //     return newhealff
-            // }
-
-    
-
-                const monsterData = {
-                    attack: questCopy.monster.attack,
-                    imageUrl: questCopy.monster.imageUrl,
-                    maxHealth: questCopy.monster.maxHealth,
-                    movingUrl: questCopy.monster.movingUrl,
-                    name: questCopy.monster.name,
-                    currentHealth: (questCopy.monster.currentHealth)
-                }
-                
-                const questData = {
-                    id, reward, text, timeFrame, title, monster: monsterData
-                }
-
-                const userData = {
-                    _id, attack, avitar, coins, currentHealth, email, equipment, items,
-                    maxHealth, movingImageUrl, username, description, quest: [questData]
-                }
-
-                dispatch(userActions.updateUser(userData));
-            
-        }
-
-            const taskData = { 
-                _id: task._id,
-                title: task.title, 
-                body: task.body, 
-                difficulty: task.difficulty, 
-                isComplete: checked
-                };
-            const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
-            newTaskList.unshift(taskData);
-            dispatch(taskActions.updateTask(taskData, newTaskList));
-
-
-    }, [checked, monsterHp]);
+        const taskData = { 
+            _id: task._id,
+            title: task.title, 
+            body: task.body, 
+            difficulty: task.difficulty, 
+            isComplete: checked
+            };
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        newTaskList.unshift(taskData);
+        dispatch(taskActions.updateTask(taskData, newTaskList));
+    }, [checked]);
 
     const handleOptions = (e) => {
-        // e.stopPropagation();
         e.preventDefault();
         setOptions(!options);
-    }
-
-    const handleShowTask = (e) => {
-        e.preventDefault();
     }
     
     const handleEdit = (e) => {
         e.preventDefault();
-        // e.stopPropagation();
         setShowModal(true);
         setOptions(!options);
     }
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        // e.stopPropagation();
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
@@ -128,7 +80,6 @@ const TaskListItem = ({task, tasks}) => {
         if (!checked)  {
             let questCopy = quest[0];
             setMonsterHp(monsterHp - dmg * attack);
-            console.log(monsterHp)
 
             const monsterData = {
                 attack: questCopy.monster.attack,
@@ -138,41 +89,25 @@ const TaskListItem = ({task, tasks}) => {
                 name: questCopy.monster.name,
                 currentHealth: monsterHp
             }
-            
             const questData = {
                 id, reward, text, timeFrame, title, monster: monsterData
             }
-
-            dispatch(userActions.updateUser({
+            const userData = {
                 _id, attack, avitar, coins, currentHealth, email, equipment, items,
-                maxHealth, movingImageUrl, username, description, 
-                quest:[questData]
-            })).then(
-
-                console.log(questCopy.monster.currentHealth)
-                )
+                maxHealth, movingImageUrl, username, description, quest: [questData]
+            }
+            dispatch(userActions.updateUser(userData));
+            
             if ( monsterHp <= 0 ) {
                 setShowQuestModal(true);
             } 
         };
-        // checked ? setChecked(false) : setChecked(true);
-
-        // const monsterData = {
-        //     attack: questCopy.monster.attack,
-        //     imageUrl: questCopy.monster.imageUrl,
-        //     maxHealth: questCopy.monster.maxHealth,
-        //     movingUrl: questCopy.monster.movingUrl,
-        //     name: questCopy.monster.name,
-        //     currentHealth: (questCopy.monster.currentHealth)
-        // }
-        
     }
 
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
-        // onClick={(e) => handleShowTask(e)}
         >       
             {showQuestModal && (
                 <Modal onClose={() => setShowQuestModal(false)}>
