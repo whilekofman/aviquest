@@ -66,7 +66,7 @@ const TaskListItem = ({task, tasks}) => {
                     maxHealth: questCopy.monster.maxHealth,
                     movingUrl: questCopy.monster.movingUrl,
                     name: questCopy.monster.name,
-                    currentHealth: (questCopy.monster.currentHealth - dmg * attack)
+                    currentHealth: (questCopy.monster.currentHealth)
                 }
                 
                 const questData = {
@@ -124,6 +124,17 @@ const TaskListItem = ({task, tasks}) => {
         if (task.difficulty === 3 ) setDmg(1.5);
         if (task.difficulty === 2 ) setDmg(1);
         setChecked(!checked);
+        const taskData = { 
+            _id: task._id,
+            title: task.title, 
+            body: task.body, 
+            difficulty: task.difficulty, 
+            isComplete: checked
+        };
+        if (checked)  {
+            let newCurrentHealth = currentHealth - dmg * attack
+            // dispatch(userActions.updateUser());
+        };
         // checked ? setChecked(false) : setChecked(true);
 
     }

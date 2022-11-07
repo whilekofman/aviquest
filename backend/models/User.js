@@ -38,7 +38,7 @@ const userSchema = Schema({
         reward: {coin: 6, item: null},
         monster: {name: "Rat", currentHealth: 10, maxHealth: 10, attack: 10, imageUrl: 'https://aviquest-dev.s3.amazonaws.com/GIFS/rat.gif', movingUrl: 'https://aviquest-dev.s3.amazonaws.com/GIFS/rat-move.gif'},
         timeFrame: 5,
-        text: 'Vile creatures have crept up in our lands. Reports of attacks are trickling in slowly, but we cannot afford to sit back idly. This could get out of control very quickly. Hero, seek them out and deal with those horrible Wolves.'
+        text: 'Vile creatures have crept up in our lands. Reports of attacks are trickling in slowly, but we cannot afford to sit back idly. This could get out of control very quickly. Hero, seek them out and deal with those horrible Rats.'
     }]
     },
 

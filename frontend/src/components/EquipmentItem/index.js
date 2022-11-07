@@ -167,13 +167,19 @@ const EquipmentItem = ({item, user}) => {
         }));
     }
 
+    let popUpHealth = `HP: ${item.health}`;
+    let popUpAttack = `ATK: ${item.attack}`;
+
+    if (item.health < 1 ) popUpHealth = '';
+    if (item.attack < 1 ) popUpAttack = '';
+
     return (
         <div className='equipment-item-div'
         onClick={unEquipItem}>
             <img className='equipment-item' src={item.imageUrl} alt="" />
             <p className='equipment-popup'>
             {item.name} <br />
-            {`HP: ${item.health} ATK: ${item.attack}` }
+            {popUpHealth + popUpAttack }
             </p>
         </div>
     );
