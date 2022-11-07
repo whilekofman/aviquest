@@ -1,13 +1,11 @@
 import './InventoryItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user';
-import { useEffect, useState } from 'react';
-import * as sessionActions from '../../store/session';
 
 const InventoryItem = (props) => {
 
     const user = useSelector(state => state.session.user);
-    let {equipment, items, _id } = user;
+    let {equipment, items, _id, maxHealth, attack, currentHealth } = user;
     const dispatch = useDispatch();
     const {item} = props;
 
@@ -24,11 +22,31 @@ const InventoryItem = (props) => {
             items.splice(index,1);
             equipment.push(item);
         }
+        
+        let totalAttack = 5;
+        equipment.forEach((item) => {
+            totalAttack += item.attack;
+        })
+
+        let totalHp = 50;
+        let damage = maxHealth - currentHealth;
+
+        equipment.forEach((item) => {
+            totalHp += item.health;
+        })
+
+        currentHealth = totalHp - damage;
+        if (currentHealth > totalHp) currentHealth = totalHp;
+        
         dispatch(updateUser({
             equipment,
             items,
+            attack:totalAttack,
+            maxHealth:totalHp,
+            currentHealth:currentHealth,
             _id
         }));
+
     }
 
     return (

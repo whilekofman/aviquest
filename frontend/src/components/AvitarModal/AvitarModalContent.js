@@ -1,11 +1,9 @@
 import AvitarPic from "../StatusBar/AvitarPic";
 import * as demouser from '../Util/demouser'
-import HPBar from "../StatusBar/HealthBar";
 import AvitarStats from "../StatusBar/AvitarStats";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import EquipmentBar from "../EquipmentBar";
-import avitar from '../StatusBar/AvitarPic'
 
 
 
@@ -35,9 +33,9 @@ const AvitarModalContent = () => {
                 {/* <div>
                     Health: {currentUser.currentHealth}
                 </div> */}
-                <div>
+                {/* <div>
                     Attack: {currentUser.attack}
-                </div>
+                </div> */}
             </div>
             {/* Aviquips: */}
             <div className="avitar-modal-equips">

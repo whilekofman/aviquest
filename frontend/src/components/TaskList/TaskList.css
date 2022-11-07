@@ -70,6 +70,8 @@
 
 .task-list-items {
     width: 100%;
+    overflow: scroll;
+    margin-bottom: 30px;
 }
 
 .task-ul {

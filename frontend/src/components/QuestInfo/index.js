@@ -36,7 +36,7 @@ const QuestInfo = ({currentQuest}) => {
                 </div>
                 <div className='quest-info-details-container'>
                     <div className='quest-info-title'>{quest.monster.name}</div>
-                    <div className='quest-info-monster-health'>HP: {quest.monster.currentHealth}</div>
+                    <div className='quest-info-monster-health'>HP: {quest.monster.maxHealth}</div>
                     <div className='quest-info-monster-attack'>ATK: {quest.monster.attack}</div>
                     {/* <div className='quest-info-description'>{currentQuest.description}</div> */}
                 </div>

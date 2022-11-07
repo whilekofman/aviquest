@@ -5,21 +5,13 @@ import AviQuestSprite from "./AviQuestSprite";
 import HPBar from './HealthBar';
 import Equipments from './Equipments';
 import * as demouser from '../Util/demouser'
-import { useEffect, useState } from 'react';
-import AvitarShow from '../AvitarModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentUser } from '../../store/session';
-
 const StatusBar = () => {
 
     const user = demouser.user
     const monster = demouser.monster
     const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getCurrentUser())
-    // },[])
 
 
     const monsterHealth = {

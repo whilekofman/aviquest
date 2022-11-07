@@ -70,6 +70,7 @@
     height: 100%;
     width: 516.39px;
     justify-content: space-around;
+    margin-left: calc(10% - 100px);
 }
 
 
@@ -139,9 +140,25 @@
     display: flex;
     flex-direction: row;
     color:#06283D;
+    width: 100%;
 }
 
 .signup-body {
     width: 100%;
 }
 
+.join-aviquest-link {
+    text-decoration: none;
+}
+
+.splash3-container {
+    display:flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;
+}
+
+.splash3-logo {
+    width: 400px;
+    margin-bottom: 30px;
+}

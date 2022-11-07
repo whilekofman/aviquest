@@ -5,6 +5,7 @@ import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
+import RewardsContent from '../Rewards/RewardsContent';
 
 const TaskListItem = ({task, tasks}) => {
 
@@ -13,13 +14,21 @@ const TaskListItem = ({task, tasks}) => {
     const [options, setOptions] = useState(false);
     const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
-    const [dmg, setDmg] = useState(5);
+    const [showQuestModal, setShowQuestModal] = useState(false);
+    const [dmg, setDmg] = useState(0.7);
+
     
     const {attack, avitar, coins, currentHealth, quest,
         email, equipment, items, maxHealth, movingImageUrl, username, _id
     } = useSelector(state => state.session.user);
-    
+
+    let {id, reward, text, timeFrame, title, description} = quest[0];
+
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
+
+    useEffect(() => {
+        setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
+    },[quest[0].id])
 
     useEffect(() => {
         if (!options) return;
@@ -33,19 +42,44 @@ const TaskListItem = ({task, tasks}) => {
     }, [options]);
 
     useEffect(() => {
-        if (checked) {
-            // when checked, change update user iscomplete and monster hp
-            let {id, reward, text, timeFrame, title, description} = quest[0];
 
+        const taskData = { 
+            _id: task._id,
+            title: task.title, 
+            body: task.body, 
+            difficulty: task.difficulty, 
+            isComplete: checked
+            };
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        newTaskList.unshift(taskData);
+        dispatch(taskActions.updateTask(taskData, newTaskList));
+    }, [checked]);
+
+    const handleOptions = (e) => {
+        e.preventDefault();
+        setOptions(!options);
+    }
+    
+    const handleEdit = (e) => {
+        e.preventDefault();
+        setShowModal(true);
+        setOptions(!options);
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+        dispatch(taskActions.deleteTask(task._id, newTaskList))
+    }
+
+    const handleCheck = (e) => {
+        if (task.difficulty === 3 ) setDmg(1.5);
+        if (task.difficulty === 2 ) setDmg(1);
+        setChecked(!checked);
+
+        if (!checked)  {
             let questCopy = quest[0];
-
-            // questData.monster.currentHealth += dmg;
-            console.log(`monster hp: ${monsterHp}`);
-
-            console.log(`current health: ${questCopy.monster.currentHealth}`);
-
-            // const newHealth = monster.currentHealth += dmg;
-            // setMonsterHp(monsterHp - dmg);
+            setMonsterHp(monsterHp - dmg * attack);
 
             const monsterData = {
                 attack: questCopy.monster.attack,
@@ -53,60 +87,33 @@ const TaskListItem = ({task, tasks}) => {
                 maxHealth: questCopy.monster.maxHealth,
                 movingUrl: questCopy.monster.movingUrl,
                 name: questCopy.monster.name,
-                currentHealth: (questCopy.monster.currentHealth - dmg)
+                currentHealth: monsterHp
             }
-            
             const questData = {
                 id, reward, text, timeFrame, title, monster: monsterData
             }
-
             const userData = {
                 _id, attack, avitar, coins, currentHealth, email, equipment, items,
                 maxHealth, movingImageUrl, username, description, quest: [questData]
             }
-
             dispatch(userActions.updateUser(userData));
-
-        }
-    }, [checked]);
-
-    const handleOptions = (e) => {
-        // e.stopPropagation();
-        e.preventDefault();
-        setOptions(!options);
-    }
-
-    const handleShowTask = (e) => {
-        e.preventDefault();
-    }
-    
-    const handleEdit = (e) => {
-        e.preventDefault();
-        // e.stopPropagation();
-        setShowModal(true);
-        setOptions(!options);
-    }
-
-    const handleDelete = async (e) => {
-        e.preventDefault();
-        // e.stopPropagation();
-        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
-        dispatch(taskActions.deleteTask(task._id, newTaskList))
-    }
-
-    const handleCheck = (e) => {
-        setChecked(!checked);
-        if (task.difficulty === 3 ) setDmg(15);
-        if (task.difficulty === 2 ) setDmg(10);
-        setChecked(!checked);
+            
+            if ( monsterHp <= 0 ) {
+                setShowQuestModal(true);
+            } 
+        };
     }
 
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
-        // onClick={(e) => handleShowTask(e)}
-        >        
+        >       
+            {showQuestModal && (
+                <Modal onClose={() => setShowQuestModal(false)}>
+                     <RewardsContent closeModal={() => setShowQuestModal(false)}/>
+                </Modal>
+            )} 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}/>

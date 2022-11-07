@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 import * as userActions from '../../store/user';
-import * as sessionActions from '../../store/session';
-import * as questActions from '../../store/quest';
 import './QuestListItem.css';
 
 const QuestListItem = ({quest, setCurrentQuest}) => {

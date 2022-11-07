@@ -178,6 +178,96 @@ const itemData = [
     rarity: 3, 
     price: 35,
     imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_51.png'
+    },
+    {
+    id: 19,
+    name: 'Wooden Ball',
+    description: 'Nice round wooden ball.',
+    attack: 2,
+    health: 0,
+    price: 35,
+    rarity: 1,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__26.png'
+    },
+    {
+    id: 20,
+    name: 'Shark-tooth Necklace',
+    description: 'Necklace made from a shark goblin. It is very sharp.',
+    attack: 10,
+    health: 0,
+    price: 35,
+    rarity: 1,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__34.png'
+    },
+    {
+    id: 21,
+    name: 'Shopkeeper Boots',
+    description: 'Worn out boots made out of cheap leather, the inside is nicely padded.',
+    attack: 0,
+    health: 8,
+    price: 35,
+    rarity: 1,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__48.png'
+    },
+    {
+    id: 22,
+    name: 'Ares Axe',
+    description: 'Sturdy axe used by the God of War. Enemies cower from its sight.',
+    attack: 15,
+    health: 5,
+    price: 35,
+    rarity: 3,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_12.png'
+    },
+    {
+    id: 23,
+    name: 'Gold Bangle',
+    description: 'Golden bangle created by monks deep in the Mountain of Longevity.',
+    attack: 2,
+    health: 15,
+    price: 35,
+    rarity: 3,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__40.png',
+    },
+    {
+    id: 24,
+    name: 'Crystal Skull Helm',
+    description: 'The helm is made out of the skull of a fallen Death Knight, all who dawn the helm eventually fall to madness.',
+    attack: 5,
+    health: 10,
+    price: 35,
+    rarity: 2,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_46.png'
+    },
+    {
+    id: 25,
+    name: 'Half Wood Sheild',
+    description: 'More art than shield, it is made out of a thick slab of wood.',
+    attack: 0,
+    price: 35,
+    health: 10,
+    rarity: 1,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_32.png'
+    },
+    {
+    id: 26,
+    name: 'Serf Helmet',
+    description: 'Worn by serfs and commoners. The helmet offers warmth and little protection.',
+    attack: 0,
+    price: 35,
+    health: 5,
+    rarity: 1,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item__55.png'
+    },
+    {
+    id: 27,
+    name: 'Platinum Hammer',
+    description: 'Hammer made out of pure platinum, it has high magic conductivity.',
+    attack: 20,
+    health: 0,
+    rarity: 3,
+    price: 25,
+    imageUrl: 'https://aviquest-dev.s3.amazonaws.com/Items/Item_27.png'
     }
 ]
 

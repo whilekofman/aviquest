@@ -14,6 +14,8 @@ const EquipmentItem = ({item, user}) => {
             items.push(item)
             const index = equipment.indexOf(item);
             equipment.splice(index, 1);
+            
+            // currentHealth = 50;
             // equipment = [];
             // items = [
             //     {name: 'Beginner Sword', 
@@ -140,13 +142,36 @@ const EquipmentItem = ({item, user}) => {
         } else {
             return;
         }
+        let damage = maxHealth - currentHealth;
+        let totalHp = 50;
+        let totalAttack = 5;
+
+        equipment.forEach((item) => {
+            totalHp += item.health;
+        })
+        equipment.forEach((item) => {
+            totalAttack += item.attack;
+        })
+
+        if (currentHealth > totalHp) currentHealth = totalHp;
+
+        currentHealth = totalHp - damage;
+            
         dispatch(updateUser({
             equipment,
             items,
+            maxHealth:totalHp,
+            currentHealth,
+            attack:totalAttack,
             _id
         }));
-        // dispatch(sessionActions.getCurrentUser());
     }
+
+    let popUpHealth = `HP: ${item.health}`;
+    let popUpAttack = `ATK: ${item.attack}`;
+
+    if (item.health < 1 ) popUpHealth = '';
+    if (item.attack < 1 ) popUpAttack = '';
 
     return (
         <div className='equipment-item-div'
@@ -154,7 +179,7 @@ const EquipmentItem = ({item, user}) => {
             <img className='equipment-item' src={item.imageUrl} alt="" />
             <p className='equipment-popup'>
             {item.name} <br />
-            {`HP: ${item.health} ATK: ${item.attack}` }
+            {popUpHealth + popUpAttack }
             </p>
         </div>
     );

@@ -11,12 +11,15 @@ import LoginForm from '../../components/LoginForm'
 import Inventory from '../Inventory';
 import { Link } from 'react-router-dom';
 import AvitarModalContent from '../AvitarModal/AvitarModalContent';
+import ShopModal from '../ShopModal';
 
 function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
     const [inventoryModal, setInventoryModal] = useState(false);
     const [statsModal, setStatsModal] = useState(false);
+    const [gachaModal, setGachaModal] = useState(false);
+    const [reward, setReward] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
@@ -40,6 +43,10 @@ function Navigation() {
         e.preventDefault();
         setMemberDropdown(open => !open);
     }
+    const toggleGachaModal = (e) => {
+        e.preventDefault();
+        setGachaModal(open => !open);
+    }
 
     return (
         <div className='navbar'>
@@ -53,20 +60,25 @@ function Navigation() {
                 </Link>
                 {sessionUser && (
                     <div className='navbar-links'>
-                    <div onClick={()=>setInventoryModal(open => !open)} className='navbar-inventory'>
+                    <div className='navbar-inventory'
+                     onClick={()=>setInventoryModal(open => !open)}>
                         Inventory
                     </div>
-                    {/* <div className='navbar-shop'>
-                        Shop
-                    </div> */}
+                    <div className='navbar-shop'
+                    onClick={()=>setGachaModal(open => !open)}>
+                        Gachapon
+                    </div>
                 </div>)}
-                <div className='navbar-teams'
-                    onClick={toggleMemberDropdown}>
-                        DevTeam
-                </div>
-                {memberDropdown && (
+                <Link to="/devteam">
+                    <div className='navbar-teams'
+                        // onClick={toggleMemberDropdown}
+                        >
+                            DevTeam
+                    </div>
+                </Link>
+                {/* {memberDropdown && (
                 <TeamDropdown />
-                )}
+                )} */}
             </div>
             {sessionLinks}      
             {loginModal && (
@@ -84,6 +96,14 @@ function Navigation() {
             {statsModal && (
                 <Modal onClose={() => setStatsModal(false)}>
                     <AvitarModalContent />
+                </Modal>
+            )}
+            {gachaModal && (
+                <Modal onClose={() => {
+                    setGachaModal(false);
+                    setReward(false);
+                }}> 
+                    <ShopModal reward={reward} setReward={setReward}/>
                 </Modal>
             )}
      

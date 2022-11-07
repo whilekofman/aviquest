@@ -9,13 +9,15 @@ const TaskList = () => {
 
     const dispatch = useDispatch();
     const [title, setTitle] = useState("");
+    const [loadContent, setLoadContent] = useState(false);
     const tasks = useSelector(state => state.tasks)
     const currentUser = useSelector(state => state.session.user);
     const [loaded, setLoaded] = useState(false)
 
     useEffect(()  => {
         const generateTasks = async () => {
-            const res = await dispatch(taskActions.fetchTasks(currentUser._id));
+            const res = await dispatch(taskActions.fetchTasks(currentUser._id))
+            .then(setLoadContent(true));
             const data = await res;
         }
 
@@ -36,7 +38,7 @@ const TaskList = () => {
         setTitle("");
     }
 
-    return ( 
+    if (loadContent) return ( 
         <div className='tasklist-container'>
             <div className='tasklist-body'>
                 <div className='task-input-container'>

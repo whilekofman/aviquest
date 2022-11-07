@@ -82,7 +82,7 @@
     position: relative;
     align-items: center;
     border-radius: 5px; 
-    box-shadow: 3px 3px rgba(128, 128, 128, 0.3)
+    box-shadow: 3px 3px rgba(128, 128, 128, 0.3);
 }
 
 .redhpbar{
@@ -119,15 +119,19 @@
     font-size: 14px;
     width: 100%;
     padding-block: 1%;
+    /* cursor: pointer; */
 }
 
 .equipItemPic {
-    height: 20px;
-    width: 30px;
+    height: 26px;
+    width: 26px;
     padding-right: 10px;
+    aspect-ratio: 1/1;
     
 }
 
 .equiptname {
     white-space: nowrap;
+    height: 26px;
+    line-height: 26px;
 }
