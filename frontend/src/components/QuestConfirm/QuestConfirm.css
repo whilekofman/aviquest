@@ -1,0 +1,25 @@
+.quest-confirm-modal {
+    height: 350px;
+    width: 400px;
+    background-color: #DFF6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.quest-confirm-form {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quest-confirm-submit {
+    height: 30px;
+    border: none;
+    background: linear-gradient(to right, #256D85 5%, #06283D 99%);
+    border-radius: 8px;
+    color: white;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
