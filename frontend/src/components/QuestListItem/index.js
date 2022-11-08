@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './QuestListItem.css';
-import QuestConfrim from '../QuestConfirm';
+import QuestConfirm from '../QuestConfirm';
 
 const QuestListItem = ({quest, setCurrentQuest}) => {
 
@@ -31,16 +31,19 @@ const QuestListItem = ({quest, setCurrentQuest}) => {
     }
 
     return ( 
-        <div className='quest-list-item-container'
-        onClick={(e) => handleClick(e)}
-        >
+        <>
+            <div className='quest-list-item-container'
+            onClick={(e) => handleClick(e)}
+            >
+                <div>{quest.title}</div>
+            </div>
+
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestConfrim setShowModal={setShowModal}/>
+                    <QuestConfirm setShowModal={setShowModal}/>
                 </Modal>
             )}
-            <div>{quest.title}</div>
-        </div>
+        </>
      );
 }
  

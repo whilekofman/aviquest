@@ -1,4 +1,4 @@
-
+import './QuestConfirm.css'
 
 const QuestConfrim = ({setShowModal}) => {
 
@@ -13,7 +13,7 @@ const QuestConfrim = ({setShowModal}) => {
             <form className="quest-confirm-form" onSubmit={handleSubmit}>
                 <span>You are about to embark on a new quest. All progress of your current quest will be lost.</span>
                 <span>Do you wish to continue?</span>
-                <button type="submit"className="quest-confirm-submit">Proceed</button>
+                <button type='submit' className="quest-confirm-submit">Proceed</button>
             </form>
         </div>
      );
