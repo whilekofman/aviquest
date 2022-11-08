@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as userActions from '../../store/user';
+import { useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
 import './QuestListItem.css';
 import QuestConfirm from '../QuestConfirm';
 
 const QuestListItem = ({quest, setCurrentQuest}) => {
 
-    const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
+    const [user, setUser] = useState({});
     const {_id, username, email, items, equipment, attack, coins, maxHealth, currentHealth } = useSelector(state => state.session.user);
 
     const handleClick = (e) => {
@@ -26,8 +25,8 @@ const QuestListItem = ({quest, setCurrentQuest}) => {
             currentHealth,
             quest: [quest]
         }
+        setUser(userData);
         setShowModal(true);
-        // dispatch(userActions.updateUser(userData));
     }
 
     return ( 
@@ -40,7 +39,7 @@ const QuestListItem = ({quest, setCurrentQuest}) => {
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <QuestConfirm setShowModal={setShowModal}/>
+                    <QuestConfirm user={user} setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
