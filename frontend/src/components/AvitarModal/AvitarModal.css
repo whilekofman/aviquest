@@ -46,7 +46,14 @@
 .AvitarModalPicsEdit {
     display: flex;
     justify-content: center;
-    cursor: pointer
+    flex-wrap: wrap ;
+    cursor: pointer;
+    width: 500px
+}
+
+.AvitarModalPicsEditPic:active {
+    background-color: yellow;
+    height:200px
 }
 
 .AvitarModalPicsEditPic {
