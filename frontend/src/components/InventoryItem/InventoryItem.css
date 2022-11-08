@@ -28,6 +28,7 @@
 
 .inventory-popup {
     white-space: nowrap;
+    text-align: center;
 }
 
 .inventory-item-div>p {

@@ -49,6 +49,12 @@ const InventoryItem = (props) => {
 
     }
 
+    let popUpHealth = `HP: ${item.health}`;
+    let popUpAttack = `ATK: ${item.attack}`;
+
+    if (item.health < 1 ) popUpHealth = '';
+    if (item.attack < 1 ) popUpAttack = '';
+
     return (
         <div className='inventory-item-div'
         onClick={equipItem}
@@ -56,7 +62,7 @@ const InventoryItem = (props) => {
             <img className='inventory-item' src={item.imageUrl} alt="" /> 
             <p className='inventory-popup'>
             {item.name} <br />
-            { `HP: ${item.health} ATK: ${item.attack}` }
+            {popUpHealth + ' ' + popUpAttack }
             </p>
         </div>
     );
