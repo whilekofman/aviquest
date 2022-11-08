@@ -9,7 +9,7 @@ const Wilson = () => {
     return ( 
         <div className="engineer-subcontainer">
         <div className="inner-avitar-box">
-            <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/wilson.gif" alt="eugene-avitar" className="engineer-avitar"/>
+            <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/juggling-clown.gif" alt="eugene-avitar" className="engineer-avitar"/>
         </div>
         <div className="engineer-name">
             Wilson Chen

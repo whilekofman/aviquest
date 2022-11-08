@@ -10,7 +10,7 @@ const Eugene = () => {
         <div className="engineer-subcontainer">
             <div className="engineer-avitar">
                 <div className="inner-avitar-box">
-                    <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/eugene.gif" alt="eugene-avitar" className="self-avitar"/>
+                    <img src="https://aviquest-dev.s3.amazonaws.com/GIFS/gold-viking.gif" alt="eugene-avitar" className="self-avitar"/>
                 </div>
             </div>
             <div className="engineer-name">
