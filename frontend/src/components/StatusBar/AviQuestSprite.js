@@ -22,7 +22,7 @@ const AviQuestSprite = ({user, monster}) => {
             <img src={user.movingImageUrl} className="runningSprite" alt="" />
 
 
-            <img src={monster.movingUrl} className="runningSprite" style={{opacity: `${hp}%`}} id={shake ? "shake" : ""} />
+            <img src={monster.movingUrl} className="runningSprite" style={{opacity: `${hp}%`}} id={shake ? "" : "shake"} />
         </div>
       );
 }
