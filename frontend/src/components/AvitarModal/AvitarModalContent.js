@@ -2,29 +2,58 @@ import AvitarPic from "../StatusBar/AvitarPic";
 import * as demouser from '../Util/demouser'
 import AvitarStats from "../StatusBar/AvitarStats";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import EquipmentBar from "../EquipmentBar";
 import avitars from '../Util/avitar_data.js'
+import { getCurrentUser } from "../../store/session";
+import * as userActions from '../../store/user';
+
 
 
 const AvitarModalContent = () => {
+    const dispatch = useDispatch()
     const [editing, setEditing] = useState(false)
-    const user = demouser.user
+    const [noMoney, setNoMoney] = useState('')
     const currentUser = useSelector(state => state.session.user)
-    const [avitarPicURL, setavitarPicURL] = useState('currentUserURl')
+    const [selectAvitar, setSelectAvitar] = useState(currentUser && currentUser)
 
-    console.log(avitars);
+    const {attack, avitar, coins, currentHealth, quest,
+        email, equipment, items, maxHealth, movingImageUrl, username, _id
+    } = useSelector(state => state.session.user);
 
-    const avitar1 = {
-        name:'avitar1',
-        avitar:'https://www.pngfind.com/pngs/m/55-557958_iron-man-final-fantasy-pixel-art-hd-png.png',
-        movingImageUrl: ''
-    }
-    const avitar2 = 'https://img.favpng.com/24/10/8/thor-pixel-art-marvel-cinematic-universe-loki-png-favpng-L9NYWsCxgygXbYPNgXF6aky4a.jpg'
-    const avitar3 = 'https://www.pngkey.com/png/detail/164-1648335_hulk-smash-megaman-8-bit.png'
-    const avitar4 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg12pnpP8jz2a5PvsmWm3pU8xsnzPD9xkyF2liPAHMuZedYeIJN9aKD1zY3tuwPDDJqes&usqp=CAU'
+    const avitars_mapped = avitars.map(avitar => <img className='AvitarModalPicsEditPic' src={avitar.avitar} alt="" onClick={(e) => setSelectAvitar(avitar)}/>)
+    const avitars_mapped_select = avitars.map(avitar => 
+        
+        <label className={avitar.avitar === currentUser.avitar ? 'AvitarModalSelected' : ''}  alt="" id={avitar.name} key={avitar.name}>
+        <input name="avitar" type="radio" for={avitar.name}  onClick={(e) => setSelectAvitar(avitar)} 
+        ></input>
+        {avitar.name}
+        {/* {avitar.avitar === currentUser.avitar ? '(current)' : ''} */}
+        </label>)
 
-    const avitars_mapped = avitars.map(avitar => <img className='AvitarModalPicsEditPic' src={avitar.avitar} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar.avitar)}/>)
+    const handleEdit = (e) => {
+        e.preventDefault()
+            const newCoins = currentUser.coins - 50
+            const userData = {
+                _id, 
+                imageUrl: selectAvitar.avitar, 
+                coins: newCoins, 
+                movingImageUrl: selectAvitar.movingImageUrl
+            }
+            console.log(`${selectAvitar.avitar}`)
+
+            if (newCoins > 0 && selectAvitar.avitar !== currentUser.avitar) {
+                dispatch(userActions.updateUser(userData));
+                setNoMoney('')
+                setEditing(false)
+            } else if (selectAvitar.avitar === currentUser.avitar){
+                setNoMoney('Already your avitar')
+            }else if (newCoins <= 0)
+            {
+                setNoMoney('Not enough funds')
+            }
+        }
+
 
     const show = ( 
         <div  onClick={(e)=> e.stopPropagation()} className="AvitarModalContent" >
@@ -50,39 +79,35 @@ const AvitarModalContent = () => {
             </div>
             <br />
 
-            <button className="AvitarModalEditButton" onClick={(e) => setEditing(true)}>Edit</button>
+            <button className="AvitarModalEditButton" onClick={(e) => setEditing(true)}>Change Avitar</button>
         </div>
      );
 
      const edit = (
         <form onClick={(e)=> e.stopPropagation()} className="AvitarModalContent" >
-            <div className="AvitarEditing"> Editing: </div>
-
-                <div className="AvitarModalPicsEdit">
-                    <label htmlFor=""></label>
-                    {/* <img className='AvitarModalPicsEditPic' src={avitar1} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar1)}/>
-                    <img className='AvitarModalPicsEditPic'src={avitar2} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar2)}/>
-                    <img className='AvitarModalPicsEditPic'src={avitar3} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar3)}/>
-                    <img className='AvitarModalPicsEditPic'src={avitar3} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar3)}/>
-                    <img className='AvitarModalPicsEditPic'src={avitar3} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar3)}/> */}
-
-                    {/* <img src={avitar4} alt="" value='google.com' onClick={(e) => setavitarPicURL(avitar4)}/> */}
-
-                    {avitars_mapped}
-                </div>
-
-                <select>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-</select>
+            <div className="AvitarEditing"> Current Avitar: </div>
+                <img className='AvitarModalPicsEditPic' src={currentUser.avitar} alt="" />
 
                 <br />
-                <AvitarStats user={currentUser} id="AvitarModalStats"/>
+                {/* <AvitarStats user={currentUser} id="AvitarModalStats"/> */}
  
                 <br />
-                <button className="AvitarModalEditButton" onClick={(e) => setEditing(false)}>Save Changes</button>
-                <button className="AvitarModalEditButton" onClick={(e) => setEditing(false)}>Save Changes</button>
+                
+                <div className="AvitarModalSelecNewAvitar"> Select New Avitar: </div>
+                <div className="AvitarModalSelecNewAvitar"> (50 coins)</div>
+
+                <br />
+                <div className="AvitarModalChangeAvitar">
+                    <div className="AvitarModalChangeSelection">{avitars_mapped_select}</div>
+                    <img className='AvitarModalPicsEditPic' src={selectAvitar.avitar} alt="" />
+                </div>
+                <div className="AvitarModalEditBothButtons">
+                    <button className="AvitarModalEditButton" onClick={(e) => setEditing(false)}>Cancel</button>
+                    <button className="AvitarModalEditButton" onClick={(e) => handleEdit(e)}>Confirm (50)</button>
+                </div>
+               <br />
+                {noMoney}
+
         </form>
 
      )

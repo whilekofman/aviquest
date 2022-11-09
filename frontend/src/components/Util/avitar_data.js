@@ -1,29 +1,72 @@
 const avitar1 = {
-    name:'avitar1',
-    avitar:'https://www.pngfind.com/pngs/m/55-557958_iron-man-final-fantasy-pixel-art-hd-png.png',
-    movingImageUrl: '',
+    name:'Avitar1',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/char1prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/char1move.gif',
     cost: 50
 }
 const avitar2 = {
-    name:'avitar2',
-    avitar:'https://img.favpng.com/24/10/8/thor-pixel-art-marvel-cinematic-universe-loki-png-favpng-L9NYWsCxgygXbYPNgXF6aky4a.jpg',
-    movingImageUrl: '',
+    name:'Avitar2',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/2prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/2move.gif',
     cost: 50
 }
-
 const avitar3 = {
-    name:'avitar1',
-    avitar:'https://www.pngkey.com/png/detail/164-1648335_hulk-smash-megaman-8-bit.png',
-    movingImageUrl: '',
+    name:'Avitar3',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/3prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/3move.gif',
+    cost: 50
+}
+const avitar4 = {
+    name:'Avitar4',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/4prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/4move.gif',
+    cost: 50
+}
+const avitar5 = {
+    name:'Avitar5',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/5prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/5move.gif',
+    cost: 50
+}
+const avitar6 = {
+    name:'Avitar6',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/6prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/6move.gif',
+    cost: 50
+}
+const avitar7 = {
+    name:'Avitar7',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/7prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/7move.gif',
+    cost: 50
+}
+const avitar8 = {
+    name:'Avitar8',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/8prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/8move.gif',
+    cost: 50
+}
+
+const avitar9 = {
+    name:'Avitar9',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/9prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/9move.gif',
+    cost: 50
+}
+
+const avitar10 = {
+    name:'Avitar10',
+    avitar:'https://aviquest-dev.s3.amazonaws.com/Avitars/10prof.gif',
+    movingImageUrl: 'https://aviquest-dev.s3.amazonaws.com/Avitars/10move.gif',
     cost: 50
 }
 
 
-// const avitar2 = 'https://img.favpng.com/24/10/8/thor-pixel-art-marvel-cinematic-universe-loki-png-favpng-L9NYWsCxgygXbYPNgXF6aky4a.jpg'
-// const avitar3 = 'https://www.pngkey.com/png/detail/164-1648335_hulk-smash-megaman-8-bit.png'
-const avitar4 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg12pnpP8jz2a5PvsmWm3pU8xsnzPD9xkyF2liPAHMuZedYeIJN9aKD1zY3tuwPDDJqes&usqp=CAU'
 
-const avitars = [avitar1, avitar2, avitar3]
+
+
+
+const avitars = [avitar1, avitar2, avitar3,avitar4,avitar5,avitar6,avitar7,avitar8,avitar9,avitar10]
 
 export default avitars
 

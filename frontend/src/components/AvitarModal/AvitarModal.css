@@ -51,17 +51,27 @@
     width: 500px
 }
 
-.AvitarModalPicsEditPic:active {
-    background-color: yellow;
-    height:200px
-}
+
 
 .AvitarModalPicsEditPic {
-    height:100px
+    height:120px;
+    width: 80px;
 }
 
 .AvitarModalEditButton {
-    padding: 10px;
+padding-inline: 10px;
+padding-block: 10px;
+    margin-inline: 5px;
+    height: 40px;
+    border: none;
+
+    background: linear-gradient(to right, #256D85 5%, #06283D 99%);
+    border-radius: 8px;
+    color: white;
+    box-shadow: 2px 2px rgb(0 0 0 / 30%);
+    cursor: pointer;
+    text-align: center;
+        
 }
 
 /* .avitar-modal-equips {
@@ -72,4 +82,29 @@
     height: auto;
     display: flex;
     flex-direction: column;
+}
+
+
+
+
+.AvitarModalChangeAvitar {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin-bottom: 20px;
+}
+.AvitarModalChangeSelection{
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+}
+
+.AvitarModalEditBothButtons{
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+
+.AvitarModalSelected {
+    display:none;
 }
