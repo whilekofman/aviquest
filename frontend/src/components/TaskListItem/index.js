@@ -18,9 +18,7 @@ const TaskListItem = ({task, tasks}) => {
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
     const [dmg, setDmg] = useState(0.7);
-    const [userDamage, setUserDamage] = useState(false)
 
-    const currentTime = Date.now()
     
     const {attack, avitar, coins, currentHealth, quest,
         email, equipment, items, maxHealth, movingImageUrl, username, _id
@@ -29,17 +27,9 @@ const TaskListItem = ({task, tasks}) => {
     let {id, reward, text, timeFrame, title, description} = quest[0];
 
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
-    const [questTime, setQuestTime] = useState(quest[1])
-    const [counter, setCounter] = useState(0)
-    // const [currentUserHealth, setCurrentUserHealth] = useState(currentHealth)
-    
-    const timeSince = currentTime - quest[1]
-    // console.log (timeSince) 
+    const currentTime = Date.now()
+    const [timeSince, setTimeSince] = useState(currentTime - quest[1])
 
-    // useEffect(() => {
-    //     dispatch(sessionActions.getCurrentUser());
-
-    // }, [currentUserHealth])
 
     useEffect(() => {
 
@@ -47,31 +37,28 @@ const TaskListItem = ({task, tasks}) => {
             _id, attack, avitar, coins, currentHealth, email, equipment, items,
             maxHealth, movingImageUrl, username, description, quest
         }
-        // console.log(userData.currentHealth)
-        // const damageTimer = setInterval (() => {
 
-        //     console.log("I am the timer")
-            
-        //     setCounter((counter) => counter += 1)
-        // }, 20000)
-        if (timeSince > 5000){
-            const monsterAttack = (quest[0].monster.attack) / 5
+        if (timeSince > 86400000 && userData.currentHealth > 0){
+            const hitTimes =  Math.floor(timeSince / 86400000)
+            console.log(`timeSince: ${timeSince}, hitTimes: ${hitTimes}`)
+            const monsterAttack = quest[0].monster.attack * hitTimes
             console.log('damagedone')
             const userHealth = currentHealth - monsterAttack
-            
             userData.currentHealth = userHealth
+            if (userData.currentHealth < 0){
+                userData.currentHealth = 0
+            }
+
             userData.quest = [quest[0], Date.now()]
-            setCounter(counter + 1)
-            console.log(counter)
-            setUserDamage( value => !value )
             
             dispatch(userActions.updateUser(userData));
-            setUserDamage(value => !value)
-            // debugger
-        }
-        // console.log(userData)        
 
-    },[userDamage])
+        } else {
+            return
+        }
+
+
+    },[])
 
     useEffect(() => {
         setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
