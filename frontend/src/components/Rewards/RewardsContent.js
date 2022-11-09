@@ -11,7 +11,7 @@ const RewardsContent = ({closeModal}) => {
     
 
     const handleClick = () => {
-        dispatch(userActions.updateUser({_id:user._id, coins: newcoins, quest: [questData[0]]}))
+        dispatch(userActions.updateUser({_id:user._id, coins: newcoins, quest: [questData[0]], currentHealth: user.maxHealth}))
         closeModal()
     }
 

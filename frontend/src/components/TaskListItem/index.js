@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as taskActions from '../../store/task';
 import * as userActions from '../../store/user';
+import * as sessionActions from '../../store/session';
+
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
@@ -25,6 +27,38 @@ const TaskListItem = ({task, tasks}) => {
     let {id, reward, text, timeFrame, title, description} = quest[0];
 
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
+    const currentTime = Date.now()
+    const [timeSince, setTimeSince] = useState(currentTime - quest[1])
+
+
+    useEffect(() => {
+
+        const userData = {
+            _id, attack, avitar, coins, currentHealth, email, equipment, items,
+            maxHealth, movingImageUrl, username, description, quest
+        }
+
+        if (timeSince > 86400000 && userData.currentHealth > 0){
+            const hitTimes =  Math.floor(timeSince / 86400000)
+            console.log(`timeSince: ${timeSince}, hitTimes: ${hitTimes}`)
+            const monsterAttack = quest[0].monster.attack * hitTimes
+            console.log('damagedone')
+            const userHealth = currentHealth - monsterAttack
+            userData.currentHealth = userHealth
+            if (userData.currentHealth < 0){
+                userData.currentHealth = 0
+            }
+
+            userData.quest = [quest[0], Date.now()]
+            
+            dispatch(userActions.updateUser(userData));
+
+        } else {
+            return
+        }
+
+
+    },[])
 
     useEffect(() => {
         setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
@@ -94,7 +128,7 @@ const TaskListItem = ({task, tasks}) => {
             }
             const userData = {
                 _id, attack, avitar, coins, currentHealth, email, equipment, items,
-                maxHealth, movingImageUrl, username, description, quest: [questData]
+                maxHealth, movingImageUrl, username, description, quest: [questData, Date.now()]
             }
             dispatch(userActions.updateUser(userData));
             

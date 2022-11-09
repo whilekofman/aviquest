@@ -10,6 +10,8 @@ const QuestListItem = ({quest, setCurrentQuest}) => {
     const [user, setUser] = useState({});
     const {_id, username, email, items, equipment, attack, coins, maxHealth, currentHealth } = useSelector(state => state.session.user);
 
+    const questTime = Date.now()
+
     const handleClick = (e) => {
         e.preventDefault();
         setCurrentQuest(quest);
@@ -23,7 +25,7 @@ const QuestListItem = ({quest, setCurrentQuest}) => {
             coins,
             maxHealth,
             currentHealth,
-            quest: [quest]
+            quest: [quest, questTime]
         }
         setUser(userData);
         setShowModal(true);
