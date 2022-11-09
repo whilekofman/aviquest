@@ -18,6 +18,7 @@ const TaskListItem = ({task, tasks}) => {
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
     const [dmg, setDmg] = useState(0.7);
+    const [userDamage, setUserDamage] = useState(false)
 
     const currentTime = Date.now()
     
@@ -30,43 +31,49 @@ const TaskListItem = ({task, tasks}) => {
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
     const [questTime, setQuestTime] = useState(quest[1])
     const [counter, setCounter] = useState(0)
-    
+    // const [currentUserHealth, setCurrentUserHealth] = useState(currentHealth)
     
     const timeSince = currentTime - quest[1]
     console.log (timeSince) 
 
-
-
     // useEffect(() => {
-    //     // const userData = {
-    //     //         currentHealth, quest: [quest[0], Date.now()]
-    //     // } 
-    //     const userData = {
-    //         _id, attack, avitar, coins, currentHealth, email, equipment, items,
-    //         maxHealth, movingImageUrl, username, description, quest: [quest[0], Date.now()]
-    //     }
-    //     console.log(userData.currentHealth)
-    //     // const damageTimer = setInterval (() => {
-
-    //     //     console.log("I am the timer")
-            
-    //     //     setCounter((counter) => counter += 1)
-    //     // }, 20000)
-    //     if (timeSince > 5000){
-    //         const monsterAttack = (quest[0].monster.attack) / 5
-    //         console.log('damagedone')
-    //         const userHealth = currentHealth - monsterAttack
-    //         // // const userData = {
-    //         // //     _id, attack, avitar, coins, currentHealth: userHealth, email, equipment, items,
-    //         // //     maxHealth, movingImageUrl, username, description, quest: [quest[0], Date.now()]
-    //         // // }
-    //         userData.currentHealth = userHealth
-    //     }
-    //     // console.log(userData)
-    //     dispatch(userActions.updateUser(userData));
     //     dispatch(sessionActions.getCurrentUser());
 
-    // },[])
+    // }, [currentUserHealth])
+
+    useEffect(() => {
+        // const userData = {
+        //         currentHealth, quest: [quest[0], Date.now()]
+        // } 
+        const userData = {
+            _id, attack, avitar, coins, currentHealth, email, equipment, items,
+            maxHealth, movingImageUrl, username, description, quest
+        }
+        console.log(userData.currentHealth)
+        // const damageTimer = setInterval (() => {
+
+        //     console.log("I am the timer")
+            
+        //     setCounter((counter) => counter += 1)
+        // }, 20000)
+        if (timeSince > 5000){
+            const monsterAttack = (quest[0].monster.attack) / 5
+            console.log('damagedone')
+            const userHealth = currentHealth - monsterAttack
+            
+            userData.currentHealth = userHealth
+            userData.quest = [quest[0], Date.now()]
+            setCounter(counter + 1)
+            console.log(counter)
+            setUserDamage( value => !value )
+            
+            dispatch(userActions.updateUser(userData));
+            setUserDamage(value => !value)
+            // debugger
+        }
+        // console.log(userData)        
+
+    },[userDamage])
 
     useEffect(() => {
         setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
