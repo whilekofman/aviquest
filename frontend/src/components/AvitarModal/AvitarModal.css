@@ -60,6 +60,7 @@
 
 .AvitarModalEditButton {
 padding-inline: 10px;
+padding-block: 10px;
     margin-inline: 5px;
     height: 40px;
     border: none;
@@ -84,9 +85,7 @@ padding-inline: 10px;
 }
 
 
-.AvitarModalSelecNewAvitar{
-    margin: 10px;
-}
+
 
 .AvitarModalChangeAvitar {
     display: flex;
@@ -104,4 +103,8 @@ justify-content: center;
     display:flex;
     justify-content: space-evenly;
     
+}
+
+.AvitarModalSelected {
+    display:none;
 }

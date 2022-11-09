@@ -14,7 +14,6 @@ module.exports = {
                 error.errors = { message: 'Please do not edit attributes that do not belong to you' }
             } else {
                 user = User.updateOne( {_id: req.params.id }, { 
-                avitar: req.body.avitar,
                 equipment: req.body.equipment,
                 items: req.body.items,
                 quest: req.body.quest,
