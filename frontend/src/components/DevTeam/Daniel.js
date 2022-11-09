@@ -21,7 +21,7 @@ const Daniel = () => {
                     <img src={DanielPic} alt="Daniels photo" className="engineer-img"/>
                 </div>
                 <div className="engineer-about-blurb">
-                    <p className="engineer-blurb">Daniel the CSS master, crafted the design language of AviQuest to deliver a cohesive user experience. and served as our comedic relief. You can contact him using the links below or send him an  <a href="mailto:dli53@outlook.com">email!</a></p>
+                    <p className="engineer-blurb">Daniel the CSS master, crafted our design language of AviQuest to deliver a cohesive user experience, and served as our comedic relief. Checkout Daniel's <a href="https://danielli.dev" target="_blank">portfolio</a> or contact him via <a href="mailto:dli53@outlook.com">email!</a></p>
                 </div>
                 <div className="engineer-profesional-links">
                     <div className="engineer-git">
