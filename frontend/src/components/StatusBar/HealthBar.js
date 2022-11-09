@@ -19,7 +19,7 @@ const HPBar = ({health}) => {
     }
 
     return ( 
-        <div className="HPBAR"> 
+        <div className="HPBAR" > 
             <div className="hp">❤️</div>
             <div className="hpbar" > 
                 <div className="redhpbar" style={hpbarstyle}></div>

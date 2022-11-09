@@ -25,7 +25,7 @@ const AvitarModalContent = () => {
     const avitars_mapped_select = avitars.map(avitar => 
         
         <label className={avitar.avitar === currentUser.avitar ? 'AvitarModalSelected' : ''}  alt="" id={avitar.name} key={avitar.name}>
-        <input name="avitar" type="radio" for={avitar.name}  onClick={(e) => setSelectAvitar(avitar)} 
+        <input name="avitar" type="radio" className="AvitarModalRadioButton"htmlFor={avitar.name}  onClick={(e) => setSelectAvitar(avitar)} 
         ></input>
         {avitar.name}
         {/* {avitar.avitar === currentUser.avitar ? '(current)' : ''} */}

@@ -113,7 +113,11 @@ const TaskListItem = ({task, tasks}) => {
 
         if (!checked)  {
             let questCopy = quest[0];
+            if (monsterHp - dmg * attack < 0){
+                setMonsterHp(0);
+            } else {
             setMonsterHp(monsterHp - dmg * attack);
+            }
 
             const monsterData = {
                 attack: questCopy.monster.attack,
@@ -132,7 +136,7 @@ const TaskListItem = ({task, tasks}) => {
             }
             dispatch(userActions.updateUser(userData));
             
-            if ( monsterHp <= 0 ) {
+            if ( monsterHp < 1 ) {
                 setShowQuestModal(true);
             } 
         };

@@ -21,8 +21,8 @@ const RewardsContent = ({closeModal}) => {
                 <h1>You have defeated {user.quest[0].monster.name}</h1>
                 <br />
                 <img className="rewards-chest" src="https://aviquest-dev.s3.amazonaws.com/GIFS/reward-chest.gif" alt="" />
-                <div className="rewards-coins">Reward: {user.quest[0].reward.coin}</div>
-                <button className="rewards-button" onClick={handleClick}>Collect Your Reward!</button>
+                <div className="rewards-coins">Reward: {user.quest[0].reward.coin} coins</div>
+                <button className="AvitarModalEditButton" onClick={handleClick}>Click Here To Collect Your Reward!</button>
             </div>
         </div>
      );
