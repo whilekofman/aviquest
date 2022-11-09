@@ -34,7 +34,7 @@ const TaskListItem = ({task, tasks}) => {
     // const [currentUserHealth, setCurrentUserHealth] = useState(currentHealth)
     
     const timeSince = currentTime - quest[1]
-    console.log (timeSince) 
+    // console.log (timeSince) 
 
     // useEffect(() => {
     //     dispatch(sessionActions.getCurrentUser());
@@ -42,14 +42,12 @@ const TaskListItem = ({task, tasks}) => {
     // }, [currentUserHealth])
 
     useEffect(() => {
-        // const userData = {
-        //         currentHealth, quest: [quest[0], Date.now()]
-        // } 
+
         const userData = {
             _id, attack, avitar, coins, currentHealth, email, equipment, items,
             maxHealth, movingImageUrl, username, description, quest
         }
-        console.log(userData.currentHealth)
+        // console.log(userData.currentHealth)
         // const damageTimer = setInterval (() => {
 
         //     console.log("I am the timer")
