@@ -4,6 +4,9 @@ import * as taskActions from '../../store/task';
 import * as sessionActions from '../../store/session';
 import './TaskList.css';
 import { useDispatch, useSelector } from 'react-redux';
+import * as userActions from '../../store/user';
+import DeathModal from '../DeathModal';
+import { Modal } from '../../context/Modal';
 
 const TaskList = () => {
 
@@ -13,6 +16,21 @@ const TaskList = () => {
     const tasks = useSelector(state => state.tasks)
     const currentUser = useSelector(state => state.session.user);
     const [loaded, setLoaded] = useState(false)
+    const {currentHealth, maxHealth, _id, coins } = currentUser;
+    const [deathModal, setDeathModal] = useState(false);
+
+
+    if (currentHealth < 1) {
+        if (!deathModal) {
+            dispatch(userActions.updateUser({
+                _id,
+                // coins: parseInt(coins / 2),
+                coins: 888888,
+                currentHealth: maxHealth
+            }))
+            setDeathModal(true);
+        }
+    }
 
     useEffect(()  => {
         const generateTasks = async () => {
@@ -65,6 +83,12 @@ const TaskList = () => {
                         }
                     </ul>
                 </div>
+
+            {deathModal && (
+            <Modal onClose={() => setDeathModal(false)}>
+                    <DeathModal setDeathModal={setDeathModal}/>
+            </Modal>
+            )} 
 
             </div>
         </div>

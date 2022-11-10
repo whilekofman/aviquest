@@ -1,0 +1,53 @@
+.death-modal {
+    /* height: 500px; */
+    width: 480px;
+    background-color: #DFF6FF;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 12px;
+}
+
+.death-modal-border {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.death-modal-header {
+    height: 30px;
+    font-size: 22.5px;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.death-modal-message {
+    margin-top: 12px;
+    line-height: 30px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.death-modal-bold {
+    font-weight: 900;
+}
+
+.death-modal-skull {
+    width: 100px;
+}
+
+.death-modal-button {
+    background: linear-gradient(to right, #256D85 5%, #06283D 99%);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    color:#DFF6FF;
+    box-shadow: 2px 2px rgba(0, 0, 0, .3);
+    margin-top: 24px;
+    width: 66%;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
