@@ -10,8 +10,11 @@ import LoginButton from '../LoginButton';
 import LoginForm from '../../components/LoginForm'
 import Inventory from '../Inventory';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import AvitarModalContent from '../AvitarModal/AvitarModalContent';
 import ShopModal from '../ShopModal';
+import TaskTutorial from '../TaskTutorial';
 
 function Navigation() {
     const [memberDropdown, setMemberDropdown] = useState(false);
@@ -21,6 +24,8 @@ function Navigation() {
     const [gachaModal, setGachaModal] = useState(false);
     const [reward, setReward] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
+    const [tutorial, setTutorial] = useState(false);
+    const infoIcon = <FontAwesomeIcon icon={faCircleInfo} size="lg" />
 
     let sessionLinks;
     if (sessionUser) {
@@ -46,6 +51,11 @@ function Navigation() {
     const toggleGachaModal = (e) => {
         e.preventDefault();
         setGachaModal(open => !open);
+    }
+
+    const handleTutorial = (e) => {
+        e.preventDefault();
+        setTutorial(true);
     }
 
     return (
@@ -76,6 +86,16 @@ function Navigation() {
                             DevTeam
                     </div>
                 </Link>
+                <div className='navbar-help'
+                onClick={(e) => handleTutorial(e)}
+                >
+                    {infoIcon}
+                </div>
+                {tutorial && (
+                    <Modal onClose={() => setTutorial(false)}>
+                        <TaskTutorial setTutorial={setTutorial}/>
+                    </Modal>
+                )}
                 {/* {memberDropdown && (
                 <TeamDropdown />
                 )} */}

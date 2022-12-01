@@ -102,7 +102,7 @@
 .equipments {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 200px;
     height: 110%;
     /* background-color: rgb(255, 255, 255); */
@@ -118,13 +118,12 @@
     justify-content: flex-start;
     font-size: 14px;
     width: 100%;
-    padding-block: 1%;
     /* cursor: pointer; */
 }
 
 .equipItemPic {
-    height: 26px;
-    width: 26px;
+    height: 22px;
+    width: 22px;
     padding-right: 10px;
     aspect-ratio: 1/1;
     

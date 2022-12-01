@@ -124,3 +124,9 @@
         left: 20px;
     }
 }
+
+.navbar-help {
+    color: white;
+    margin-left: 25px;
+    cursor: pointer;
+}

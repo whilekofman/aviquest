@@ -48,7 +48,7 @@ function ProfileDropDown({setInventoryModal, setStatsModal}) {
               <li onClick={() => setInventoryModal(true)}>Inventory</li>
               <li id='profiledropdown-divider'></li>
               
-              <a  href="https://github.com/whilekofman/aviquest" target="_blank" rel="noopener noreferrer"><li id='github-help'>Help</li></a> 
+              <a  href="https://github.com/whilekofman/aviquest" target="_blank" rel="noopener noreferrer"><li id='github-help'>Github</li></a> 
               <li onClick={logoutUser}>Logout</li>
           </ul>
       )}

@@ -2,7 +2,7 @@
     /* align-items: center;
     justify-content: center; */
     /* height: calc(100vh - 57px); */
-    height: 90vh;
+    height: 87vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -15,6 +15,7 @@
     width: 100%;
     margin-left: 2%;
     margin-right: 2%;
+    height: 100%;
     display: flex;
 }
 
@@ -101,6 +102,7 @@
     margin-block: 10%;
     line-height: 24px;
     padding: 7%;
+    height: 80px;
     /* height: calc(27vh - 180px); */
     /* padding-inline: 10% */
 }
@@ -108,6 +110,7 @@
 .engineer-subcontainer {
     background-color: rgba(237, 236, 238,.65);
     padding: 24px;
-    height: 80vh;
+    height: 10px;
     border-radius: 8px;
 }
+

@@ -35,3 +35,8 @@
     z-index: 101;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+.equiptmentTitle {
+    font-size: 20px;
+    margin-top: 21px;
+}

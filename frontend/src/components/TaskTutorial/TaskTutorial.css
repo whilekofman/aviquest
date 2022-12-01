@@ -1,0 +1,105 @@
+.tutorial-container {
+    height: 800px;
+    width: 800px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.tutorial-task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tutorial-header {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tutorial-gif {
+    height: 400px;
+    width: 400px;
+}
+
+.tutorial-quest-gif {
+    height: 400px;
+    width: 550px;
+}
+
+.tutorial-dmg-gif {
+    height: 100px;
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.tutorial-dmg1-gif {
+    height: 300px;
+    width: 400px;
+}
+
+.tutorial-text-container {
+    margin-top: 50px;
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.tutorial-text-dmg-container {
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.tutorial-quest-text-container {
+    margin-top: 70px;
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.tutorial-equip-text-container {
+    margin-top: 70px;
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.tutorial-avitar-text-container {
+    margin-top: 70px;
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.tutorial-text {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.tutorial-button-container {
+    display: flex;
+    margin-top: 50px;
+}
+
+.tutorial-prev {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+#tutorial-arrow-none {
+    color: transparent;
+    cursor: default;
+}
+
+.tutorial-next {
+    cursor: pointer;
+}
+
+.tutorial-pages {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
