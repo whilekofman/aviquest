@@ -13,6 +13,7 @@
 
 .team-container-wrapper {
     display: flex;
+    min-width: 1150px;
     max-width: 2180px;
 }
 
