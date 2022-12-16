@@ -17,7 +17,7 @@ const TaskListItem = ({task, tasks}) => {
     const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
-    const [checked, setChecked] = useState(task.isComplete);
+    // const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
     const [dmg, setDmg] = useState(0.7);
@@ -60,9 +60,9 @@ const TaskListItem = ({task, tasks}) => {
 
 
 
-    useEffect(() => {
-        setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
-    },[quest[0].id])
+    // useEffect(() => {
+    //     setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
+    // },[quest[0].id])
 
     useEffect(() => {
         if (!options) return;
@@ -81,13 +81,12 @@ const TaskListItem = ({task, tasks}) => {
             _id: task._id,
             title: task.title, 
             body: task.body, 
-            difficulty: task.difficulty, 
-            isComplete: checked
+            difficulty: task.difficulty
             };
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         newTaskList.unshift(taskData);
         dispatch(taskActions.updateTask(taskData, newTaskList));
-    }, [checked]);
+    }, []);
 
     const handleOptions = (e) => {
         e.preventDefault();
@@ -107,11 +106,12 @@ const TaskListItem = ({task, tasks}) => {
     }
 
     const handleCheck = (e) => {
+        e.preventDefault();
         if (task.difficulty === 3 ) setDmg(1.5);
         if (task.difficulty === 2 ) setDmg(1);
-        setChecked(!checked);
+        // setChecked(!checked);
 
-        if (!checked)  {
+        // if (!checked)  {
             let questCopy = quest[0];
             if (monsterHp - dmg * attack < 0){
                 setMonsterHp(0);
@@ -139,7 +139,7 @@ const TaskListItem = ({task, tasks}) => {
             if ( monsterHp < 1 ) {
                 setShowQuestModal(true);
             } 
-        };
+        // };
     }
 
     return ( 
