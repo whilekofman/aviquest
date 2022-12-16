@@ -8,6 +8,12 @@
     flex-direction: row;
     background-color: rgb(223, 246, 255);
     /* padding-top: 3%; */
+    justify-content: center;
+}
+
+.team-container-wrapper {
+    display: flex;
+    max-width: 2180px;
 }
 
 .engineer-container{
