@@ -5,7 +5,7 @@
     box-sizing: border-box;
     margin-top: 10px;
     border-radius: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
 }
 
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 80%;
+    width: 75%;
     /* left: 15%; */
     margin-left: 5%;
     margin-bottom: 12px;
@@ -80,6 +80,10 @@
     z-index: 90;
 }
 
+.task-options-dropdown>div{
+    cursor: pointer;
+}
+
 .task-options-dropdown div:first-child {
     height: 100%;
     width: 100%;
@@ -123,9 +127,11 @@
     padding: 8px;
     position: absolute;
     right: 5%;
+    cursor: pointer;
 }
 
-/* .task-options-edit {
-    border-radius: 8px;
-
-} */
+.task-plus-button {
+    margin-left: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+}
