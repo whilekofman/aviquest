@@ -9,14 +9,14 @@
 }
 
 .task-form {
-    height: 80%;
+    /* height: 80%; */
     width: 80%;
     display: flex;
     flex-direction: column;
 }
 
 .taskform-title{
-    text-indent: 18px;
+    text-indent: 12px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -26,17 +26,20 @@
 }
 
 .taskform-body {
-    text-indent: 18px;
+    text-indent: 12px;
     outline: none;
     border: none;
     border-radius: 5px;
     height: 30px;
     margin-bottom: 20px;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    resize: none;
+    padding: 12px;
+    height: 100px;
 }
 
 .taskform-difficulty {
-    text-indent: 18px;
+    text-indent: 12px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -52,6 +55,7 @@
     border-radius: 8px;
     color: white;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .taskform-complete {
@@ -62,4 +66,5 @@
     margin-bottom: 20px;
     color: #DFF6FF;
     box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    display: none;
 }

@@ -79,7 +79,7 @@ function Navigation() {
                         Gachapon
                     </div>
                 </div>)}
-                <Link to="/devteam">
+                <Link to="/devteam" style={{ textDecoration: 'none' }}>
                     <div className='navbar-teams'
                         // onClick={toggleMemberDropdown}
                         >
