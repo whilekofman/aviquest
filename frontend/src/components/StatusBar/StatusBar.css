@@ -112,6 +112,7 @@
 .equiptmentTitle{
     padding-block: 5%;
     font-weight: bold;
+    width: 100%;
 }
 .equipmentItem {
     display: flex;
