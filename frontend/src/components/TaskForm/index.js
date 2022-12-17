@@ -7,18 +7,17 @@ const TaskForm = ({task, tasks, setShowModal}) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState(task.title);
     const [body, setBody] = useState(task.body);
-    const [ difficulty, setDifficulty ] = useState(1);
-    const [ complete, setComplete ] = useState(false);
+    const [ difficulty, setDifficulty ] = useState(task.difficulty);
+    // const [ complete, setComplete ] = useState(false);
 
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const taskData = {
             _id: task._id,
             title: title,
             body: body,
-            difficulty: parseInt(difficulty),
-            isComplete: complete
+            difficulty: parseInt(difficulty)
         }
         const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
         newTaskList.unshift(taskData);
@@ -26,20 +25,20 @@ const TaskForm = ({task, tasks, setShowModal}) => {
         setShowModal(false);
     }
 
-    const handleComplete = (e) => {
-        e.preventDefault();
-        setComplete(!complete);
-    }
+    // const handleComplete = (e) => {
+    //     e.preventDefault();
+    //     setComplete(!complete);
+    // }
 
-    const completeStyle = {
-        backgroundColor: '#00FF00'
-    }
+    // const completeStyle = {
+    //     backgroundColor: '#00FF00'
+    // }
     
-    const incompleteStyle = {
-        backgroundColor: '#FF0000'
-    }
+    // const incompleteStyle = {
+    //     backgroundColor: '#FF0000'
+    // }
 
-
+    // console.log(difficulty)
     return (
         <div className="task-modal">
             <form className="task-form" onSubmit={handleSubmit}>
@@ -56,12 +55,12 @@ const TaskForm = ({task, tasks, setShowModal}) => {
                 >
                 </textarea>        
 
-                <button 
+                {/* <button 
                 className="taskform-complete"
                 onClick={(e) => handleComplete(e)}
                 style={complete ? completeStyle : incompleteStyle}
                 >
-                { complete ? "Complete" : "Incomplete"}</button>
+                { complete ? "Complete" : "Incomplete"}</button> */}
 
                 <select  
                 className="taskform-difficulty"

@@ -103,6 +103,8 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
     // console.log(quest[0].monster)
 
+    console.log(task.difficulty)
+
     const handleCheck = (e) => {
         e.preventDefault();
         if (task.difficulty === 3 ) setDmg(1.5);
