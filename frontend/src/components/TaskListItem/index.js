@@ -12,7 +12,7 @@ import DeathModal from '../DeathModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const TaskListItem = ({task, tasks}) => {
+const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
     const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
@@ -29,7 +29,7 @@ const TaskListItem = ({task, tasks}) => {
 
     let {id, reward, text, timeFrame, title, description} = quest[0];
 
-    const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
+    
     const currentTime = Date.now();
     const [timeSince, setTimeSince] = useState(currentTime - quest[1]);
     const hitTimes =  Math.floor(timeSince / 86400000);
@@ -56,13 +56,9 @@ const TaskListItem = ({task, tasks}) => {
         } 
     },[])
 
-
-
-
-
-    // useEffect(() => {
-    //     setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
-    // },[quest[0].id])
+    useEffect(() => {
+        setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
+    },[quest[0].id])
 
     useEffect(() => {
         if (!options) return;
@@ -75,18 +71,18 @@ const TaskListItem = ({task, tasks}) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [options]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const taskData = { 
-            _id: task._id,
-            title: task.title, 
-            body: task.body, 
-            difficulty: task.difficulty
-            };
-        const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
-        newTaskList.unshift(taskData);
-        dispatch(taskActions.updateTask(taskData, newTaskList));
-    }, []);
+    //     const taskData = { 
+    //         _id: task._id,
+    //         title: task.title, 
+    //         body: task.body, 
+    //         difficulty: task.difficulty
+    //         };
+    //     const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
+    //     newTaskList.unshift(taskData);
+    //     dispatch(taskActions.updateTask(taskData, newTaskList));
+    // }, []);
 
     const handleOptions = (e) => {
         e.preventDefault();
@@ -105,12 +101,14 @@ const TaskListItem = ({task, tasks}) => {
         dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
 
+    // console.log(quest[0].monster)
+
     const handleCheck = (e) => {
         e.preventDefault();
         if (task.difficulty === 3 ) setDmg(1.5);
         if (task.difficulty === 2 ) setDmg(1);
         // setChecked(!checked);
-
+        
         // if (!checked)  {
             let questCopy = quest[0];
             if (monsterHp - dmg * attack < 0){
@@ -138,6 +136,7 @@ const TaskListItem = ({task, tasks}) => {
             
             if ( monsterHp < 1 ) {
                 setShowQuestModal(true);
+                // setMonsterHp(quest[0].monster.currentHealth)
             } 
         // };
     }

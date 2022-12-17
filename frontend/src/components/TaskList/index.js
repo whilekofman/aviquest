@@ -18,7 +18,9 @@ const TaskList = () => {
     const [loaded, setLoaded] = useState(false)
     const {currentHealth, maxHealth, _id, coins } = currentUser;
     const [deathModal, setDeathModal] = useState(false);
-
+    const {quest} = useSelector(state => state.session.user);
+    const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
+    
 
     if (currentHealth < 1) {
         if (!deathModal) {
@@ -77,7 +79,13 @@ const TaskList = () => {
                         {loaded && 
                         (tasks.map(task => {
                             return (
-                                <TaskListItem key={task._id} task={task} tasks={tasks}/>
+                                <TaskListItem 
+                                key={task._id} 
+                                task={task} 
+                                tasks={tasks}
+                                monsterHp={monsterHp}
+                                setMonsterHp={setMonsterHp}
+                                 />
                                 )
                             }))
                         }
