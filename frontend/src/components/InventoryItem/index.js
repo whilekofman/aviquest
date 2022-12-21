@@ -1,9 +1,17 @@
 import './InventoryItem.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/user';
+import { useState } from 'react';
 
 const InventoryItem = (props) => {
-
+    let timeout; 
+    const [disabled, setDisabled] = useState(false);
+    if (disabled) {
+        timeout = setTimeout(() => {
+            setDisabled(false);
+        },1000);
+    }
+    clearTimeout(timeout);
     const user = useSelector(state => state.session.user);
     let {equipment, items, _id, maxHealth, attack, currentHealth } = user;
     const dispatch = useDispatch();
@@ -11,16 +19,19 @@ const InventoryItem = (props) => {
 
     const equipItem = () => {
         let index;
-        if (equipment.length < 4) {
-            index = items.indexOf(item);
-            items.splice(index, 1);
-            equipment.push(item);
-        } else {
-            items.push(equipment[0]);
-            equipment.shift();
-            index = items.indexOf(item);
-            items.splice(index,1);
-            equipment.push(item);
+        if (!disabled) {
+            setDisabled(true);
+            if (equipment.length < 4 ) {
+                index = items.indexOf(item);
+                items.splice(index, 1);
+                equipment.push(item);
+            } else {
+                items.push(equipment[0]);
+                equipment.shift();
+                index = items.indexOf(item);
+                items.splice(index,1);
+                equipment.push(item);
+            }
         }
         
         let totalAttack = 5;

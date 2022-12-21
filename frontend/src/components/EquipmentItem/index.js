@@ -2,19 +2,30 @@ import './EquipmentItem.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../../store/user';
 import * as sessionActions from '../../store/session';
+import { useEffect, useState } from 'react';
 
 
 
 const EquipmentItem = ({item, user}) => {
+    let timeout; 
+    const [disabled, setDisabled] = useState(false);
+    if (disabled) {
+        timeout = setTimeout(() => {
+            setDisabled(false);
+        },1000);
+    }
+    clearTimeout(timeout);
+
     const dispatch = useDispatch();
     let {attack, coins, currentHealth, email, equipment, items, maxHealth, _id } = user;
 
     const unEquipItem = () => {
-        if (equipment.length > 0 && items.length < 24) {
+        if (equipment.length > 0 && items.length < 24 && !disabled) {
             items.push(item)
             const index = equipment.indexOf(item);
             equipment.splice(index, 1);
-            
+            setDisabled(true);
+
             // currentHealth = 50;
             // equipment = [];
             // items = [

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import * as taskActions from "../../store/task";
 import './TaskForm.css'
 
-const TaskForm = ({task, tasks, setShowModal}) => {
+const TaskForm = ({task, tasks, setShowModal, dmg, setDmg}) => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState(task.title);
     const [body, setBody] = useState(task.body);
@@ -13,6 +13,8 @@ const TaskForm = ({task, tasks, setShowModal}) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        setDmg(task.difficulty/2);
+        console.log(dmg)
         const taskData = {
             _id: task._id,
             title: title,

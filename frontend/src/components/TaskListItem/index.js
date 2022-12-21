@@ -20,7 +20,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     // const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
-    const [dmg, setDmg] = useState(0.7);
+    const [dmg, setDmg] = useState(task.difficulty /2);
 
     
     const {attack, avitar, coins, currentHealth, quest,
@@ -101,16 +101,10 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
         dispatch(taskActions.deleteTask(task._id, newTaskList))
     }
 
-    // console.log(quest[0].monster)
-
-    console.log(task.difficulty)
-
     const handleCheck = (e) => {
         e.preventDefault();
-        if (task.difficulty === 3 ) setDmg(1.5);
-        if (task.difficulty === 2 ) setDmg(1);
         // setChecked(!checked);
-        
+        console.log(dmg)
         // if (!checked)  {
             let questCopy = quest[0];
             if (monsterHp - dmg * attack < 0){
@@ -155,7 +149,10 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
             )} 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}/>
+                    <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}
+                    dmg={dmg}
+                    setDmg={setDmg}
+                    />
                 </Modal>
             )}
             <div className='task-item-body'>
