@@ -31,7 +31,7 @@ export const login = user => startSession(user, 'api/users/login');
 export const getCurrentUser = () => async dispatch => {
     const res = await jwtFetch('/api/users/current');
     const user = await res.json();
-    return dispatch(receiveCurrentUser(user));
+    await dispatch(receiveCurrentUser(user));
 };
 
 const startSession = (userInfo, route) => async dispatch => {

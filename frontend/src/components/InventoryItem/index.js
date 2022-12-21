@@ -12,6 +12,7 @@ const InventoryItem = (props) => {
         },1000);
     }
     clearTimeout(timeout);
+    
     const user = useSelector(state => state.session.user);
     let {equipment, items, _id, maxHealth, attack, currentHealth } = user;
     const dispatch = useDispatch();

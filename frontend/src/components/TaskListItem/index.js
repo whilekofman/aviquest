@@ -2,25 +2,19 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as taskActions from '../../store/task';
 import * as userActions from '../../store/user';
-import * as sessionActions from '../../store/session';
-
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
 import RewardsContent from '../Rewards/RewardsContent';
-import DeathModal from '../DeathModal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
     const dispatch = useDispatch();
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
-    // const [checked, setChecked] = useState(task.isComplete);
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
-    const [dmg, setDmg] = useState(task.difficulty /2);
+    // const [dmg, setDmg] = useState(task.difficulty /2);
 
     
     const {attack, avitar, coins, currentHealth, quest,
@@ -57,7 +51,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     },[])
 
     useEffect(() => {
-        setMonsterHp(quest[0].monster.currentHealth - dmg * attack)
+        setMonsterHp(quest[0].monster.maxHealth)
     },[quest[0].id])
 
     useEffect(() => {
@@ -103,14 +97,16 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
     const handleCheck = (e) => {
         e.preventDefault();
-        // setChecked(!checked);
-        console.log(dmg)
-        // if (!checked)  {
+        // setDmg();
+        // console.log(dmg);
+        // console.log(task.difficulty);
             let questCopy = quest[0];
-            if (monsterHp - dmg * attack < 0){
+            if (monsterHp - (task.difficulty/2) * attack < 0){
                 setMonsterHp(0);
             } else {
-            setMonsterHp(monsterHp - dmg * attack);
+            setMonsterHp(monsterHp - (task.difficulty/2) * attack);
+            console.log((task.difficulty/2));
+            console.log(monsterHp);
             }
 
             const monsterData = {
@@ -150,8 +146,8 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}
-                    dmg={dmg}
-                    setDmg={setDmg}
+                    // dmg={dmg}
+                    // setDmg={setDmg}
                     />
                 </Modal>
             )}
