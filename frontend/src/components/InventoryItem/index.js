@@ -7,12 +7,10 @@ const InventoryItem = (props) => {
     let timeout; 
     const [disabled, setDisabled] = useState(false);
     if (disabled) {
-        timeout = setTimeout(() => {
-            setDisabled(false);
-        },1000);
+       
     }
-    clearTimeout(timeout);
-    
+
+
     const user = useSelector(state => state.session.user);
     let {equipment, items, _id, maxHealth, attack, currentHealth } = user;
     const dispatch = useDispatch();
@@ -22,6 +20,9 @@ const InventoryItem = (props) => {
         let index;
         if (!disabled) {
             setDisabled(true);
+            timeout = setTimeout(() => {
+                setDisabled(false);
+            },1000);
             if (equipment.length < 4 ) {
                 index = items.indexOf(item);
                 items.splice(index, 1);
@@ -60,7 +61,7 @@ const InventoryItem = (props) => {
         }));
 
     }
-
+    clearTimeout(timeout);
     let popUpHealth = `HP: ${item.health}`;
     let popUpAttack = `ATK: ${item.attack}`;
 
