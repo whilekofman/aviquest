@@ -34,7 +34,7 @@ const InventoryItem = (props) => {
                 items.splice(index,1);
                 equipment.push(item);
             }
-        }
+        
         
         let totalAttack = 5;
         equipment.forEach((item) => {
@@ -59,7 +59,7 @@ const InventoryItem = (props) => {
             currentHealth:currentHealth,
             _id
         }));
-
+        }
     }
     clearTimeout(timeout);
     let popUpHealth = `HP: ${item.health}`;

@@ -14,7 +14,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     const [options, setOptions] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [showQuestModal, setShowQuestModal] = useState(false);
-    // const [dmg, setDmg] = useState(task.difficulty /2);
+
 
     
     const {attack, avitar, coins, currentHealth, quest,
@@ -51,7 +51,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     },[])
 
     useEffect(() => {
-        setMonsterHp(quest[0].monster.maxHealth)
+        setMonsterHp(quest[0].monster.currentHealth)
     },[quest[0].id])
 
     useEffect(() => {
@@ -64,19 +64,6 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
         document.addEventListener('click', closeMenu);
         return () => document.removeEventListener("click", closeMenu);
     }, [options]);
-
-    // useEffect(() => {
-
-    //     const taskData = { 
-    //         _id: task._id,
-    //         title: task.title, 
-    //         body: task.body, 
-    //         difficulty: task.difficulty
-    //         };
-    //     const newTaskList = tasks.filter(taskItem => taskItem._id !== task._id);
-    //     newTaskList.unshift(taskData);
-    //     dispatch(taskActions.updateTask(taskData, newTaskList));
-    // }, []);
 
     const handleOptions = (e) => {
         e.preventDefault();
@@ -96,17 +83,19 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     }
 
     const handleCheck = (e) => {
+        let monsterHPCopy = monsterHp;
+        console.log(monsterHp);
+        console.log(monsterHPCopy);
         e.preventDefault();
-        // setDmg();
-        // console.log(dmg);
-        // console.log(task.difficulty);
+            
             let questCopy = quest[0];
             if (monsterHp - (task.difficulty/2) * attack < 0){
                 setMonsterHp(0);
             } else {
-            setMonsterHp(monsterHp - (task.difficulty/2) * attack);
-            console.log((task.difficulty/2));
-            console.log(monsterHp);
+                monsterHPCopy = monsterHp - (task.difficulty/2) * attack;
+            setMonsterHp(monsterHPCopy);
+            // console.log((task.difficulty/2));
+            // console.log(monsterHPCopy);
             }
 
             const monsterData = {
@@ -115,7 +104,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
                 maxHealth: questCopy.monster.maxHealth,
                 movingUrl: questCopy.monster.movingUrl,
                 name: questCopy.monster.name,
-                currentHealth: monsterHp
+                currentHealth: monsterHPCopy
             }
             const questData = {
                 id, reward, text, timeFrame, title, monster: monsterData
@@ -128,9 +117,7 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
             
             if ( monsterHp < 1 ) {
                 setShowQuestModal(true);
-                // setMonsterHp(quest[0].monster.currentHealth)
             } 
-        // };
     }
 
     return ( 
@@ -146,8 +133,6 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}
-                    // dmg={dmg}
-                    // setDmg={setDmg}
                     />
                 </Modal>
             )}
@@ -155,22 +140,6 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
                 <div className='task-item-body-start'>
                     <div className='task-item-check'>
                         <label>
-                            {/* <input type="checkbox"
-                            className='task-checkbox'
-                            onChange={(e) => handleCheck(e)}
-                            /> */}
-                            {/* <svg
-                                className={`checkbox ${checked ? "checkbox--active" : ""}`}
-                                aria-hidden="true"
-                                viewBox="0 0 15 11"
-                                fill="none"
-                            > 
-                                <path 
-                                    d="M1 4.5L5 9L14 1"
-                                    strokeWidth="2"
-                                    stroke={checked ? "#fff" : "none"}
-                                />
-                            </svg> */}
                             <svg 
                             onClick={(e) => handleCheck(e)}
                             className='task-plus-button'
