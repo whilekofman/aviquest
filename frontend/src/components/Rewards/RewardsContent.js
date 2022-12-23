@@ -1,18 +1,19 @@
-import './RewardsContent.css'
-import questData from '../Util/quest_data'
-import { useDispatch, useSelector } from 'react-redux'
+import './RewardsContent.css';
+import questData from '../Util/quest_data';
+import { useDispatch, useSelector } from 'react-redux';
 import * as userActions from '../../store/user';
 
 
-const RewardsContent = ({closeModal}) => {
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
-    const newcoins = user.coins + user.quest[0].reward.coin
+const RewardsContent = ({closeModal,setShowQuestModal}) => {
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+    const newcoins = user.coins + user.quest[0].reward.coin;
     
 
     const handleClick = () => {
-        dispatch(userActions.updateUser({_id:user._id, coins: newcoins, quest: [questData[0]], currentHealth: user.maxHealth}))
-        closeModal()
+        dispatch(userActions.updateUser({_id:user._id, coins: newcoins, quest: [questData[0]], currentHealth: user.maxHealth}));
+        setShowQuestModal(false);
+        closeModal();
     }
 
     return ( 
