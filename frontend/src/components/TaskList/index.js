@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as userActions from '../../store/user';
 import DeathModal from '../DeathModal';
 import { Modal } from '../../context/Modal';
+import RewardsContent from '../Rewards/RewardsContent';
 
 const TaskList = () => {
 
@@ -20,6 +21,7 @@ const TaskList = () => {
     const [deathModal, setDeathModal] = useState(false);
     const {quest} = useSelector(state => state.session.user);
     const [monsterHp, setMonsterHp] = useState(quest[0].monster.currentHealth);
+    const [showQuestModal, setShowQuestModal] = useState(false);
     
 
     if (currentHealth < 1) {
@@ -32,6 +34,11 @@ const TaskList = () => {
             }))
             setDeathModal(true);
         }
+    }
+
+    if ( monsterHp < 1 && !showQuestModal) {
+        setMonsterHp(quest[0].monster.maxHealth);
+        setShowQuestModal(true);
     }
 
     useEffect(()  => {
@@ -97,7 +104,13 @@ const TaskList = () => {
                     <DeathModal setDeathModal={setDeathModal}/>
             </Modal>
             )} 
-
+            {showQuestModal && (
+                <Modal>
+                     <RewardsContent closeModal={() => setShowQuestModal(false)}
+                     setShowQuestModal={setShowQuestModal}
+                     />
+                </Modal>
+            )} 
             </div>
         </div>
      );

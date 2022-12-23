@@ -23,7 +23,12 @@ function SignUpForm() {
     const [username, setUsername] = useState("");
     const history = useHistory();
 
-
+    const loginDemo = () => {
+      dispatch(sessionActions.login({
+          email:'demo@user.io',
+          password: 'password'
+      }));
+  }
 
    
 
@@ -150,6 +155,8 @@ function SignUpForm() {
 
 
           <button className='splash-page-SignUp' type="submit">Sign up</button>
+
+          <button className='spash-page-demo' onClick={loginDemo}>Login as Demo User</button>
           
         </form>
       </div>

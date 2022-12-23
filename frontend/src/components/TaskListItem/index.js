@@ -5,7 +5,6 @@ import * as userActions from '../../store/user';
 import { Modal } from '../../context/Modal';
 import './TaskListItem.css';
 import TaskForm from '../TaskForm';
-import RewardsContent from '../Rewards/RewardsContent';
 
 const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
@@ -13,7 +12,6 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
     const [showOptions, setShowOptions] = useState(false);
     const [options, setOptions] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [showQuestModal, setShowQuestModal] = useState(false);
 
 
     
@@ -84,20 +82,16 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
 
     const handleCheck = (e) => {
         let monsterHPCopy = monsterHp;
-        console.log(monsterHp);
-        console.log(monsterHPCopy);
         e.preventDefault();
-            
             let questCopy = quest[0];
-            if (monsterHp - (task.difficulty/2) * attack < 0){
-                setMonsterHp(0);
+            if (monsterHPCopy = monsterHp - (task.difficulty/2) * attack < 0){
+                monsterHPCopy = 0;
             } else {
                 monsterHPCopy = monsterHp - (task.difficulty/2) * attack;
-            setMonsterHp(monsterHPCopy);
-            // console.log((task.difficulty/2));
-            // console.log(monsterHPCopy);
+                
             }
 
+            setMonsterHp(monsterHPCopy);
             const monsterData = {
                 attack: questCopy.monster.attack,
                 imageUrl: questCopy.monster.imageUrl,
@@ -115,21 +109,15 @@ const TaskListItem = ({task, tasks, monsterHp, setMonsterHp}) => {
             }
             dispatch(userActions.updateUser(userData));
             
-            if ( monsterHp < 1 ) {
-                setShowQuestModal(true);
-            } 
     }
+
+    //change to push to heroku
 
     return ( 
         <div className='task-item-container'
         onMouseEnter={() => setShowOptions(true)}
         onMouseLeave={() => setShowOptions(false)}
         >       
-            {showQuestModal && (
-                <Modal onClose={() => setShowQuestModal(false)}>
-                     <RewardsContent closeModal={() => setShowQuestModal(false)}/>
-                </Modal>
-            )} 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <TaskForm task={task} tasks={tasks} setShowModal={setShowModal}
