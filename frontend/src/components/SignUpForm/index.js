@@ -23,7 +23,8 @@ function SignUpForm() {
     const [username, setUsername] = useState("");
     const history = useHistory();
 
-    const loginDemo = () => {
+    const loginDemo = (e) => {
+      e.preventDefault();
       dispatch(sessionActions.login({
           email:'demo@user.io',
           password: 'password'
