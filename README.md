@@ -21,6 +21,7 @@ User can equip an item to strengthen their character and unequip an item.  If th
 
 ## Gacha Reward System
 ![gacha-cut](https://user-images.githubusercontent.com/103459101/213251621-6b037283-0584-491c-9ac2-cdbbeff833d0.gif)
+
 User can use gold from quest completion to spend in the Gachapon Reward system. An item is randomly selected and distributed to the user's inventory.
 
 ## Code Snippets
